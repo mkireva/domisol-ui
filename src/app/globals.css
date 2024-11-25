@@ -2,20 +2,168 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: var(--font-geist-sans);
+  overflow-x: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
+
+
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 30 25% 98%;
+    --foreground: 20 15% 5%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 15% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 15% 5%;
+    --primary: 24 95% 50%;
+    --primary-foreground: 60 9% 98%;
+    --primary-hover: 24 100% 93%;
+    --secondary: 24 30% 95%;
+    --secondary-foreground: 24 40% 20%;
+    --muted: 24 20% 95%;
+    --muted-foreground: 24 10% 40%;
+    --accent: 24 95% 50%;
+    --accent-foreground: 60 9% 98%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 60 9% 98%;
+    --border: 20 15% 90%;
+    --input: 20 15% 90%;
+    --ring: 24 95% 50%;
+    --radius: 0.5rem;
+    --chart-1: 24 95% 50%;
+    --chart-2: 200 70% 45%;
+    --chart-3: 280 65% 45%;
+    --chart-4: 140 60% 45%;
+    --chart-5: 320 70% 45%;
+  }
+
+  .dark {
+    --background: 20 14% 8%;
+    --foreground: 60 9% 98%;
+    --card: 20 14% 10%;
+    --card-foreground: 60 9% 98%;
+    --popover: 20 14% 10%;
+    --popover-foreground: 60 9% 98%;
+    --primary: 24 95% 55%;
+    --primary-foreground: 60 9% 98%;
+    --secondary: 20 10% 20%;
+    --secondary-foreground: 60 9% 98%;
+    --muted: 20 10% 20%;
+    --muted-foreground: 24 5% 70%;
+    --accent: 24 95% 55%;
+    --accent-foreground: 60 9% 98%;
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 60 9% 98%;
+    --border: 20 10% 20%;
+    --input: 20 10% 20%;
+    --ring: 24 95% 55%;
+    --chart-1: 24 95% 55%;
+    --chart-2: 200 70% 55%;
+    --chart-3: 280 65% 55%;
+    --chart-4: 140 60% 50%;
+    --chart-5: 320 70% 55%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.timeline-item.animate-in {
+  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(2.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  opacity: 0;
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-10px, 10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide {
+  animation: slide 0.5s ease-out forwards;
 }

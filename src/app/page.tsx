@@ -1,101 +1,150 @@
-import Image from "next/image";
+import { ArrowRight, Music2, BarChart2, Users } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="relative min-h-[calc(100vh-3rem)] overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-primary/5 rounded-full blur-3xl animate-float animate-pulse-slow" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl animate-float [animation-delay:2s] animate-pulse-slow" />
+        <div className="absolute top-1/2 right-0 w-[700px] h-[700px] bg-primary/5 rounded-full blur-3xl animate-float [animation-delay:4s] animate-pulse-slow" />
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <div className="relative flex flex-col items-center justify-center px-4 py-16 md:py-24 md:px-6">
+        <div className="max-w-5xl mx-auto text-center space-y-12">
+          {/* Hero Section */}
+          <div className="space-y-6">
+            <div className="inline-block animate-slide-up">
+              <span className="inline-flex items-center px-3 py-1 text-sm font-medium text-primary bg-primary/10 rounded-full">
+                Welcome to the Future of Music Learning
+              </span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter animate-slide-up [animation-delay:150ms] bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-transparent">
+              Master Music with{" "}
+              <span className="bg-gradient-to-r from-primary via-primary/90 to-primary/70 text-transparent bg-clip-text">
+                Domisol
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground animate-slide-up [animation-delay:300ms] max-w-2xl mx-auto">
+              Transform your musical journey with interactive learning, real-time feedback, and personalized guidance
+            </p>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up [animation-delay:450ms]">
+            <Link href="/sheets">
+              <Button size="lg" className="group h-12 px-8 text-base">
+                Start Learning
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+            <Link href="/overview">
+              <Button size="lg" variant="outline" className="group h-12 px-8 text-base">
+                Explore Features
+              </Button>
+            </Link>
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 animate-slide-up [animation-delay:600ms]">
+            <div className="group relative p-6 rounded-2xl border bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-colors">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl transition-opacity group-hover:opacity-100 opacity-0" />
+              <div className="relative">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Music2 className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Interactive Learning</h3>
+                <p className="text-muted-foreground">
+                  Experience dynamic music sheets with instant feedback and adaptive learning technology
+                </p>
+              </div>
+            </div>
+            
+            <div className="group relative p-6 rounded-2xl border bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-colors">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl transition-opacity group-hover:opacity-100 opacity-0" />
+              <div className="relative">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <BarChart2 className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Progress Analytics</h3>
+                <p className="text-muted-foreground">
+                  Track your growth with detailed insights and personalized progress reports
+                </p>
+              </div>
+            </div>
+
+            <div className="group relative p-6 rounded-2xl border bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-colors">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl transition-opacity group-hover:opacity-100 opacity-0" />
+              <div className="relative">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Users className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Community Learning</h3>
+                <p className="text-muted-foreground">
+                  Connect with fellow musicians and share your musical journey together
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Project Description Section */}
+          <div className="mt-16 relative">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent -z-10" />
+            <div className="grid md:grid-cols-2 gap-12 items-center animate-slide-up [animation-delay:750ms]">
+              <div className="text-left space-y-4">
+                <h2 className="text-3xl font-bold tracking-tight">
+                  Revolutionizing Music Education
+                </h2>
+                <div className="space-y-4 text-muted-foreground">
+                  <p>
+                    Domisol is an innovative platform designed to transform music education through interactive learning experiences. Our platform combines modern technology with traditional music teaching methods to create an engaging and effective learning environment.
+                  </p>
+                  <p>
+                    Whether you are a beginner starting your musical journey or an experienced musician looking to refine your skills, Domisol provides the tools and guidance you need to succeed.
+                  </p>
+                </div>
+                <div className="flex gap-4 items-center pt-4">
+                  <div className="flex -space-x-4">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Music2 className="h-5 w-5 text-primary" />
+                    </div>
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <BarChart2 className="h-5 w-5 text-primary" />
+                    </div>
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Users className="h-5 w-5 text-primary" />
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Join thousands of musicians learning with Domisol
+                  </p>
+                </div>
+              </div>
+              <div className="relative aspect-square md:aspect-video w-full max-w-md mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/0 to-primary/10 rounded-2xl" />
+                <div className="absolute inset-0 rounded-2xl border backdrop-blur-[2px] p-2">
+                  <div className="w-full h-full rounded-xl border bg-card/50 p-4">
+                    <div className="h-2 w-24 bg-primary/20 rounded-full mb-3" />
+                    <div className="space-y-2">
+                      <div className="h-2 w-full bg-muted rounded-full" />
+                      <div className="h-2 w-4/5 bg-muted rounded-full" />
+                      <div className="h-2 w-2/3 bg-muted rounded-full" />
+                    </div>
+                    <div className="mt-6 grid grid-cols-3 gap-2">
+                      <div className="h-12 rounded bg-muted" />
+                      <div className="h-12 rounded bg-primary/10" />
+                      <div className="h-12 rounded bg-muted" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
 }
