@@ -210,26 +210,28 @@ export default function MusicSheetDisplay({
     <div className="relative">
       <div className="relative">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <div className="inline-flex items-center gap-2 bg-card/50 p-2 rounded-lg border shadow-sm backdrop-blur-sm">
+          <div className="inline-flex items-center gap-1.5 bg-background/60 p-1.5 rounded-lg border border-border/20 shadow-sm backdrop-blur-md">
             <Button
-              variant="outline"
+              variant="ghost"
               size="icon"
               onClick={handleZoomOut}
               disabled={zoom <= 0.5}
-              className="h-8 w-8 rounded-full hover:bg-primary/10"
+              className="h-7 w-7 rounded-md bg-transparent transition-all hover:bg-primary/10 hover:text-primary active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
               title="Zoom out"
             >
               <ZoomOut className="h-4 w-4" />
             </Button>
-            <span className="min-w-[4rem] text-center font-medium">
-              {Math.round(zoom * 100)}%
-            </span>
+            <div className="px-2 min-w-[3.5rem]">
+              <span className="block text-center text-xs font-medium select-none">
+                {Math.round(zoom * 100)}%
+              </span>
+            </div>
             <Button
-              variant="outline"
+              variant="ghost"
               size="icon"
               onClick={handleZoomIn}
               disabled={zoom >= 2}
-              className="h-8 w-8 rounded-full hover:bg-primary/10"
+              className="h-7 w-7 rounded-md bg-transparent transition-all hover:bg-primary/10 hover:text-primary active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
               title="Zoom in"
             >
               <ZoomIn className="h-4 w-4" />

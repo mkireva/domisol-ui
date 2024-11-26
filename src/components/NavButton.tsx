@@ -16,7 +16,7 @@ export function NavButton({ icon: Icon, label, href }: Props) {
       size="icon"
       aria-label={label}
       title={label}
-      className="rounded-full text-foreground hover:text-primary hover:bg-[hsl(var(--primary-hover))]"
+      className="rounded-full w-9 h-9 hover:bg-[hsl(var(--primary-hover))] hover:text-primary"
       asChild
     >
       {href ? (

@@ -1,6 +1,11 @@
 "use client";
 import Link from "next/link";
-import { ChevronRightIcon, MenuIcon, UsersRound, ListMusic } from "lucide-react";
+import {
+  ChevronRightIcon,
+  MenuIcon,
+  UsersRound,
+  ListMusic,
+} from "lucide-react";
 import { NavButton } from "./NavButton";
 import {
   DropdownMenu,
@@ -24,16 +29,14 @@ export function Header() {
         <div className="flex h-12 items-center justify-between">
           <div className="flex items-center gap-1">
             <NavButton href="/" label="Home" icon={ListMusic} />
-           
           </div>
           <nav className="flex items-center gap-1">
             <div className="hidden sm:flex">
               <Link
                 href="/sheets"
                 className={cn(
-                  "flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors",
-                  "hover:text-primary",
-                  "rounded-md",
+                  "flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors rounded-md",
+                  "hover:bg-[hsl(var(--primary-hover))] hover:text-primary",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 )}
                 title="Sheets"
@@ -41,19 +44,19 @@ export function Header() {
                 <span>Sheets</span>
               </Link>
             </div>
-            
+
             <div className="flex items-center gap-1">
               <NavButton href="/users" label="Users" icon={UsersRound} />
               <div className="w-px h-4 bg-border mx-1 hidden sm:block" />
               <ThemeToggle />
-              
+
               <div className="block sm:hidden">
                 <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="rounded-full hover:bg-primary/10 hover:text-primary ml-1"
+                      className="rounded-full w-9 h-9 hover:bg-[hsl(var(--primary-hover))] hover:text-primary"
                       onClick={handleMenuToggle}
                     >
                       <MenuIcon className="h-5 w-5" />
@@ -86,7 +89,7 @@ export function Header() {
                         className="flex w-full items-center justify-between py-2 text-sm"
                         prefetch={false}
                       >
-                       Users
+                        Users
                         <ChevronRightIcon className="h-4 w-4" />
                       </Link>
                     </DropdownMenuItem>
