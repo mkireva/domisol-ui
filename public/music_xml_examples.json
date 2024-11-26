@@ -2,20 +2,78 @@
   "examples": [
     {
       "name": "Stille Nacht (Silent Night)",
-      "url": "https://www.franzdorfer.com/N2/Stille%20Nacht%20Brass%20Quartett-1.xml"
+      "url": "https://www.franzdorfer.com/N2/Stille%20Nacht%20Brass%20Quartett-1.xml",
+      "composer": "Franz Xaver Gruber",
+      "lyricist": {
+        "name": "Joseph Mohr",
+        "notes": "Wrote the lyrics in 1816 as a poem titled 'Stille Nacht! Heilige Nacht!'"
+      },
+      "year": 1818,
+      "description": "One of the most popular Christmas carols, first performed in Austria",
+      "key": {
+        "tonic": "B♭",
+        "mode": "major",
+        "color": "violet"
+      },
+      "category": "vocal",
+      "lyrics": {
+        "de": [
+          "Stille Nacht, heilige Nacht!",
+          "Alles schläft, einsam wacht",
+          "Nur das traute, hochheilige Paar.",
+          "Holder Knabe im lockigen Haar,",
+          "Schlaf in himmlischer Ruh,",
+          "Schlaf in himmlischer Ruh."
+        ],
+        "en": [
+          "Silent night, holy night!",
+          "All is calm, all is bright",
+          "Round yon virgin mother and child.",
+          "Holy infant, so tender and mild,",
+          "Sleep in heavenly peace,",
+          "Sleep in heavenly peace."
+        ]
+      }
     },
     {
       "name": "Muzio Clementi - Sonatina Op.36 No.1 Pt.1",
-      "url": "https://raw.githubusercontent.com/opensheetmusicdisplay/opensheetmusicdisplay/develop/test/data/MuzioClementi_SonatinaOpus36No1_Part1.xml"
+      "url": "https://raw.githubusercontent.com/opensheetmusicdisplay/opensheetmusicdisplay/develop/test/data/MuzioClementi_SonatinaOpus36No1_Part1.xml",
+      "composer": "Muzio Clementi",
+      "year": 1797,
+      "description": "First part of a popular sonatina for piano, widely used in piano education",
+      "key": {
+        "tonic": "C",
+        "mode": "major",
+        "color": "red"
+      },
+      "category": "instrumental"
     },
     {
       "name": "Muzio Clementi - Sonatina Op.36 No.1 Pt.2",
-      "url": "https://raw.githubusercontent.com/opensheetmusicdisplay/opensheetmusicdisplay/develop/test/data/MuzioClementi_SonatinaOpus36No1_Part2.xml"
+      "url": "https://raw.githubusercontent.com/opensheetmusicdisplay/opensheetmusicdisplay/develop/test/data/MuzioClementi_SonatinaOpus36No1_Part2.xml",
+      "composer": "Muzio Clementi",
+      "year": 1797,
+      "description": "Second part of the sonatina, continuing the educational series",
+      "key": {
+        "tonic": "C",
+        "mode": "major",
+        "color": "red"
+      },
+      "category": "instrumental"
     },
     {
       "name": "Johann Sebastian Bach - Air",
-      "url": "https://raw.githubusercontent.com/opensheetmusicdisplay/opensheetmusicdisplay/develop/test/data/JohannSebastianBach_Air.xml"
+      "url": "https://raw.githubusercontent.com/opensheetmusicdisplay/opensheetmusicdisplay/develop/test/data/JohannSebastianBach_Air.xml",
+      "composer": "Johann Sebastian Bach",
+      "year": 1730,
+      "description": "From Orchestral Suite No. 3 in D major, BWV 1068. Also known as 'Air on the G String'",
+      "genre": "Baroque orchestral music",
+      "key": {
+        "tonic": "D",
+        "mode": "major",
+        "color": "orange"
+      },
+      "category": "instrumental"
     }
-   
   ]
 }
