@@ -1,44 +1,21 @@
 {
   "examples": [
     {
+      "name": "Stille Nacht (Silent Night)",
+      "url": "https://www.franzdorfer.com/N2/Stille%20Nacht%20Brass%20Quartett-1.xml"
+    },
+    {
       "name": "Muzio Clementi - Sonatina Op.36 No.1 Pt.1",
       "url": "https://raw.githubusercontent.com/opensheetmusicdisplay/opensheetmusicdisplay/develop/test/data/MuzioClementi_SonatinaOpus36No1_Part1.xml"
     },
     {
+      "name": "Muzio Clementi - Sonatina Op.36 No.1 Pt.2",
+      "url": "https://raw.githubusercontent.com/opensheetmusicdisplay/opensheetmusicdisplay/develop/test/data/MuzioClementi_SonatinaOpus36No1_Part2.xml"
+    },
+    {
       "name": "Johann Sebastian Bach - Air",
       "url": "https://raw.githubusercontent.com/opensheetmusicdisplay/opensheetmusicdisplay/develop/test/data/JohannSebastianBach_Air.xml"
-    },
-    {
-      "name": "Mozart - Eine Kleine Nachtmusik",
-      "url": "http://downloads2.makemusic.com/musicxml/MozaVeilSample.xml"
-    },
-    {
-      "name": "Beethoven - Moonlight Sonata",
-      "url": "https://opensheetmusicdisplay.github.io/demo/sheets/Beethoven_AnDieFerneGeliebte.xml"
-    },
-    {
-      "name": "Schubert - An Die Musik",
-      "url": "https://opensheetmusicdisplay.github.io/demo/sheets/Schubert_AnDieMusik.xml"
-    },
-    {
-      "name": "Test Score - OSMD Function Test",
-      "url": "https://raw.githubusercontent.com/opensheetmusicdisplay/opensheetmusicdisplay/develop/test/data/test_file_function_test.xml"
-    },
-    {
-      "name": "Haydn - Piano Sonata in G Major",
-      "url": "https://opensheetmusicdisplay.github.io/demo/sheets/Haydn_ConcertanteCello.xml"
-    },
-    {
-      "name": "Debussy - Mandoline",
-      "url": "https://opensheetmusicdisplay.github.io/demo/sheets/Debussy_Mandoline.xml"
-    },
-    {
-      "name": "OSMD - Chord Test Score",
-      "url": "https://raw.githubusercontent.com/opensheetmusicdisplay/opensheetmusicdisplay/develop/test/data/test_chord_symbols.xml"
-    },
-    {
-      "name": "OSMD - Rhythm Test Score",
-      "url": "https://opensheetmusicdisplay.github.io/demo/sheets/test_drum_notation.xml"
     }
+   
   ]
 }
