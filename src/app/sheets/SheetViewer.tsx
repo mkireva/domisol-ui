@@ -12,7 +12,7 @@ import {
   ArrowLeft,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Select,
   SelectContent,
@@ -282,6 +282,13 @@ export default function SheetViewer({
     "de"
   );
 
+  useEffect(() => {
+    const savedTab = localStorage.getItem('sheetViewerTab');
+    if (savedTab) {
+      setActiveTab(savedTab);
+    }
+  }, []);
+
   const getLyrics = () => {
     if (!selectedSheet?.lyrics) return [];
 
@@ -314,13 +321,14 @@ export default function SheetViewer({
   return (
     <div>
       <Tabs
-        defaultValue="sheet"
+        value={activeTab}
         onValueChange={(value) => {
           if (value === "back") {
             window.history.back();
             return;
           }
           setActiveTab(value);
+          localStorage.setItem('sheetViewerTab', value);
         }}
         className="relative"
       >
@@ -348,7 +356,7 @@ export default function SheetViewer({
         </div>
 
         <TabsContent value="sheet" className="mt-4">
-          {initialSheetUrl && (
+          {activeTab === "sheet" && initialSheetUrl && (
             <MusicSheetDisplay initialSheet={initialSheetUrl} />
           )}
         </TabsContent>

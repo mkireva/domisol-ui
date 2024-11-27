@@ -36,23 +36,17 @@ export default function MusicSheetDisplay({
   }, []);
 
   useEffect(() => {
-    if (!initialSheet) {
-      console.log("No initial sheet provided");
+    if (!initialSheet || !divRef.current) {
+      console.log("No initial sheet provided or display container not ready");
       setError("No sheet music specified");
       setIsLoading(false);
       return;
     }
 
+    let mounted = true;
     console.log("Attempting to load sheet:", initialSheet);
 
     const initializeOSMD = async () => {
-      if (!divRef.current) {
-        console.log("Display container not ready");
-        setError("Display container not ready");
-        setIsLoading(false);
-        return;
-      }
-
       try {
         setIsLoading(true);
         setError(null);
@@ -64,11 +58,20 @@ export default function MusicSheetDisplay({
           osmdRef.current = null;
         }
 
+        if (!mounted) return;
+
+        if (!divRef.current) {
+          console.error("Div reference is null");
+          setError("Unable to render sheet music");
+          setIsLoading(false);
+          return;
+        }
+
         console.log("Creating new OSMD instance");
         const titleFontSize = isMobile ? 1.2 : 1.5;
         const composerFontSize = isMobile ? 0.8 : 1;
 
-        osmdRef.current = new OSMD(divRef.current, {
+        const osmd = new OSMD(divRef.current, {
           autoResize: true,
           drawTitle: true,
           disableCursor: false,
@@ -125,6 +128,9 @@ export default function MusicSheetDisplay({
           `,
         } as ExtendedOSMDOptions);
 
+        if (!mounted) return;
+        osmdRef.current = osmd;
+
         try {
           console.log("Fetching sheet music through proxy:", initialSheet);
           const proxyUrl = `/api/sheet?url=${encodeURIComponent(initialSheet)}`;
@@ -138,38 +144,46 @@ export default function MusicSheetDisplay({
             );
           }
 
+          if (!mounted) return;
           const musicXML = await response.text();
           console.log("Sheet music fetched, loading into OSMD");
 
-          await osmdRef.current.load(musicXML);
+          await osmd.load(musicXML);
           console.log("Sheet music loaded into OSMD");
 
-          await osmdRef.current.render();
+          if (!mounted) return;
+          await osmd.render();
           console.log("Sheet music rendered");
 
           // Apply zoom after rendering
-          osmdRef.current.zoom = zoom;
-          await osmdRef.current.render();
+          osmd.zoom = zoom;
+          await osmd.render();
           console.log("Zoom applied:", zoom);
+
+          if (mounted) {
+            setIsLoading(false);
+          }
         } catch (loadError) {
           console.error("Failed to load or render sheet:", loadError);
-          setError(
-            `Failed to load music sheet: ${
-              loadError instanceof Error ? loadError.message : String(loadError)
-            }`
-          );
+          if (mounted) {
+            setError(
+              `Failed to load music sheet: ${
+                loadError instanceof Error ? loadError.message : String(loadError)
+              }`
+            );
+          }
           throw loadError;
         }
-
-        setIsLoading(false);
       } catch (err) {
         console.error("Error initializing music sheet:", err);
-        setError(
-          err instanceof Error
-            ? err.message
-            : "Failed to initialize the music sheet viewer"
-        );
-        setIsLoading(false);
+        if (mounted) {
+          setError(
+            err instanceof Error
+              ? err.message
+              : "Failed to initialize the music sheet viewer"
+          );
+          setIsLoading(false);
+        }
       }
     };
 
@@ -177,6 +191,7 @@ export default function MusicSheetDisplay({
 
     // Cleanup function
     return () => {
+      mounted = false;
       if (osmdRef.current) {
         osmdRef.current.clear();
         osmdRef.current = null;
