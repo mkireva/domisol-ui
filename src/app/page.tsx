@@ -99,10 +99,10 @@ export default function Home() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Our platform is dedicated to providing a comprehensive and immersive experience for those seeking to explore the mysteries of occult music. With a vast library of ancient musical wisdom and esoteric exercises, you'll be able to unlock your hidden musical potential and tap into the secrets of the universe.
+                    Our platform is dedicated to providing a comprehensive and immersive experience for those seeking to explore the mysteries of occult music. With a vast library of ancient musical wisdom and esoteric exercises, you will be able to unlock your hidden musical potential and tap into the secrets of the universe.
                   </p>
                   <p>
-                    Whether you're a seasoned musician or just starting your journey, our platform is designed to guide you through the mystical realms of sound and silence. Join our community of like-minded individuals and embark on a transformative journey that will awaken your inner musical consciousness.
+                    Whether you are a seasoned musician or just starting your journey, our platform is designed to guide you through the mystical realms of sound and silence. Join our community of like-minded individuals and embark on a transformative journey that will awaken your inner musical consciousness.
                   </p>
                 </div>
                 <div className="flex gap-4 items-center pt-4">
