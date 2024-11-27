@@ -1,7 +1,6 @@
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -45,7 +44,9 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
               {sheet.location && (
                 <>
                   <span className="text-muted-foreground">•</span>
-                  <span className="text-muted-foreground">{sheet.location}</span>
+                  <span className="text-muted-foreground">
+                    {sheet.location}
+                  </span>
                 </>
               )}
             </div>
@@ -55,7 +56,7 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
                 <span className="text-muted-foreground">Lyricist:</span>
                 <span className="font-medium">{sheet.lyricist.name}</span>
                 {sheet.lyricist.notes && (
-                  <div 
+                  <div
                     className="text-sm text-muted-foreground/80 italic"
                     title={sheet.lyricist.notes}
                   >
@@ -69,14 +70,14 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
 
         <div className="flex items-center justify-between pt-3 border-t border-border/50">
           <div className="flex items-center gap-3">
-            <Badge 
-              variant="secondary" 
+            <Badge
+              variant="secondary"
               className="capitalize font-medium bg-primary/5 hover:bg-primary/10 transition-colors text-base px-4 py-1.5"
             >
               {sheet.category}
             </Badge>
-            <Badge 
-              variant="outline" 
+            <Badge
+              variant="outline"
               className="font-medium text-muted-foreground text-base px-3 py-1.5"
             >
               {sheet.year}
