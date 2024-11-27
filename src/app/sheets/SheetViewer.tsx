@@ -23,6 +23,7 @@ import { MusicSheet } from "./actions";
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import "./audio-player.css";
+import { useRouter } from "next/navigation";
 
 interface SheetViewerProps {
   sheets: MusicSheet[];
@@ -46,7 +47,7 @@ const TabIcon = ({
   icon: React.ComponentType<{ size?: number | string; className?: string }>;
   isSelected: boolean;
 }) => (
-  <div className={`w-6 h-6 ${isSelected ? 'text-foreground' : ''}`}>
+  <div className={`w-6 h-6 ${isSelected ? "text-foreground" : ""}`}>
     <Icon size={24} className="w-full h-full" />
   </div>
 );
@@ -268,6 +269,7 @@ export default function SheetViewer({
   initialSheetUrl,
   selectedSheet,
 }: SheetViewerProps) {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState("sheet");
   const [selectedLanguage, setSelectedLanguage] = useState("bg");
   const [secondaryLanguage, setSecondaryLanguage] = useState<string | null>(
@@ -275,7 +277,7 @@ export default function SheetViewer({
   );
 
   useEffect(() => {
-    const savedTab = localStorage.getItem('sheetViewerTab');
+    const savedTab = localStorage.getItem("sheetViewerTab");
     if (savedTab) {
       setActiveTab(savedTab);
     }
@@ -308,11 +310,11 @@ export default function SheetViewer({
         value={activeTab}
         onValueChange={(value) => {
           if (value === "back") {
-            window.history.back();
+            router.push("/sheets");
             return;
           }
           setActiveTab(value);
-          localStorage.setItem('sheetViewerTab', value);
+          localStorage.setItem("sheetViewerTab", value);
         }}
         className="relative"
       >
@@ -497,10 +499,7 @@ export default function SheetViewer({
                       </SelectContent>
                     </Select>
                   </div>
-                  <InfoCard
-                    sheet={selectedSheet}
-                    language={selectedLanguage}
-                  />
+                  <InfoCard sheet={selectedSheet} language={selectedLanguage} />
                 </div>
               </div>
 
