@@ -1,4 +1,4 @@
-import { Search, Music4 } from "lucide-react";
+import { Search } from "lucide-react";
 import { SheetCard } from "./components/SheetCard";
 import { getMusicXMLExamples } from "./actions";
 
