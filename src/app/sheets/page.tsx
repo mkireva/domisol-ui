@@ -18,8 +18,8 @@ export default async function Sheet() {
         <div className="container mx-auto px-4 py-16 sm:py-24">
           {/* Heading Section */}
           <div className="text-center">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold">
-              <span className="bg-clip-text text-transparent bg-[linear-gradient(45deg,theme(colors.primary.DEFAULT)_33%,theme(colors.primary.DEFAULT/0.85)_66%,theme(colors.primary.DEFAULT)_100%)]">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight animate-slide-up [animation-delay:150ms]">
+              <span className="bg-gradient-to-r from-primary via-primary/90 to-primary/70 text-transparent bg-clip-text">
                 Domisol
               </span>
             </h1>
@@ -41,11 +41,6 @@ export default async function Sheet() {
                   placeholder="Search by title, composer, or category..."
                   className="flex-1 h-full border-0 outline-none bg-transparent text-lg placeholder:text-muted-foreground/50 focus:outline-none focus:ring-0 px-0"
                 />
-
-                {/* Music icon */}
-                <div className="flex items-center justify-center w-14 h-14">
-                  <Music4 className="h-6 w-6 text-primary/70 hover:text-primary transition-colors" />
-                </div>
               </div>
             </div>
           </div>
@@ -53,7 +48,9 @@ export default async function Sheet() {
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in fade-in duration-1000">
             {sheets.map((sheet, index) => (
-              <SheetCard key={sheet.url} sheet={sheet} index={index} />
+              <div key={sheet.url} className="h-full">
+                <SheetCard sheet={sheet} index={index} />
+              </div>
             ))}
           </div>
         </div>

@@ -22,11 +22,11 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
     <Link
       href={`/sheets/viewer?file=${encodeURIComponent(sheet.url)}`}
       prefetch={true}
-      className="block w-full"
+      className="block w-full h-full"
     >
       <Card
         className={cn(
-          "flex flex-col group relative overflow-hidden",
+          "flex flex-col group relative overflow-hidden h-full",
           "hover:shadow-lg transition-all duration-500",
           "animate-in fade-in slide-in-from-bottom duration-1000",
           "bg-card/50 backdrop-blur-sm cursor-pointer"
@@ -115,7 +115,7 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
           </div>
         </CardContent>
 
-        <CardFooter className="pt-3 sm:pt-4">
+        <CardFooter className="pt-3 sm:pt-4 mt-auto">
           <Button
             variant="secondary"
             className="w-full group/button hover:bg-primary/10 transition-all duration-300"

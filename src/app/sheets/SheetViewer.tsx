@@ -348,10 +348,10 @@ export default function SheetViewer({
                 <TabsTrigger
                   key={id}
                   value={id}
-                  className="text-muted-foreground hover:text-foreground"
+                  className="text-muted-foreground hover:text-foreground flex items-center gap-1"
                 >
                   <TabIcon icon={icon} isSelected={activeTab === id} />
-                  <span>{label}</span>
+                  <span className="ml-1">{label}</span>
                 </TabsTrigger>
               ))}
           </TabsList>

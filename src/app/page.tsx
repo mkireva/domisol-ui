@@ -22,26 +22,34 @@ export default function Home() {
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight animate-slide-up [animation-delay:150ms] bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-transparent">
-              Music Exercises with {" "}
+              Music Exercises with{" "}
               <span className="bg-gradient-to-r from-primary via-primary/90 to-primary/70 text-transparent bg-clip-text">
                 Domisol
               </span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground animate-slide-up [animation-delay:300ms] max-w-xl mx-auto">
-              Journey through ancient musical wisdom and esoteric exercises to unlock your hidden musical potential
+              Journey through ancient musical wisdom and esoteric exercises to
+              unlock your hidden musical potential
             </p>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up [animation-delay:450ms]">
             <Link href="/sheets">
-              <Button size="lg" className="group h-12 px-8 text-base bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button
+                size="lg"
+                className="group h-12 px-8 text-base bg-primary hover:bg-primary/90 text-primary-foreground"
+              >
                 Begin Your Journey
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
             <Link href="/overview">
-              <Button size="lg" variant="outline" className="group h-12 px-8 text-base border-primary/20 hover:bg-primary/10">
+              <Button
+                size="lg"
+                variant="outline"
+                className="group h-12 px-8 text-base border-primary/20 hover:bg-primary/10"
+              >
                 Explore the Mysteries
               </Button>
             </Link>
@@ -57,20 +65,24 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Sacred Harmonies</h3>
                 <p className="text-muted-foreground">
-                  Master ancient musical exercises rooted in esoteric traditions and mystical wisdom
+                  Master ancient musical exercises rooted in esoteric traditions
+                  and mystical wisdom
                 </p>
               </div>
             </div>
-            
+
             <div className="group relative p-6 rounded-2xl border border-primary/20 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-colors">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl transition-opacity group-hover:opacity-100 opacity-0" />
               <div className="relative">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                   <Sparkles className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Mystical Practice</h3>
+                <h3 className="text-xl font-semibold mb-2">
+                  Mystical Practice
+                </h3>
                 <p className="text-muted-foreground">
-                  Interactive exercises designed to awaken your inner musical consciousness
+                  Interactive exercises designed to awaken your inner musical
+                  consciousness
                 </p>
               </div>
             </div>
@@ -83,7 +95,8 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Ancient Wisdom</h3>
                 <p className="text-muted-foreground">
-                  Access a curated collection of occult musical knowledge and sacred compositions
+                  Access a curated collection of occult musical knowledge and
+                  sacred compositions
                 </p>
               </div>
             </div>
@@ -99,10 +112,19 @@ export default function Home() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Our platform is dedicated to providing a comprehensive and immersive experience for those seeking to explore the mysteries of occult music. With a vast library of ancient musical wisdom and esoteric exercises, you will be able to unlock your hidden musical potential and tap into the secrets of the universe.
+                    Our platform is dedicated to providing a comprehensive and
+                    immersive experience for those seeking to explore the
+                    mysteries of occult music. With a vast library of ancient
+                    musical wisdom and esoteric exercises, you will be able to
+                    unlock your hidden musical potential and tap into the
+                    secrets of the universe.
                   </p>
                   <p>
-                    Whether you are a seasoned musician or just starting your journey, our platform is designed to guide you through the mystical realms of sound and silence. Join our community of like-minded individuals and embark on a transformative journey that will awaken your inner musical consciousness.
+                    Whether you are a seasoned musician or just starting your
+                    journey, our platform is designed to guide you through the
+                    mystical realms of sound and silence. Join our community of
+                    like-minded individuals and embark on a transformative
+                    journey that will awaken your inner musical consciousness.
                   </p>
                 </div>
                 <div className="flex gap-4 items-center pt-4">
@@ -118,7 +140,8 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Join the mystical journey and unlock the secrets of occult music
+                    Join the mystical journey and unlock the secrets of occult
+                    music
                   </p>
                 </div>
               </div>
@@ -142,7 +165,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
