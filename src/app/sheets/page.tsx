@@ -43,8 +43,7 @@ export default async function Sheet() {
                   </span>
                 </h1>
                 <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto animate-slide-up [animation-delay:300ms]">
-                  Discover our curated collection of classical masterpieces and
-                  technical demonstrations
+                  Discover our curated collection of occultic music exercises and scores.
                 </p>
               </div>
 
