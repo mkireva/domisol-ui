@@ -25,6 +25,7 @@ export type MusicSheet = {
   composer: string;
   lyricist?: Lyricist;
   year: number;
+  location: string;
   description: string;
   key: Key;
   category: "vocal" | "instrumental";

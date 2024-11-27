@@ -19,6 +19,7 @@
         "notes": "Wrote the lyrics in 1816 as a poem titled 'Stille Nacht! Heilige Nacht!'"
       },
       "year": 1818,
+      "location": "Oberndorf, Austria",
       "description": "Stille Nacht, heilige Nacht ist eines der bekanntesten Weihnachtslieder der Welt und gilt als Inbegriff des Weihnachtsbrauchtums im deutschen Sprachraum. Es wurde am 24. Dezember 1818 in der römisch-katholischen Kirche St. Nikola in Oberndorf bei Salzburg, an deren Stelle heute die Stille-Nacht-Kapelle steht, mit einer Melodie von Franz Xaver Gruber und dem Text von Joseph Mohr erstmals aufgeführt. Seither ist der deutsche Liedtext weltweit in 320 Sprachen und Dialekte übersetzt und gesungen worden.[1] Von den ursprünglich sechs Strophen werden in der allgemein bekannten Fassung nur die erste, zweite und letzte Strophe gesungen. 2011 wurde Stille Nacht, heilige Nacht von der UNESCO auf Antrag als immaterielles Kulturerbe in Österreich anerkannt.",
       "key": {
         "tonic": "B♭",
@@ -167,12 +168,13 @@
       "audio": {
         "instrumental": {
           "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Clementi_Sonatina_in_C_Major%2C_Op._36%2C_No._1%2C_Movement_1.ogg",
-          "description": "Piano performance"
+          "description": "Piano performance of the first movement, showcasing the piece's elegant simplicity and pedagogical value"
         }
       },
       "composer": "Muzio Clementi",
       "year": 1797,
-      "description": "First part of a popular sonatina for piano, widely used in piano education",
+      "location": "London, England",
+      "description": "Die Sonatine in C-Dur, Op. 36 Nr. 1, ist ein Meilenstein der Klavierpädagogik. Der erste Satz führt Schüler durch eine perfekt ausbalancierte Kombination von technischen Herausforderungen und musikalischer Ausdruckskraft. Die klare Struktur und durchdachte Progression machen dieses Werk zu einem essentiellen Bestandteil der klassischen Klavierausbildung. Clementi, der als 'Vater des Klaviers' bekannt ist, schuf mit dieser Sonatine ein Werk, das technische Entwicklung mit musikalischer Tiefe verbindet.",
       "key": {
         "tonic": "C",
         "mode": "major",
@@ -186,12 +188,13 @@
       "audio": {
         "instrumental": {
           "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Clementi_Sonatina_in_C_Major%2C_Op._36%2C_No._1%2C_Movement_2.ogg",
-          "description": "Piano performance"
+          "description": "Piano performance of the second movement, demonstrating its lyrical qualities and expressive nature"
         }
       },
       "composer": "Muzio Clementi",
       "year": 1797,
-      "description": "Second part of the sonatina, continuing the educational series",
+      "location": "London, England",
+      "description": "Der zweite Satz der Sonatine setzt die pädagogische Reise fort, konzentriert sich aber mehr auf den lyrischen Ausdruck und die Kantabilität. Mit seiner rondoartigen Struktur bietet er eine perfekte Plattform für die Entwicklung des musikalischen Ausdrucks. Die fließende Melodieführung und die begleitenden Figurationen schaffen ein ausgewogenes Zusammenspiel, das sowohl technisch lehrreich als auch musikalisch befriedigend ist.",
       "key": {
         "tonic": "C",
         "mode": "major",
@@ -205,12 +208,13 @@
       "audio": {
         "instrumental": {
           "url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Air_on_the_G_String.ogg",
-          "description": "Orchestral performance"
+          "description": "Orchestral performance capturing the piece's serene and contemplative character"
         }
       },
       "composer": "Johann Sebastian Bach",
       "year": 1730,
-      "description": "From Orchestral Suite No. 3 in D major, BWV 1068. Also known as 'Air on the G String'",
+      "location": "Leipzig, Germany",
+      "description": "Die Air aus der Orchestersuite Nr. 3 in D-Dur (BWV 1068) ist eines der bekanntesten Werke Bachs. Der Satz besticht durch seine ausdrucksvolle Melodieführung über einem schreitenden Bass. Die kontrapunktische Meisterschaft Bachs zeigt sich in der perfekten Balance zwischen horizontaler Linienführung und vertikaler Harmonik. Besondere Berühmtheit erlangte das Stück durch August Wilhelmjs Bearbeitung als 'Air auf der G-Saite'. Die zeitlose Schönheit dieser Komposition macht sie zu einem der meistgeschätzten Werke der Barockmusik.",
       "genre": "Baroque orchestral music",
       "key": {
         "tonic": "D",

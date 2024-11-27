@@ -155,6 +155,22 @@ const InfoCard = ({
                   <p className="text-lg">{sheet.composer}</p>
                 </section>
               )}
+
+              {/* Location Section */}
+              {sheet?.location && (
+                <section
+                  className="space-y-2"
+                  aria-labelledby={`location-heading-${language}`}
+                >
+                  <h3
+                    id={`location-heading-${language}`}
+                    className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
+                  >
+                    Location
+                  </h3>
+                  <p className="text-lg">{sheet.location}</p>
+                </section>
+              )}
             </div>
 
             {/* Column 2 */}
