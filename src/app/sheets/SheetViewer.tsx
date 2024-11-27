@@ -21,7 +21,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { MusicSheet } from "./actions";
-import { EnhancedAudioPlayer } from "@/components/audio/EnhancedAudioPlayer";
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import "./audio-player.css";
