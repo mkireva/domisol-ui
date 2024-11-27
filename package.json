@@ -23,6 +23,7 @@
     "opensheetmusicdisplay": "^1.8.9",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react-h5-audio-player": "^3.9.3",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7"
   },

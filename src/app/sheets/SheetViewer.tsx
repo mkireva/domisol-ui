@@ -2,9 +2,15 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import MusicSheetDisplay from "./MusicSheetDisplay";
-import { Card } from "@/components/ui/card";
-import { Music, MessageSquareText, Info, Globe2 } from "lucide-react";
-import { motion } from "framer-motion";
+import {
+  Info,
+  Globe2,
+  Mic,
+  Piano,
+  PlayCircle,
+  FileText,
+  ArrowLeft,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import {
@@ -14,22 +20,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-interface LyricsContent {
-  text: string;
-  language: string;
-}
+import { MusicSheet } from "./actions";
+import { EnhancedAudioPlayer } from "@/components/audio/EnhancedAudioPlayer";
+import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
+import "react-h5-audio-player/lib/styles.css";
+import "./audio-player.css";
 
 interface SheetViewerProps {
-  initialSheet?: string;
-  lyrics?: LyricsContent[];
-  information?: {
-    title?: string;
-    composer?: string;
-    year?: string;
-    description?: string;
-    additionalInfo?: string;
-  };
+  sheets: MusicSheet[];
+  initialSheetUrl?: string;
+  selectedSheet?: MusicSheet;
 }
 
 const SUPPORTED_LANGUAGES = [
@@ -50,413 +50,616 @@ const TabIcon = ({
 }) => (
   <Icon
     className={cn(
-      "w-5 h-5 transition-all duration-200",
-      isSelected ? "text-primary scale-110" : "text-muted-foreground"
+      "h-6 w-6 transition-colors mr-2.5",
+      isSelected
+        ? "text-orange-900 dark:text-orange-200"
+        : "text-gray-500 dark:text-gray-400"
     )}
   />
 );
 
-export default function SheetViewer({
-  initialSheet,
-  lyrics = [],
-  information = {},
-}: SheetViewerProps) {
-  const [selectedLanguage, setSelectedLanguage] = useState<string>("en");
-  const [isSwapped, setIsSwapped] = useState(false);
-  const [selectedTab, setSelectedTab] = useState("sheet");
-  const currentLyrics = lyrics?.find((l) => l.language === selectedLanguage);
-  const bulgarianLyrics = lyrics?.find((l) => l.language === "bg");
-  const currentInfo = information[selectedLanguage as keyof typeof information] || information;
-  const bulgarianInfo = information["bg" as keyof typeof information] || information;
+const tabs = [
+  {
+    id: "back",
+    label: "",
+    icon: ArrowLeft,
+  },
+  {
+    id: "sheet",
+    label: "Viewer",
+    icon: FileText,
+  },
+  {
+    id: "lyrics",
+    label: "Lyrics",
+    icon: FileText,
+  },
+  {
+    id: "player",
+    label: "Player",
+    icon: PlayCircle,
+  },
+  {
+    id: "info",
+    label: "Info",
+    icon: Info,
+  },
+];
 
-  const handleSwap = () => {
-    setIsSwapped(!isSwapped);
-  };
+const InfoCard = ({
+  sheet,
+  language,
+  lyrics,
+}: {
+  sheet: MusicSheet | undefined;
+  language: string;
+  lyrics: string | undefined;
+}) => {
+  // Get language name for display
+  const languageName =
+    SUPPORTED_LANGUAGES.find((l) => l.code === language)?.name || language;
 
-  const renderLyricsBox = (type: "bulgarian" | "selected") => {
-    const isLeftBox =
-      (type === "bulgarian" && !isSwapped) ||
-      (type === "selected" && isSwapped);
-    const lyrics = type === "bulgarian" ? bulgarianLyrics : currentLyrics;
-    const lang = type === "bulgarian" ? "BG" : selectedLanguage?.toUpperCase();
-    const name =
-      type === "bulgarian"
-        ? "Bulgarian"
-        : SUPPORTED_LANGUAGES.find((l) => l.code === selectedLanguage)?.name ||
-          "Select Language";
-
-    return (
-      <motion.div
-        className="relative"
-        initial={{ opacity: 0, x: isLeftBox ? -20 : 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        <div className="mb-6 flex items-center gap-3">
-          <div className="p-1.5 rounded-lg bg-primary/10">
-            <span className="font-semibold text-primary text-sm">{lang}</span>
-          </div>
-          <h3 className="font-semibold text-lg text-foreground/90">{name}</h3>
+  return (
+    <div className="bg-white dark:bg-gray-950 rounded-lg border shadow-sm">
+      <div className="p-8">
+        <div className="mb-8">
+          <h2 className="text-2xl font-semibold tracking-tight mb-2">
+            Score Information
+            <span className="ml-2 text-base font-normal text-muted-foreground">
+              ({languageName})
+            </span>
+          </h2>
+          <p className="text-base text-muted-foreground">
+            Detailed information about this musical score
+          </p>
         </div>
-        <div className="relative bg-background/40 backdrop-blur-sm group hover:bg-background/50 transition-all duration-300">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-none" />
-          <div className="relative p-6">
-            {lyrics ? (
-              <div className="whitespace-pre-wrap leading-relaxed">
-                {lyrics.text.split("\n").map((line, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: isLeftBox ? -10 : 10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      duration: 0.3,
-                      delay: 0.05 * (index % 5),
-                    }}
-                    className={cn(
-                      "py-1.5 text-foreground/90",
-                      line.trim() === "" && "h-6",
-                      line.trim() !== "" &&
-                        "hover:text-primary transition-colors"
-                    )}
+
+        <div className="space-y-6 p-6">
+          <div className="grid grid-cols-2 gap-6">
+            {/* Column 1 */}
+            <div className="space-y-6">
+              {/* Title Section */}
+              {sheet?.name && (
+                <section
+                  className="space-y-2"
+                  aria-labelledby={`title-heading-${language}`}
+                >
+                  <h3
+                    id={`title-heading-${language}`}
+                    className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
                   >
-                    {line}
-                  </motion.div>
-                ))}
-              </div>
-            ) : (
-              <motion.div
-                className="flex flex-col items-center justify-center h-full gap-4 text-center"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="p-3 rounded-full bg-primary/5">
-                  <Globe2 className="w-6 h-6 text-primary/40" />
-                </div>
-                <p className="text-base text-muted-foreground">
-                  Select a language to compare with Bulgarian
-                </p>
-              </motion.div>
-            )}
+                    Title
+                  </h3>
+                  <p className="text-lg font-medium">
+                    {language === "de"
+                      ? sheet.name
+                      : language === "en"
+                      ? "Silent Night"
+                      : language === "es"
+                      ? "Noche de Paz"
+                      : language === "fr"
+                      ? "Douce Nuit"
+                      : language === "it"
+                      ? "Astro del Ciel"
+                      : language === "bg"
+                      ? "Тиха нощ"
+                      : sheet.name}
+                  </p>
+                </section>
+              )}
+
+              {/* Composer Section */}
+              {sheet?.composer && (
+                <section
+                  className="space-y-2"
+                  aria-labelledby={`composer-heading-${language}`}
+                >
+                  <h3
+                    id={`composer-heading-${language}`}
+                    className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
+                  >
+                    Composer
+                  </h3>
+                  <p className="text-lg">{sheet.composer}</p>
+                </section>
+              )}
+            </div>
+
+            {/* Column 2 */}
+            <div className="space-y-6">
+              {/* Key and Color Section */}
+              {sheet?.key && (
+                <section
+                  className="space-y-2"
+                  aria-labelledby={`key-heading-${language}`}
+                >
+                  <h3
+                    id={`key-heading-${language}`}
+                    className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
+                  >
+                    Key and Color
+                  </h3>
+                  <div className="flex items-center gap-3">
+                    <p className="text-lg">
+                      {sheet.key.tonic} {sheet.key.mode}
+                    </p>
+                    {sheet.key.color && (
+                      <div
+                        className="w-5 h-5 rounded-full border border-border"
+                        style={{ backgroundColor: sheet.key.color }}
+                        aria-label={`Key color: ${sheet.key.color}`}
+                      />
+                    )}
+                  </div>
+                </section>
+              )}
+
+              {/* Lyricist Section */}
+              {sheet?.lyricist && (
+                <section
+                  className="space-y-2"
+                  aria-labelledby={`lyricist-heading-${language}`}
+                >
+                  <h3
+                    id={`lyricist-heading-${language}`}
+                    className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
+                  >
+                    Lyricist
+                  </h3>
+                  <p className="text-lg">{sheet.lyricist.name}</p>
+                </section>
+              )}
+            </div>
           </div>
+
+          <div className="grid grid-cols-2 gap-6">
+            {/* Column 1 */}
+            <div className="space-y-6">
+              {/* Category Section */}
+              {sheet?.category && (
+                <section
+                  className="space-y-2"
+                  aria-labelledby={`category-heading-${language}`}
+                >
+                  <h3
+                    id={`category-heading-${language}`}
+                    className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
+                  >
+                    Category
+                  </h3>
+                  <p className="text-lg capitalize">{sheet.category}</p>
+                </section>
+              )}
+            </div>
+
+            {/* Column 2 */}
+            <div className="space-y-6">
+              {/* Year Section */}
+              {sheet?.year && (
+                <section
+                  className="space-y-2"
+                  aria-labelledby={`year-heading-${language}`}
+                >
+                  <h3
+                    id={`year-heading-${language}`}
+                    className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
+                  >
+                    Year
+                  </h3>
+                  <p className="text-lg">{sheet.year}</p>
+                </section>
+              )}
+            </div>
+          </div>
+
+          {/* Description Section - Full Width */}
+          {sheet?.description && (
+            <section
+              className="space-y-2"
+              aria-labelledby={`description-heading-${language}`}
+            >
+              <h3
+                id={`description-heading-${language}`}
+                className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
+              >
+                Description
+              </h3>
+              <p className="text-lg leading-relaxed">{sheet.description}</p>
+            </section>
+          )}
         </div>
-      </motion.div>
-    );
+      </div>
+    </div>
+  );
+};
+
+export default function SheetViewer({
+  initialSheetUrl,
+  selectedSheet,
+}: SheetViewerProps) {
+  const [activeTab, setActiveTab] = useState("sheet");
+  const [selectedLanguage, setSelectedLanguage] = useState("bg");
+  const [secondaryLanguage, setSecondaryLanguage] = useState<string | null>(
+    "de"
+  );
+
+  const getLyrics = () => {
+    if (!selectedSheet?.lyrics) return [];
+
+    // Return all languages that have lyrics in the sheet
+    return Object.entries(selectedSheet.lyrics).map(([code, text]) => ({
+      language: code,
+      text: text.join("\n"),
+    }));
   };
 
-  const renderInfoBox = (type: "bulgarian" | "selected") => {
-    const isLeftBox = (type === "bulgarian" && !isSwapped) || (type === "selected" && isSwapped);
-    const info = type === "bulgarian" ? bulgarianInfo : currentInfo;
-    const lang = type === "bulgarian" ? "BG" : selectedLanguage?.toUpperCase();
-    const name = type === "bulgarian" 
-      ? "Bulgarian" 
-      : SUPPORTED_LANGUAGES.find((l) => l.code === selectedLanguage)?.name || "Select Language";
+  const lyrics = getLyrics();
+  const hasLyrics = lyrics.length > 0;
 
-    return (
-      <motion.div
-        className="relative"
-        initial={{ opacity: 0, x: isLeftBox ? -20 : 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        <div className="flex items-center gap-3 mb-4">
-          <div className="p-1.5 rounded-lg bg-primary/10">
-            <span className="font-semibold text-primary text-sm">{lang}</span>
-          </div>
-          <h3 className="font-semibold text-lg text-foreground/90">{name}</h3>
-        </div>
-        <div className="relative bg-background/40 backdrop-blur-sm group hover:bg-background/50 transition-all duration-300">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-none" />
-          <div className="relative p-6">
-            {info ? (
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-sm font-medium text-foreground/60 mb-1">Title</h4>
-                  <p className="text-foreground/90">{typeof info === 'string' ? info : info.title}</p>
-                </div>
-                <div>
-                  <h4 className="text-sm font-medium text-foreground/60 mb-1">Composer</h4>
-                  <p className="text-foreground/90">{typeof info === 'string' ? '' : info.composer}</p>
-                </div>
-                <div>
-                  <h4 className="text-sm font-medium text-foreground/60 mb-1">Description</h4>
-                  <p className="text-foreground/90 whitespace-pre-wrap">{typeof info === 'string' ? '' : info.description}</p>
-                </div>
-                {typeof info === 'object' && info.additionalInfo && (
-                  <div>
-                    <h4 className="text-sm font-medium text-foreground/60 mb-1">Additional Information</h4>
-                    <p className="text-foreground/90 whitespace-pre-wrap">{info.additionalInfo}</p>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <p className="text-foreground/60 italic">Select a language to view information</p>
-            )}
-          </div>
-        </div>
-      </motion.div>
-    );
+  const availableLanguages = lyrics.map((l) => l.language);
+  const primaryLyrics = lyrics.find(
+    (l) => l.language === selectedLanguage
+  )?.text;
+  const secondaryLyrics = secondaryLanguage
+    ? lyrics.find((l) => l.language === secondaryLanguage)?.text
+    : null;
+
+  const handlePlay = () => {
+    console.log("Audio started playing");
+  };
+
+  const handlePause = () => {
+    console.log("Audio paused");
   };
 
   return (
-    <Tabs
-      defaultValue="sheet"
-      value={selectedTab}
-      onValueChange={setSelectedTab}
-      className="w-full space-y-8"
-    >
-      <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent blur-xl h-[1px] -z-10" />
-        <TabsList className="relative w-full max-w-2xl mx-auto grid grid-cols-3 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-          <TabsTrigger
-            value="sheet"
-            className="data-[state=active]:bg-background/50 gap-2 py-3"
-          >
-            <TabIcon icon={Music} isSelected={selectedTab === "sheet"} />
-            <span
-              className={cn("transition-colors duration-200", {
-                "text-primary": selectedTab === "sheet",
-                "text-muted-foreground": selectedTab !== "sheet",
-              })}
+    <div>
+      <Tabs
+        defaultValue="sheet"
+        onValueChange={(value) => {
+          if (value === "back") {
+            window.history.back();
+            return;
+          }
+          setActiveTab(value);
+        }}
+        className="relative"
+      >
+        <div className="border-b px-6 py-4 flex justify-center">
+          <TabsList className="gap-2">
+            <TabsTrigger
+              value="back"
+              className="text-muted-foreground hover:text-foreground"
             >
-              Sheet Music
-            </span>
-          </TabsTrigger>
-          <TabsTrigger
-            value="lyrics"
-            className="data-[state=active]:bg-background/50 gap-2 py-3"
-          >
-            <TabIcon icon={MessageSquareText} isSelected={selectedTab === "lyrics"} />
-            <span
-              className={cn("transition-colors duration-200", {
-                "text-primary": selectedTab === "lyrics",
-                "text-muted-foreground": selectedTab !== "lyrics",
-              })}
-            >
-              Lyrics
-            </span>
-          </TabsTrigger>
-          <TabsTrigger
-            value="info"
-            className="data-[state=active]:bg-background/50 gap-2 py-3"
-          >
-            <TabIcon icon={Info} isSelected={selectedTab === "info"} />
-            <span
-              className={cn("transition-colors duration-200", {
-                "text-primary": selectedTab === "info",
-                "text-muted-foreground": selectedTab !== "info",
-              })}
-            >
-              Information
-            </span>
-          </TabsTrigger>
-        </TabsList>
-      </div>
+              <TabIcon icon={ArrowLeft} isSelected={false} />
+            </TabsTrigger>
+            {tabs
+              .filter((tab) => tab.id !== "back")
+              .map(({ id, label, icon }) => (
+                <TabsTrigger
+                  key={id}
+                  value={id}
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <TabIcon icon={icon} isSelected={activeTab === id} />
+                  <span>{label}</span>
+                </TabsTrigger>
+              ))}
+          </TabsList>
+        </div>
 
-      <div className="mt-6">
-        <TabsContent value="sheet" className="mt-0">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Card className="p-6 border-none bg-background/50 backdrop-blur-sm shadow-lg">
-              <MusicSheetDisplay initialSheet={initialSheet} />
-            </Card>
-          </motion.div>
+        <TabsContent value="sheet" className="mt-4">
+          {initialSheetUrl && (
+            <MusicSheetDisplay initialSheet={initialSheetUrl} />
+          )}
         </TabsContent>
 
-        <TabsContent value="lyrics" className="mt-0">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Card className="p-6 border-none bg-gradient-to-br from-background/95 to-background/50 backdrop-blur-lg shadow-xl">
-              {lyrics?.length > 0 ? (
-                <div className="space-y-8">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-primary/10">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-full bg-primary/10">
-                        <Globe2 className="w-5 h-5 text-primary" />
-                      </div>
-                      <span className="text-sm font-medium text-foreground/80">
-                        Compare with:
-                      </span>
-                    </div>
+        {hasLyrics && (
+          <TabsContent value="lyrics" className="mt-12">
+            <div className="flex flex-col lg:flex-row gap-8 relative">
+              <div className="w-full lg:w-1/2">
+                <div className="sticky top-4">
+                  <div className="mb-3">
                     <Select
                       value={selectedLanguage}
                       onValueChange={setSelectedLanguage}
                     >
-                      <SelectTrigger className="w-[180px] bg-background/80 backdrop-blur-sm border-primary/20 hover:bg-background/90 transition-colors">
-                        <SelectValue placeholder="Select language" />
+                      <SelectTrigger className="w-[220px]">
+                        <Globe2 className="mr-2 h-5 w-5" />
+                        <SelectValue placeholder="Primary language" />
                       </SelectTrigger>
                       <SelectContent>
-                        {SUPPORTED_LANGUAGES.filter(
-                          (lang) => lang.code !== "bg"
-                        ).map((lang) => (
-                          <SelectItem
-                            key={lang.code}
-                            value={lang.code}
-                            className="cursor-pointer hover:bg-primary/5"
-                          >
-                            {lang.name}
-                          </SelectItem>
-                        ))}
+                        {availableLanguages
+                          .map((langCode) => ({
+                            code: langCode,
+                            name:
+                              SUPPORTED_LANGUAGES.find(
+                                (l) => l.code === langCode
+                              )?.name || langCode,
+                          }))
+                          .sort((a, b) => a.name.localeCompare(b.name))
+                          .map(({ code, name }) => (
+                            <SelectItem key={code} value={code}>
+                              {name}
+                            </SelectItem>
+                          ))}
                       </SelectContent>
                     </Select>
                   </div>
-                  <motion.div
-                    className="relative pt-12"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.2 }}
-                  >
-                    {/* Swap Button */}
-                    <div className="absolute left-0 right-0 top-6 flex items-center justify-center">
-                      <motion.button
-                        onClick={handleSwap}
-                        className="absolute top-0 -translate-y-1/2 hidden md:flex items-center justify-center px-3 h-8 rounded-md text-orange-600/80 hover:text-orange-500 transition-colors duration-300"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="36"
-                          height="18"
-                          viewBox="0 0 40 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M35 17h-20m20 0-3 3m3-3-3-3M5 7h20m-20 0 3-3m-3 3 3 3" />
-                        </svg>
-                      </motion.button>
-                    </div>
-
-                    {/* Lyrics Boxes Container */}
-                    <div className="relative flex flex-col md:flex-row gap-8 md:gap-0">
-                      {/* Vertical Dividing Line */}
-                      <div className="hidden md:block absolute left-1/2 top-0 w-[2px] h-full -translate-x-1/2">
-                        <div className="w-full h-full bg-gradient-to-b from-primary/30 via-primary/40 to-primary/30" />
-                      </div>
-
-                      {/* Lyrics Boxes */}
-                      <div className="flex-1 md:pr-8">
-                        {isSwapped
-                          ? renderLyricsBox("selected")
-                          : renderLyricsBox("bulgarian")}
-                      </div>
-                      <div className="flex-1 md:pl-8">
-                        {isSwapped
-                          ? renderLyricsBox("bulgarian")
-                          : renderLyricsBox("selected")}
+                  <div className="bg-white dark:bg-gray-950 rounded-lg border shadow-sm">
+                    <div className="p-6 max-w-2xl mx-auto">
+                      <div className="whitespace-pre-wrap text-lg leading-loose tracking-wide">
+                        {primaryLyrics
+                          ?.split("\n\n")
+                          .map((stanza, stanzaIndex) => (
+                            <div key={stanzaIndex} className="mb-12 last:mb-0">
+                              {stanza.split("\n").map((line, lineIndex) => (
+                                <div
+                                  key={`${stanzaIndex}-${lineIndex}`}
+                                  className="px-3 py-1 rounded hover:bg-orange-50/80 hover:text-orange-900 dark:hover:bg-orange-500/10 dark:hover:text-orange-300 transition-colors"
+                                >
+                                  {line}
+                                </div>
+                              ))}
+                            </div>
+                          ))}
                       </div>
                     </div>
-                  </motion.div>
-                </div>
-              ) : (
-                <motion.div
-                  className="text-center py-12"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="p-4 rounded-full bg-primary/5 w-fit mx-auto mb-4">
-                    <MessageSquareText className="w-8 h-8 text-primary/40" />
                   </div>
-                  <p className="text-muted-foreground">
-                    No lyrics available for this sheet music.
-                  </p>
-                </motion.div>
-              )}
-            </Card>
-          </motion.div>
-        </TabsContent>
+                </div>
+              </div>
 
-        <TabsContent value="info" className="mt-0">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Card className="p-6 border-none bg-background/50 backdrop-blur-sm shadow-lg">
-              {Object.keys(information).length > 0 ? (
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4">
+              <div className="w-full lg:w-1/2">
+                <div className="sticky top-4">
+                  <div className="mb-3">
+                    <Select
+                      value={secondaryLanguage || "none"}
+                      onValueChange={(value) =>
+                        setSecondaryLanguage(value === "none" ? null : value)
+                      }
+                    >
+                      <SelectTrigger className="w-[220px]">
+                        <Globe2 className="mr-2 h-5 w-5" />
+                        <SelectValue placeholder="Compare with..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="none">None</SelectItem>
+                        {availableLanguages
+                          .filter((lang) => lang !== selectedLanguage)
+                          .map((langCode) => ({
+                            code: langCode,
+                            name:
+                              SUPPORTED_LANGUAGES.find(
+                                (l) => l.code === langCode
+                              )?.name || langCode,
+                          }))
+                          .sort((a, b) => a.name.localeCompare(b.name))
+                          .map(({ code, name }) => (
+                            <SelectItem key={code} value={code}>
+                              {name}
+                            </SelectItem>
+                          ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  {secondaryLyrics && (
+                    <div className="bg-white dark:bg-gray-950 rounded-lg border shadow-sm">
+                      <div className="p-6 max-w-2xl mx-auto">
+                        <div className="whitespace-pre-wrap text-lg leading-loose tracking-wide">
+                          {secondaryLyrics
+                            ?.split("\n\n")
+                            .map((stanza, stanzaIndex) => (
+                              <div
+                                key={stanzaIndex}
+                                className="mb-12 last:mb-0"
+                              >
+                                {stanza.split("\n").map((line, lineIndex) => (
+                                  <div
+                                    key={`${stanzaIndex}-${lineIndex}`}
+                                    className="px-3 py-1 rounded hover:bg-orange-50/80 hover:text-orange-900 dark:hover:bg-orange-500/10 dark:hover:text-orange-300 transition-colors"
+                                  >
+                                    {line}
+                                  </div>
+                                ))}
+                              </div>
+                            ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </TabsContent>
+        )}
+
+        <TabsContent value="info" className="mt-12">
+          <div className="max-w-[1200px] mx-auto">
+            <div className="flex flex-col lg:flex-row gap-8">
+              {/* Primary Language Column */}
+              <div className="w-full lg:w-1/2">
+                <div className="sticky top-4">
+                  <div className="mb-3">
                     <Select
                       value={selectedLanguage}
-                      onValueChange={(value) => setSelectedLanguage(value)}
+                      onValueChange={setSelectedLanguage}
                     >
-                      <SelectTrigger className="w-[180px]">
-                        <SelectValue placeholder="Select Language" />
+                      <SelectTrigger className="w-[220px]">
+                        <Globe2 className="mr-2 h-5 w-5" />
+                        <SelectValue placeholder="Primary language" />
                       </SelectTrigger>
                       <SelectContent>
-                        {SUPPORTED_LANGUAGES.map((language) => (
-                          <SelectItem key={language.code} value={language.code}>
-                            {language.name}
-                          </SelectItem>
-                        ))}
+                        {availableLanguages
+                          .map((langCode) => ({
+                            code: langCode,
+                            name:
+                              SUPPORTED_LANGUAGES.find(
+                                (l) => l.code === langCode
+                              )?.name || langCode,
+                          }))
+                          .sort((a, b) => a.name.localeCompare(b.name))
+                          .map(({ code, name }) => (
+                            <SelectItem key={code} value={code}>
+                              {name}
+                            </SelectItem>
+                          ))}
                       </SelectContent>
                     </Select>
                   </div>
-                  <motion.div
-                    className="relative pt-12"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.2 }}
-                  >
-                    {/* Swap Button */}
-                    <div className="absolute left-0 right-0 top-6 flex items-center justify-center">
-                      <motion.button
-                        onClick={handleSwap}
-                        className="absolute top-0 -translate-y-1/2 hidden md:flex items-center justify-center px-3 h-8 rounded-md text-orange-600/80 hover:text-orange-500 transition-colors duration-300"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="36"
-                          height="18"
-                          viewBox="0 0 40 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M35 17h-20m20 0-3 3m3-3-3-3M5 7h20m-20 0 3-3m-3 3 3 3" />
-                        </svg>
-                      </motion.button>
-                    </div>
-
-                    {/* Info Boxes Container */}
-                    <div className="relative flex flex-col md:flex-row gap-8 md:gap-0">
-                      {/* Vertical Dividing Line */}
-                      <div className="hidden md:block absolute left-1/2 top-0 w-[2px] h-full -translate-x-1/2">
-                        <div className="w-full h-full bg-gradient-to-b from-primary/30 via-primary/40 to-primary/30" />
-                      </div>
-
-                      {/* Info Boxes */}
-                      <div className="flex-1 md:pr-8">
-                        {isSwapped ? renderInfoBox("selected") : renderInfoBox("bulgarian")}
-                      </div>
-                      <div className="flex-1 md:pl-8">
-                        {isSwapped ? renderInfoBox("bulgarian") : renderInfoBox("selected")}
-                      </div>
-                    </div>
-                  </motion.div>
+                  <InfoCard
+                    sheet={selectedSheet}
+                    language={selectedLanguage}
+                    lyrics={primaryLyrics}
+                  />
                 </div>
-              ) : (
-                <div className="text-center py-12">
-                  <Info className="w-12 h-12 mx-auto text-muted-foreground/50 mb-4" />
-                  <p className="text-muted-foreground">
-                    No additional information available.
-                  </p>
+              </div>
+
+              {/* Secondary Language Column */}
+              <div className="w-full lg:w-1/2">
+                <div className="sticky top-4">
+                  <div className="mb-3">
+                    <Select
+                      value={secondaryLanguage || "none"}
+                      onValueChange={(value) =>
+                        setSecondaryLanguage(value === "none" ? null : value)
+                      }
+                    >
+                      <SelectTrigger className="w-[220px]">
+                        <Globe2 className="mr-2 h-5 w-5" />
+                        <SelectValue placeholder="Compare with..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="none">None</SelectItem>
+                        {availableLanguages
+                          .filter((lang) => lang !== selectedLanguage)
+                          .map((langCode) => ({
+                            code: langCode,
+                            name:
+                              SUPPORTED_LANGUAGES.find(
+                                (l) => l.code === langCode
+                              )?.name || langCode,
+                          }))
+                          .sort((a, b) => a.name.localeCompare(b.name))
+                          .map(({ code, name }) => (
+                            <SelectItem key={code} value={code}>
+                              {name}
+                            </SelectItem>
+                          ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  {secondaryLanguage && (
+                    <InfoCard
+                      sheet={selectedSheet}
+                      language={secondaryLanguage}
+                      lyrics={secondaryLyrics ?? undefined}
+                    />
+                  )}
                 </div>
-              )}
-            </Card>
-          </motion.div>
+              </div>
+            </div>
+          </div>
         </TabsContent>
-      </div>
-    </Tabs>
+
+        {activeTab === "player" && (
+          <div className="p-6">
+            <div className="space-y-6">
+              {selectedSheet?.audio?.vocal?.url ? (
+                <div className="space-y-2">
+                  <h3 className="text-lg font-semibold flex items-center gap-2">
+                    <Mic className="h-4 w-4" />
+                    Vocal Version
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {selectedSheet.audio.vocal.description}
+                  </p>
+                  <div className="audio-container">
+                    <AudioPlayer
+                      autoPlay={false}
+                      src={selectedSheet.audio.vocal.url}
+                      onPlay={(e) => {
+                        const audio = e.target as HTMLAudioElement;
+                        audio.play().catch((error) => {
+                          console.error("Error playing audio:", error);
+                        });
+                      }}
+                      showJumpControls={true}
+                      showSkipControls={true}
+                      showFilledVolume={true}
+                      hasDefaultKeyBindings={true}
+                      layout="horizontal"
+                      customControlsSection={[
+                        RHAP_UI.ADDITIONAL_CONTROLS,
+                        RHAP_UI.MAIN_CONTROLS,
+                        RHAP_UI.VOLUME_CONTROLS,
+                      ]}
+                      customProgressBarSection={[
+                        RHAP_UI.CURRENT_TIME,
+                        RHAP_UI.PROGRESS_BAR,
+                        RHAP_UI.DURATION,
+                      ]}
+                      timeFormat="mm:ss"
+                      volume={0.8}
+                      volumeJumpStep={0.1}
+                      progressJumpStep={5000}
+                      className="rhap_container rhap_custom-player"
+                    />
+                  </div>
+                </div>
+              ) : null}
+              {selectedSheet?.audio?.instrumental?.url ? (
+                <div className="space-y-2">
+                  <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide flex items-center gap-2">
+                    <Piano className="h-4 w-4" />
+                    Instrumental Version
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {selectedSheet.audio.instrumental.description}
+                  </p>
+                  <div className="audio-container">
+                    <AudioPlayer
+                      autoPlay={false}
+                      src={selectedSheet.audio.instrumental.url}
+                      onPlay={(e) => {
+                        const audio = e.target as HTMLAudioElement;
+                        audio.play().catch((error) => {
+                          console.error("Error playing audio:", error);
+                        });
+                      }}
+                      showJumpControls={true}
+                      showSkipControls={true}
+                      showFilledVolume={true}
+                      hasDefaultKeyBindings={true}
+                      layout="horizontal"
+                      customControlsSection={[
+                        RHAP_UI.ADDITIONAL_CONTROLS,
+                        RHAP_UI.MAIN_CONTROLS,
+                        RHAP_UI.VOLUME_CONTROLS,
+                      ]}
+                      customProgressBarSection={[
+                        RHAP_UI.CURRENT_TIME,
+                        RHAP_UI.PROGRESS_BAR,
+                        RHAP_UI.DURATION,
+                      ]}
+                      timeFormat="mm:ss"
+                      volume={0.8}
+                      volumeJumpStep={0.1}
+                      progressJumpStep={5000}
+                      className="rhap_container rhap_custom-player"
+                    />
+                  </div>
+                </div>
+              ) : null}
+              {!selectedSheet?.audio?.vocal?.url &&
+                !selectedSheet?.audio?.instrumental?.url && (
+                  <div className="text-center text-muted-foreground py-4">
+                    No audio available for this sheet music.
+                  </div>
+                )}
+            </div>
+          </div>
+        )}
+      </Tabs>
+    </div>
   );
 }

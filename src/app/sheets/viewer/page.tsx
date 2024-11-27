@@ -1,7 +1,4 @@
 import SheetProvider from '../SheetProvider';
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { ChevronLeft, Music4 } from "lucide-react";
 import { Params } from 'next/dist/server/request/params';
 
 export const dynamic = 'force-dynamic';
@@ -24,15 +21,6 @@ export default async function SheetViewer(props: PageProps) {
       </div>
 
       <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-8">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center mb-4 sm:mb-6 animate-slide-up">
-          <Button variant="outline" size="sm" asChild className="group">
-            <Link href="/sheets" className="flex items-center gap-2">
-              <ChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
-              <Music4 className="h-4 w-4" />
-              Back to Collection
-            </Link>
-          </Button>
-        </div>
         <div className="animate-slide-up [animation-delay:150ms]">
           <SheetProvider searchParams={searchParams} />
         </div>
