@@ -16,17 +16,13 @@ export default async function Sheet() {
 
       <div className="relative">
         <div className="container mx-auto px-4 py-16 sm:py-24">
-          {/* Hero Section */}
-          <div className="relative mb-12">
-            <div className="relative text-center space-y-6">
-              <div className="space-y-1.5">
-                <div className="inline-block animate-slide-up">
-                  <span className="inline-flex items-center px-3 py-0.5 text-sm font-medium text-primary bg-primary/10 rounded-full">
-                    Occult Music Exercises Collection
-                  </span>
-                </div>
-              </div>
-            </div>
+          {/* Heading Section */}
+          <div className="text-center">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold">
+              <span className="bg-clip-text text-transparent bg-[linear-gradient(45deg,theme(colors.primary.DEFAULT)_33%,theme(colors.primary.DEFAULT/0.85)_66%,theme(colors.primary.DEFAULT)_100%)]">
+                Domisol
+              </span>
+            </h1>
           </div>
 
           {/* Search Section */}
