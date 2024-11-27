@@ -11,7 +11,6 @@ import {
   FileText,
   ArrowLeft,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import {
   Select,
@@ -44,17 +43,12 @@ const TabIcon = ({
   icon: Icon,
   isSelected,
 }: {
-  icon: any;
+  icon: React.ComponentType<{ size?: number | string; className?: string }>;
   isSelected: boolean;
 }) => (
-  <Icon
-    className={cn(
-      "h-6 w-6 transition-colors mr-2.5",
-      isSelected
-        ? "text-orange-900 dark:text-orange-200"
-        : "text-gray-500 dark:text-gray-400"
-    )}
-  />
+  <div className={`w-6 h-6 ${isSelected ? 'text-foreground' : ''}`}>
+    <Icon size={24} className="w-full h-full" />
+  </div>
 );
 
 const tabs = [
@@ -88,11 +82,9 @@ const tabs = [
 const InfoCard = ({
   sheet,
   language,
-  lyrics,
 }: {
   sheet: MusicSheet | undefined;
   language: string;
-  lyrics: string | undefined;
 }) => {
   // Get language name for display
   const languageName =
@@ -310,14 +302,6 @@ export default function SheetViewer({
     ? lyrics.find((l) => l.language === secondaryLanguage)?.text
     : null;
 
-  const handlePlay = () => {
-    console.log("Audio started playing");
-  };
-
-  const handlePause = () => {
-    console.log("Audio paused");
-  };
-
   return (
     <div>
       <Tabs
@@ -516,7 +500,6 @@ export default function SheetViewer({
                   <InfoCard
                     sheet={selectedSheet}
                     language={selectedLanguage}
-                    lyrics={primaryLyrics}
                   />
                 </div>
               </div>
@@ -559,7 +542,6 @@ export default function SheetViewer({
                     <InfoCard
                       sheet={selectedSheet}
                       language={secondaryLanguage}
-                      lyrics={secondaryLyrics ?? undefined}
                     />
                   )}
                 </div>
