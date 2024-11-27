@@ -1,8 +1,6 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { getMusicXMLExamples } from "./actions";
-import { Music4, Sparkles } from "lucide-react";
+import { Search, Music4 } from "lucide-react";
 import { SheetCard } from "./components/SheetCard";
+import { getMusicXMLExamples } from "./actions";
 
 export default async function Sheet() {
   const sheets = await getMusicXMLExamples();
@@ -19,37 +17,39 @@ export default async function Sheet() {
       <div className="relative">
         <div className="container mx-auto px-4 py-16 sm:py-24">
           {/* Hero Section */}
-          <div className="relative mb-24">
+          <div className="relative mb-12">
             <div className="relative text-center space-y-6">
               <div className="space-y-1.5">
                 <div className="inline-block animate-slide-up">
                   <span className="inline-flex items-center px-3 py-0.5 text-sm font-medium text-primary bg-primary/10 rounded-full">
-                    Sacred Collection
+                    Occult Music Exercises Collection
                   </span>
                 </div>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight animate-slide-up [animation-delay:150ms] bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-transparent">
-                  Explore Our{" "}
-                  <span className="bg-gradient-to-r from-primary via-primary/90 to-primary/70 text-transparent bg-clip-text">
-                    Music Scores
-                  </span>
-                </h1>
-                <p className="mt-2 text-lg leading-snug text-muted-foreground max-w-xl mx-auto animate-slide-up [animation-delay:300ms]">
-                  Discover our curated collection of occult music exercises and
-                  spiritual practices.
-                </p>
               </div>
+            </div>
+          </div>
 
-              <div className="flex justify-center gap-4 animate-slide-up [animation-delay:450ms]">
-                <Button asChild size="lg" className="h-12 px-8 group">
-                  <Link
-                    href="/sheets/viewer"
-                    className="flex items-center gap-2"
-                  >
-                    <Music4 className="h-5 w-5 transition-transform group-hover:scale-110" />
-                    <span>Begin Your Practice</span>
-                    <Sparkles className="h-4 w-4 ml-1 transition-transform group-hover:rotate-12" />
-                  </Link>
-                </Button>
+          {/* Search Section */}
+          <div className="max-w-3xl mx-auto mt-6 mb-20 px-4 sm:px-6 animate-slide-up [animation-delay:300ms]">
+            <div className="relative group">
+              {/* Search input container */}
+              <div className="relative flex items-center w-full h-14 rounded-full border border-border/40 hover:border-border/60 focus-within:border-primary/50 focus-within:shadow-[0_1px_6px_rgba(32,33,36,.28)] bg-background">
+                {/* Search icon */}
+                <div className="flex items-center justify-center w-14 h-14">
+                  <Search className="h-6 w-6 text-muted-foreground/70" />
+                </div>
+
+                {/* Input field */}
+                <input
+                  type="text"
+                  placeholder="Search by title, composer, or category..."
+                  className="flex-1 h-full border-0 outline-none bg-transparent text-lg placeholder:text-muted-foreground/50 focus:outline-none focus:ring-0 px-0"
+                />
+
+                {/* Music icon */}
+                <div className="flex items-center justify-center w-14 h-14">
+                  <Music4 className="h-6 w-6 text-primary/70 hover:text-primary transition-colors" />
+                </div>
               </div>
             </div>
           </div>
