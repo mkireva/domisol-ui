@@ -10,6 +10,7 @@ import {
   PlayCircle,
   FileText,
   ArrowLeft,
+  ListMusic,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import {
@@ -61,7 +62,7 @@ const tabs = [
   {
     id: "sheet",
     label: "Viewer",
-    icon: FileText,
+    icon: ListMusic,
   },
   {
     id: "lyrics",
@@ -334,13 +335,14 @@ export default function SheetViewer({
         }}
         className="relative"
       >
-        <div className="border-b px-6 py-4 flex justify-center">
-          <TabsList className="gap-2">
+        <div className="px-6 py-4 flex justify-center">
+          <TabsList className="flex w-full justify-between items-center z-50 gap-1 rounded-none p-0 h-auto sm:h-14 sm:gap-2 sm:p-2 sm:rounded-md">
             <TabsTrigger
               value="back"
-              className="text-muted-foreground hover:text-foreground"
+              className="flex-1 sm:flex-initial px-2 sm:px-5 py-3 sm:py-2.5 text-sm sm:text-lg"
             >
               <TabIcon icon={ArrowLeft} isSelected={false} />
+              <span className="hidden sm:inline ml-2"></span>
             </TabsTrigger>
             {tabs
               .filter((tab) => tab.id !== "back")
@@ -348,10 +350,10 @@ export default function SheetViewer({
                 <TabsTrigger
                   key={id}
                   value={id}
-                  className="text-muted-foreground hover:text-foreground flex items-center gap-1"
+                  className="flex-1 sm:flex-initial px-2 sm:px-5 py-3 sm:py-2.5 text-sm sm:text-lg"
                 >
                   <TabIcon icon={icon} isSelected={activeTab === id} />
-                  <span className="ml-1">{label}</span>
+                  <span className="hidden sm:inline ml-2">{label}</span>
                 </TabsTrigger>
               ))}
           </TabsList>
