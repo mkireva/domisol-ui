@@ -15,12 +15,12 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
     <div className="bg-white dark:bg-gray-950 rounded-lg border shadow-sm">
       <div className="p-8">
         <div className="mb-8">
-          <h2 className="text-2xl font-semibold tracking-tight mb-3">
+          <h1 className="text-2xl font-semibold tracking-tight mb-3">
             Score Information
             <span className="ml-2 text-base font-normal text-muted-foreground">
               ({languageName})
             </span>
-          </h2>
+          </h1>
           <p className="text-base text-muted-foreground">
             Detailed information about this musical score
           </p>
@@ -36,12 +36,12 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                   className="space-y-2"
                   aria-labelledby={`title-heading-${language}`}
                 >
-                  <h3
+                  <h2
                     id={`title-heading-${language}`}
                     className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
                   >
                     Title
-                  </h3>
+                  </h2>
                   <p className="text-lg font-medium">
                     {language === "de"
                       ? sheet.name
@@ -66,12 +66,12 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                   className="space-y-2"
                   aria-labelledby={`composer-heading-${language}`}
                 >
-                  <h3
+                  <h2
                     id={`composer-heading-${language}`}
                     className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
                   >
                     Composer
-                  </h3>
+                  </h2>
                   <p className="text-lg">{sheet.composer}</p>
                 </section>
               )}
@@ -82,12 +82,12 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                   className="space-y-2"
                   aria-labelledby={`location-heading-${language}`}
                 >
-                  <h3
+                  <h2
                     id={`location-heading-${language}`}
                     className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
                   >
                     Location
-                  </h3>
+                  </h2>
                   <p className="text-lg">{sheet.location}</p>
                 </section>
               )}
@@ -101,12 +101,12 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                   className="space-y-2"
                   aria-labelledby={`key-heading-${language}`}
                 >
-                  <h3
+                  <h2
                     id={`key-heading-${language}`}
                     className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
                   >
                     Key and Color
-                  </h3>
+                  </h2>
                   <div className="flex items-center gap-3">
                     <p className="text-lg">
                       {sheet.key.tonic} {sheet.key.mode}
@@ -128,12 +128,12 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                   className="space-y-2"
                   aria-labelledby={`lyricist-heading-${language}`}
                 >
-                  <h3
+                  <h2
                     id={`lyricist-heading-${language}`}
                     className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
                   >
                     Lyricist
-                  </h3>
+                  </h2>
                   <p className="text-lg">{sheet.lyricist.name}</p>
                 </section>
               )}
@@ -149,12 +149,12 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                   className="space-y-2"
                   aria-labelledby={`category-heading-${language}`}
                 >
-                  <h3
+                  <h2
                     id={`category-heading-${language}`}
                     className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
                   >
                     Category
-                  </h3>
+                  </h2>
                   <p className="text-lg capitalize">{sheet.category}</p>
                 </section>
               )}
@@ -168,12 +168,12 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                   className="space-y-2"
                   aria-labelledby={`year-heading-${language}`}
                 >
-                  <h3
+                  <h2
                     id={`year-heading-${language}`}
                     className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
                   >
                     Year
-                  </h3>
+                  </h2>
                   <p className="text-lg">{sheet.year}</p>
                 </section>
               )}
@@ -186,12 +186,12 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
               className="space-y-2"
               aria-labelledby={`description-heading-${language}`}
             >
-              <h3
+              <h2
                 id={`description-heading-${language}`}
                 className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
               >
                 Description
-              </h3>
+              </h2>
               <p className="text-lg leading-relaxed">{sheet.description}</p>
             </section>
           )}

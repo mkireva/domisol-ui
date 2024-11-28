@@ -158,10 +158,7 @@ export function SheetViewerClient({
                           className="w-[220px]"
                           aria-label="Select primary language"
                         >
-                          <Globe2
-                            className="mr-2 h-5 w-5"
-                            aria-hidden="true"
-                          />
+                          <Globe2 className="mr-2 h-5 w-5" aria-hidden="true" />
                           <SelectValue placeholder="Primary language" />
                         </SelectTrigger>
                         <SelectContent>
@@ -201,12 +198,9 @@ export function SheetViewerClient({
                       >
                         <SelectTrigger
                           className="w-[220px]"
-                          aria-label="Select language to compare with"
+                          aria-label="Compare with"
                         >
-                          <Globe2
-                            className="mr-2 h-5 w-5"
-                            aria-hidden="true"
-                          />
+                          <Globe2 className="mr-2 h-5 w-5" aria-hidden="true" />
                           <SelectValue placeholder="Compare with..." />
                         </SelectTrigger>
                         <SelectContent>
@@ -268,33 +262,35 @@ export function SheetViewerClient({
             value="back"
             className="flex-1 sm:flex-initial px-2 sm:px-5 py-3 sm:py-2.5 text-sm sm:text-lg"
             disabled={isTabChanging}
-            aria-label="Back to sheets list"
+            aria-label="Back"
           >
-            <TabIcon icon={ArrowLeft} isSelected={false} />
+            <TabIcon icon={ArrowLeft} isSelected={false} aria-hidden="true" />
             <span className="hidden sm:inline ml-2">Back</span>
           </TabsTrigger>
-          {TABS.filter((tab) => tab.id !== "back").map(({ id, label, icon }) => {
-            const IconComponent = {
-              ArrowLeft,
-              ListMusic,
-              FileText,
-              PlayCircle,
-              Info,
-            }[icon];
-            return (
-              <TabsTrigger
-                key={id}
-                value={id}
-                className="flex-1 sm:flex-initial px-2 sm:px-5 py-3 sm:py-2.5 text-sm sm:text-lg"
-                disabled={isTabChanging}
-                aria-label={label}
-              >
-                <TabIcon icon={IconComponent} isSelected={activeTab === id} />
-                <span className="hidden sm:inline ml-2">{label}</span>
-                <span className="sr-only">{label}</span>
-              </TabsTrigger>
-            );
-          })}
+          {TABS.filter((tab) => tab.id !== "back").map(
+            ({ id, label, icon }) => {
+              const IconComponent = {
+                ArrowLeft,
+                ListMusic,
+                FileText,
+                PlayCircle,
+                Info,
+              }[icon];
+              return (
+                <TabsTrigger
+                  key={id}
+                  value={id}
+                  className="flex-1 sm:flex-initial px-2 sm:px-5 py-3 sm:py-2.5 text-sm sm:text-lg"
+                  disabled={isTabChanging}
+                  aria-label={label}
+                >
+                  <TabIcon icon={IconComponent} isSelected={activeTab === id} aria-hidden="true" />
+                  <span className="hidden sm:inline ml-2">{label}</span>
+                  <span className="sr-only">{label}</span>
+                </TabsTrigger>
+              );
+            }
+          )}
         </TabsList>
       </div>
 
