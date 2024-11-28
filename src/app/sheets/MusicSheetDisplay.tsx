@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { OpenSheetMusicDisplay as OSMD, IOSMDOptions } from "opensheetmusicdisplay";
+import {
+  OpenSheetMusicDisplay as OSMD,
+  IOSMDOptions,
+} from "opensheetmusicdisplay";
 import { Button } from "@/components/ui/button";
 import { ZoomIn, ZoomOut } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -168,7 +171,9 @@ export default function MusicSheetDisplay({
           if (mounted) {
             setError(
               `Failed to load music sheet: ${
-                loadError instanceof Error ? loadError.message : String(loadError)
+                loadError instanceof Error
+                  ? loadError.message
+                  : String(loadError)
               }`
             );
           }
@@ -223,8 +228,8 @@ export default function MusicSheetDisplay({
 
   return (
     <div className="relative">
-      <div className="relative">
-        <div className="flex items-center justify-center gap-2 mb-4">
+      <div className="relative pt-6">
+        <div className="flex items-center justify-center gap-2 mb-12">
           <div className="inline-flex items-center gap-1.5 bg-background/60 p-1.5 rounded-lg border border-border/20 shadow-sm backdrop-blur-md">
             <Button
               variant="ghost"

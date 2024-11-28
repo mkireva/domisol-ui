@@ -15,7 +15,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
     <div className="bg-white dark:bg-gray-950 rounded-lg border shadow-sm">
       <div className="p-8">
         <div className="mb-8">
-          <h2 className="text-2xl font-semibold tracking-tight mb-2">
+          <h2 className="text-2xl font-semibold tracking-tight mb-3">
             Score Information
             <span className="ml-2 text-base font-normal text-muted-foreground">
               ({languageName})
@@ -26,7 +26,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
           </p>
         </div>
 
-        <div className="space-y-6 p-6">
+        <div className="space-y-10 p-8">
           <div className="grid grid-cols-2 gap-6">
             {/* Column 1 */}
             <div className="space-y-6">
