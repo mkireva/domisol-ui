@@ -82,24 +82,24 @@ export default function Home() {
             {/* Features Section */}
             <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 animate-in fade-in duration-1000">
               <div className="p-6 rounded-2xl bg-card/50 backdrop-blur-sm">
-                <h3 className="text-xl font-semibold mb-2">
+                <h2 className="text-xl font-semibold mb-2">
                   Digital Sheet Music
-                </h3>
+                </h2>
                 <p className="text-muted-foreground">
                   Access a vast collection of classical music scores in digital
                   format.
                 </p>
               </div>
               <div className="p-6 rounded-2xl bg-card/50 backdrop-blur-sm">
-                <h3 className="text-xl font-semibold mb-2">
+                <h2 className="text-xl font-semibold mb-2">
                   Interactive Learning
-                </h3>
+                </h2>
                 <p className="text-muted-foreground">
                   Practice with integrated audio playback and visual guidance.
                 </p>
               </div>
               <div className="p-6 rounded-2xl bg-card/50 backdrop-blur-sm">
-                <h3 className="text-xl font-semibold mb-2">Community Driven</h3>
+                <h2 className="text-xl font-semibold mb-2">Community Driven</h2>
                 <p className="text-muted-foreground">
                   Join a community of musicians sharing and learning together.
                 </p>
