@@ -42,6 +42,10 @@ export type MusicSheet = {
       url: string;
       description?: string;
     };
+    piano?: {
+      url: string;
+      description?: string;
+    };
   };
 };
 

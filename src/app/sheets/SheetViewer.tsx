@@ -568,19 +568,20 @@ export default function SheetViewer({
         </TabsContent>
 
         {activeTab === "player" && (
-          <div className="p-6">
-            <div className="space-y-6">
+          <div className="p-2 sm:p-6">
+            <div className="space-y-4 sm:space-y-6">
               {selectedSheet?.audio?.vocal?.url ? (
                 <div className="space-y-2">
-                  <h3 className="text-lg font-semibold flex items-center gap-2">
+                  <h3 className="text-base sm:text-lg font-semibold flex items-center gap-2">
                     <Mic className="h-4 w-4" />
                     Vocal Version
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs sm:text-sm text-muted-foreground">
                     {selectedSheet.audio.vocal.description}
                   </p>
                   <div className="audio-container">
                     <AudioPlayer
+                      className="rhap_custom-player"
                       autoPlay={false}
                       src={selectedSheet.audio.vocal.url}
                       onPlay={(e) => {
@@ -591,41 +592,28 @@ export default function SheetViewer({
                       }}
                       showJumpControls={true}
                       showSkipControls={true}
-                      showFilledVolume={true}
                       hasDefaultKeyBindings={true}
                       layout="horizontal"
-                      customControlsSection={[
-                        RHAP_UI.ADDITIONAL_CONTROLS,
-                        RHAP_UI.MAIN_CONTROLS,
-                        RHAP_UI.VOLUME_CONTROLS,
-                      ]}
-                      customProgressBarSection={[
-                        RHAP_UI.CURRENT_TIME,
-                        RHAP_UI.PROGRESS_BAR,
-                        RHAP_UI.DURATION,
-                      ]}
-                      timeFormat="mm:ss"
-                      volume={0.8}
-                      volumeJumpStep={0.1}
-                      progressJumpStep={5000}
-                      className="rhap_container rhap_custom-player"
+                      customControlsSection={[RHAP_UI.MAIN_CONTROLS]}
                     />
                   </div>
                 </div>
               ) : null}
-              {selectedSheet?.audio?.instrumental?.url ? (
+
+              {selectedSheet?.audio?.piano?.url ? (
                 <div className="space-y-2">
-                  <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide flex items-center gap-2">
+                  <h3 className="text-base sm:text-lg font-semibold flex items-center gap-2">
                     <Piano className="h-4 w-4" />
-                    Instrumental Version
+                    Piano Version
                   </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {selectedSheet.audio.instrumental.description}
+                  <p className="text-xs sm:text-sm text-muted-foreground">
+                    {selectedSheet.audio.piano.description}
                   </p>
                   <div className="audio-container">
                     <AudioPlayer
+                      className="rhap_custom-player"
                       autoPlay={false}
-                      src={selectedSheet.audio.instrumental.url}
+                      src={selectedSheet.audio.piano.url}
                       onPlay={(e) => {
                         const audio = e.target as HTMLAudioElement;
                         audio.play().catch((error) => {
@@ -634,30 +622,15 @@ export default function SheetViewer({
                       }}
                       showJumpControls={true}
                       showSkipControls={true}
-                      showFilledVolume={true}
                       hasDefaultKeyBindings={true}
                       layout="horizontal"
-                      customControlsSection={[
-                        RHAP_UI.ADDITIONAL_CONTROLS,
-                        RHAP_UI.MAIN_CONTROLS,
-                        RHAP_UI.VOLUME_CONTROLS,
-                      ]}
-                      customProgressBarSection={[
-                        RHAP_UI.CURRENT_TIME,
-                        RHAP_UI.PROGRESS_BAR,
-                        RHAP_UI.DURATION,
-                      ]}
-                      timeFormat="mm:ss"
-                      volume={0.8}
-                      volumeJumpStep={0.1}
-                      progressJumpStep={5000}
-                      className="rhap_container rhap_custom-player"
+                      customControlsSection={[RHAP_UI.MAIN_CONTROLS]}
                     />
                   </div>
                 </div>
               ) : null}
               {!selectedSheet?.audio?.vocal?.url &&
-                !selectedSheet?.audio?.instrumental?.url && (
+                !selectedSheet?.audio?.piano?.url && (
                   <div className="text-center text-muted-foreground py-4">
                     No audio available for this sheet music.
                   </div>
