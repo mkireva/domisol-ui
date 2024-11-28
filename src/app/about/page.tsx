@@ -53,7 +53,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent rounded-3xl -z-10 blur-xl group-hover:blur-2xl transition-all" />
               <div className="h-full p-6 sm:p-8 rounded-3xl bg-card/30 backdrop-blur-sm border border-primary/10 hover:border-primary/20 transition-all duration-300 hover:translate-y-[-2px]">
                 <feature.icon className="w-10 h-10 text-primary mb-4 transform group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+                <h2 className="text-lg font-semibold mb-2">{feature.title}</h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>

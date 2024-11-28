@@ -135,9 +135,9 @@ export default function Home() {
                     {/* Mission Section */}
                     <div className="flex flex-col md:flex-row items-center gap-12">
                       <div className="flex-1 order-2 md:order-1">
-                        <h3 className="text-2xl font-semibold mb-4 text-primary">
+                        <h2 className="text-2xl font-semibold mb-4 text-primary">
                           Our Mission
-                        </h3>
+                        </h2>
                         <p className="text-muted-foreground leading-relaxed">
                           We are dedicated to preserving and sharing the
                           profound wisdom contained within centuries-old music
@@ -196,9 +196,9 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-2xl font-semibold mb-4 text-primary">
+                        <h2 className="text-2xl font-semibold mb-4 text-primary">
                           Our Collection
-                        </h3>
+                        </h2>
                         <p className="text-muted-foreground leading-relaxed">
                           Explore our extensive digital archive of rare and
                           historical music sheets, carefully curated and
@@ -211,9 +211,9 @@ export default function Home() {
                     {/* Community Section */}
                     <div className="flex flex-col md:flex-row items-center gap-12">
                       <div className="flex-1 order-2 md:order-1">
-                        <h3 className="text-2xl font-semibold mb-4 text-primary">
+                        <h2 className="text-2xl font-semibold mb-4 text-primary">
                           Our Community
-                        </h3>
+                        </h2>
                         <p className="text-muted-foreground leading-relaxed">
                           Join a vibrant community of musicians, researchers,
                           and enthusiasts. Share knowledge, explore musical
