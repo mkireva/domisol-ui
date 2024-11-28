@@ -4,161 +4,235 @@ import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="relative min-h-[calc(100vh-3rem)] overflow-hidden bg-gradient-to-b from-background to-background/95">
-      {/* Mystical Background Elements */}
+    <div className="flex flex-col min-h-screen relative overflow-hidden">
+      {/* Background Elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-primary/5 rounded-full blur-3xl animate-float animate-pulse-slow opacity-50" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl animate-float [animation-delay:2s] animate-pulse-slow" />
-        <div className="absolute top-1/2 right-0 w-[700px] h-[700px] bg-primary/5 rounded-full blur-3xl animate-float [animation-delay:4s] animate-pulse-slow" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-primary/5 rounded-full blur-3xl animate-float animate-pulse-slow" />
       </div>
 
-      <div className="relative flex flex-col items-center justify-center px-4 py-16 md:py-24 md:px-6">
-        <div className="max-w-5xl mx-auto text-center space-y-12">
-          {/* Hero Section */}
-          <div className="space-y-4">
-            <div className="inline-block animate-slide-up">
-              <span className="inline-flex items-center px-3 py-1 text-sm font-medium text-primary bg-primary/10 rounded-full">
-                Discover the Hidden Harmonies
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight animate-slide-up [animation-delay:150ms] bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-transparent">
-              Music Exercises with{" "}
-              <span className="bg-gradient-to-r from-primary via-primary/90 to-primary/70 text-transparent bg-clip-text">
-                Domisol
-              </span>
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground animate-slide-up [animation-delay:300ms] max-w-xl mx-auto">
-              Journey through ancient musical wisdom and esoteric exercises to
-              unlock your hidden musical potential
-            </p>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up [animation-delay:450ms]">
-            <Link href="/sheets">
-              <Button
-                size="lg"
-                className="group h-12 px-8 text-base bg-primary hover:bg-primary/90 text-primary-foreground"
-              >
-                Begin Your Journey
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
-            <Link href="/overview">
-              <Button
-                size="lg"
-                variant="outline"
-                className="group h-12 px-8 text-base border-primary/20 hover:bg-primary/10"
-              >
-                Explore the Mysteries
-              </Button>
-            </Link>
-          </div>
-
-          {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 animate-slide-up [animation-delay:600ms]">
-            <div className="group relative p-6 rounded-2xl border border-primary/20 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-colors">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl transition-opacity group-hover:opacity-100 opacity-0" />
-              <div className="relative">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Music2 className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Sacred Harmonies</h3>
-                <p className="text-muted-foreground">
-                  Master ancient musical exercises rooted in esoteric traditions
-                  and mystical wisdom
+      <div className="flex-grow">
+        <div className="relative">
+          <div className="container mx-auto px-4 py-12 sm:py-16">
+            {/* Hero Section */}
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+              {/* Left Content */}
+              <div className="flex-1 text-center lg:text-left">
+                <h1 className="text-4xl md:text-6xl font-bold tracking-tight animate-slide-up [animation-delay:150ms]">
+                  <span className="bg-gradient-to-r from-primary via-primary/90 to-primary/70 text-transparent bg-clip-text">
+                    Domisol
+                  </span>
+                </h1>
+                <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 animate-slide-up [animation-delay:200ms]">
+                  Explore the secrets of occult music exercises through our
+                  curated collection of music sheets and audio examples.
                 </p>
-              </div>
-            </div>
 
-            <div className="group relative p-6 rounded-2xl border border-primary/20 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-colors">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl transition-opacity group-hover:opacity-100 opacity-0" />
-              <div className="relative">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Sparkles className="h-6 w-6 text-primary" />
+                {/* CTA Buttons */}
+                <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up [animation-delay:300ms]">
+                  <Link
+                    href="/sheets"
+                    className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-white shadow-lg hover:bg-primary/90 transition-colors"
+                  >
+                    Browse Sheets
+                  </Link>
+                  <Link
+                    href="/about"
+                    className="inline-flex items-center justify-center rounded-full bg-secondary px-6 py-3 text-sm font-medium text-secondary-foreground hover:bg-secondary/80 transition-colors"
+                  >
+                    Learn More
+                  </Link>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">
-                  Mystical Practice
-                </h3>
-                <p className="text-muted-foreground">
-                  Interactive exercises designed to awaken your inner musical
-                  consciousness
-                </p>
               </div>
-            </div>
 
-            <div className="group relative p-6 rounded-2xl border border-primary/20 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-colors">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl transition-opacity group-hover:opacity-100 opacity-0" />
-              <div className="relative">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Book className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Ancient Wisdom</h3>
-                <p className="text-muted-foreground">
-                  Access a curated collection of occult musical knowledge and
-                  sacred compositions
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Project Description Section */}
-          <div className="mt-16 relative">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent -z-10" />
-            <div className="grid md:grid-cols-2 gap-12 items-center animate-slide-up [animation-delay:750ms]">
-              <div className="text-left space-y-4">
-                <h2 className="text-3xl font-bold tracking-tight">
-                  Unlock the Secrets of Occult Music
-                </h2>
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    Our platform is dedicated to providing a comprehensive and
-                    immersive experience for those seeking to explore the
-                    mysteries of occult music. With a vast library of ancient
-                    musical wisdom and esoteric exercises, you will be able to
-                    unlock your hidden musical potential and tap into the
-                    secrets of the universe.
-                  </p>
-                  <p>
-                    Whether you are a seasoned musician or just starting your
-                    journey, our platform is designed to guide you through the
-                    mystical realms of sound and silence. Join our community of
-                    like-minded individuals and embark on a transformative
-                    journey that will awaken your inner musical consciousness.
-                  </p>
-                </div>
-                <div className="flex gap-4 items-center pt-4">
-                  <div className="flex -space-x-4">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Moon className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Sparkles className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Book className="h-5 w-5 text-primary" />
+              {/* Right Image */}
+              <div className="flex-1 relative animate-slide-up [animation-delay:400ms]">
+                <div className="relative aspect-[4/3] max-w-xl mx-auto">
+                  {/* Background effects */}
+                  <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent blur-2xl rounded-[2rem] animate-pulse-slow" />
+                  <div className="absolute -inset-4 bg-gradient-to-l from-primary/10 via-primary/5 to-transparent blur-2xl rounded-[2rem] animate-pulse-slow [animation-delay:1s]" />
+                  
+                  {/* Frame container */}
+                  <div className="relative rounded-[2rem] overflow-hidden bg-card/30 backdrop-blur-sm border border-primary/10 p-4 hover:border-primary/20 transition-all duration-500">
+                    {/* Decorative corner elements */}
+                    <div className="absolute -left-3 -top-3 w-6 h-6 border-l-2 border-t-2 border-primary/20 rounded-tl-lg" />
+                    <div className="absolute -right-3 -top-3 w-6 h-6 border-r-2 border-t-2 border-primary/20 rounded-tr-lg" />
+                    <div className="absolute -left-3 -bottom-3 w-6 h-6 border-l-2 border-b-2 border-primary/20 rounded-bl-lg" />
+                    <div className="absolute -right-3 -bottom-3 w-6 h-6 border-r-2 border-b-2 border-primary/20 rounded-br-lg" />
+                    
+                    {/* Glow effects */}
+                    <div className="absolute -left-6 -top-6 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
+                    <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
+                    
+                    {/* Image container */}
+                    <div className="relative aspect-[4/3] rounded-[1.5rem] overflow-hidden group">
+                      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10" />
+                      <img
+                        src="/images/pdanov.png"
+                        alt="Vintage photograph of a violinist performing"
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                      />
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    Join the mystical journey and unlock the secrets of occult
-                    music
-                  </p>
                 </div>
               </div>
-              <div className="relative aspect-square md:aspect-video w-full max-w-md mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/0 to-primary/10 rounded-2xl" />
-                <div className="absolute inset-0 rounded-2xl border backdrop-blur-[2px] p-2">
-                  <div className="w-full h-full rounded-xl border bg-card/50 p-4">
-                    <div className="h-2 w-24 bg-primary/20 rounded-full mb-3" />
-                    <div className="space-y-2">
-                      <div className="h-2 w-full bg-muted rounded-full" />
-                      <div className="h-2 w-4/5 bg-muted rounded-full" />
-                      <div className="h-2 w-2/3 bg-muted rounded-full" />
+            </div>
+
+            {/* Features Section */}
+            <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 animate-in fade-in duration-1000">
+              <div className="p-6 rounded-2xl bg-card/50 backdrop-blur-sm">
+                <h3 className="text-xl font-semibold mb-2">
+                  Digital Sheet Music
+                </h3>
+                <p className="text-muted-foreground">
+                  Access a vast collection of classical music scores in digital
+                  format.
+                </p>
+              </div>
+              <div className="p-6 rounded-2xl bg-card/50 backdrop-blur-sm">
+                <h3 className="text-xl font-semibold mb-2">
+                  Interactive Learning
+                </h3>
+                <p className="text-muted-foreground">
+                  Practice with integrated audio playback and visual guidance.
+                </p>
+              </div>
+              <div className="p-6 rounded-2xl bg-card/50 backdrop-blur-sm">
+                <h3 className="text-xl font-semibold mb-2">Community Driven</h3>
+                <p className="text-muted-foreground">
+                  Join a community of musicians sharing and learning together.
+                </p>
+              </div>
+            </div>
+
+            {/* Project Description */}
+            <div className="mt-24">
+              <div className="relative">
+                {/* Background Elements */}
+                <div className="absolute inset-0 -z-10">
+                  <div className="absolute left-1/4 top-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
+                  <div className="absolute right-1/4 bottom-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float [animation-delay:2s]" />
+                </div>
+
+                <div className="max-w-5xl mx-auto px-6 py-16">
+                  {/* Section Title */}
+                  <div className="text-center mb-16 animate-in fade-in duration-1000">
+                    <h2 className="text-4xl font-bold bg-gradient-to-r from-primary via-primary/90 to-primary/70 text-transparent bg-clip-text inline-block">
+                      Discover Domisol
+                    </h2>
+                    <div className="mt-6 max-w-2xl mx-auto">
+                      <p className="text-lg text-muted-foreground">
+                        A digital sanctuary for preserving and exploring the
+                        rich heritage of occult music exercises, bridging
+                        centuries of tradition with modern technology.
+                      </p>
                     </div>
-                    <div className="mt-6 grid grid-cols-3 gap-2">
-                      <div className="h-12 rounded bg-muted" />
-                      <div className="h-12 rounded bg-primary/10" />
-                      <div className="h-12 rounded bg-muted" />
+                  </div>
+
+                  {/* Content Sections */}
+                  <div className="space-y-32 animate-in fade-in duration-1000 [animation-delay:200ms]">
+                    {/* Mission Section */}
+                    <div className="flex flex-col md:flex-row items-center gap-12">
+                      <div className="flex-1 order-2 md:order-1">
+                        <h3 className="text-2xl font-semibold mb-4 text-primary">
+                          Our Mission
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          We are dedicated to preserving and sharing the profound wisdom
+                          contained within centuries-old music exercises. Our platform
+                          serves as a bridge between traditional practices and modern
+                          musical education.
+                        </p>
+                      </div>
+                      <div className="flex-1 order-1 md:order-2">
+                        <div className="relative">
+                          {/* Minimal frame */}
+                          <div className="relative rounded-[2rem] overflow-hidden bg-card/10 backdrop-blur-[2px] group">
+                            {/* Subtle border effect */}
+                            <div className="absolute inset-0 border border-primary/[0.05] rounded-[2rem]" />
+                            
+                            {/* Image */}
+                            <div className="relative aspect-[4/3]">
+                              <img
+                                src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=800&auto=format&fit=crop&q=60"
+                                alt="Musical manuscript"
+                                className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
+                              />
+                              {/* Minimal hover overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Collection Section */}
+                    <div className="flex flex-col md:flex-row items-center gap-12">
+                      <div className="flex-1">
+                        <div className="relative">
+                          {/* Minimal frame */}
+                          <div className="relative rounded-[2rem] overflow-hidden bg-card/10 backdrop-blur-[2px] group">
+                            {/* Subtle border effect */}
+                            <div className="absolute inset-0 border border-primary/[0.05] rounded-[2rem]" />
+                            
+                            {/* Image */}
+                            <div className="relative aspect-[4/3]">
+                              <img
+                                src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=800&auto=format&fit=crop&q=60"
+                                alt="Sheet music collection"
+                                className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
+                              />
+                              {/* Minimal hover overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-semibold mb-4 text-primary">
+                          Our Collection
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Explore our extensive digital archive of rare and historical
+                          music sheets, carefully curated and digitized to preserve
+                          their authenticity while making them accessible to modern
+                          practitioners.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Community Section */}
+                    <div className="flex flex-col md:flex-row items-center gap-12">
+                      <div className="flex-1 order-2 md:order-1">
+                        <h3 className="text-2xl font-semibold mb-4 text-primary">
+                          Our Community
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          Join a vibrant community of musicians, researchers, and
+                          enthusiasts. Share knowledge, explore musical spirituality,
+                          and contribute to the preservation of this unique musical
+                          heritage.
+                        </p>
+                      </div>
+                      <div className="flex-1 order-1 md:order-2">
+                        <div className="relative">
+                          {/* Minimal frame */}
+                          <div className="relative rounded-[2rem] overflow-hidden bg-card/10 backdrop-blur-[2px] group">
+                            {/* Subtle border effect */}
+                            <div className="absolute inset-0 border border-primary/[0.05] rounded-[2rem]" />
+                            
+                            {/* Image */}
+                            <div className="relative aspect-[4/3]">
+                              <img
+                                src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800&auto=format&fit=crop&q=60"
+                                alt="Musicians collaborating"
+                                className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
+                              />
+                              {/* Minimal hover overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

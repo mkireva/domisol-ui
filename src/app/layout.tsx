@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,7 +21,6 @@ export const metadata: Metadata = {
   description: "Upload, display and play music sheets",
 };
 
-
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -37,8 +37,19 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <div className="flex flex-col min-h-screen relative overflow-hidden">
+            {/* Background Elements */}
+            <div className="fixed inset-0 -z-10 overflow-hidden">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-primary/5 rounded-full blur-3xl animate-float animate-pulse-slow" />
+              <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl animate-float [animation-delay:2s] animate-pulse-slow" />
+              <div className="absolute top-1/2 right-0 w-[700px] h-[700px] bg-primary/5 rounded-full blur-3xl animate-float [animation-delay:4s] animate-pulse-slow" />
+            </div>
             <Header />
-          {children}
+            <main className="flex-grow flex flex-col">
+              {children}
+            </main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>
