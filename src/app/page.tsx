@@ -17,7 +17,7 @@ export default function Home() {
               {/* Left Content */}
               <div className="flex-1 text-center lg:text-left">
                 <h1 className="text-4xl md:text-6xl font-bold tracking-tight animate-slide-up [animation-delay:150ms]">
-                  <span className="bg-gradient-to-r from-primary via-primary/90 to-primary/70 text-transparent bg-clip-text">
+                  <span className="text-primary">
                     Domisol
                   </span>
                 </h1>
@@ -118,7 +118,7 @@ export default function Home() {
                 <div className="max-w-5xl mx-auto px-6 py-16">
                   {/* Section Title */}
                   <div className="text-center mb-16 animate-in fade-in duration-1000">
-                    <h2 className="text-4xl font-bold bg-gradient-to-r from-primary via-primary/90 to-primary/70 text-transparent bg-clip-text inline-block">
+                    <h2 className="text-4xl font-bold text-primary inline-block">
                       Discover Domisol
                     </h2>
                     <div className="mt-6 max-w-2xl mx-auto">

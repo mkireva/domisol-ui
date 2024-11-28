@@ -21,7 +21,7 @@ export default async function Sheet() {
             {/* Heading Section */}
             <div className="text-center">
               <h1 className="text-[2.5rem] sm:text-[3.5rem] md:text-[5rem] font-bold tracking-tight animate-slide-up [animation-delay:150ms]">
-                <span className="bg-gradient-to-r from-primary via-primary/90 to-primary/70 text-transparent bg-clip-text">
+                <span className="text-primary">
                   Domisol
                 </span>
               </h1>
