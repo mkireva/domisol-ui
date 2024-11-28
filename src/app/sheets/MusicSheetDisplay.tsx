@@ -239,10 +239,11 @@ export default function MusicSheetDisplay({
               className="h-7 w-7 rounded-md bg-transparent transition-all hover:bg-primary/10 hover:text-primary active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
               title="Zoom out"
             >
-              <ZoomOut className="h-4 w-4" />
+              <span className="sr-only">Zoom out</span>
+              <ZoomOut className="h-4 w-4" aria-hidden="true" />
             </Button>
             <div className="px-2 min-w-[3.5rem]">
-              <span className="block text-center text-xs font-medium select-none">
+              <span className="block text-center text-xs font-medium select-none" aria-label="Current zoom level">
                 {Math.round(zoom * 100)}%
               </span>
             </div>
@@ -254,7 +255,8 @@ export default function MusicSheetDisplay({
               className="h-7 w-7 rounded-md bg-transparent transition-all hover:bg-primary/10 hover:text-primary active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
               title="Zoom in"
             >
-              <ZoomIn className="h-4 w-4" />
+              <span className="sr-only">Zoom in</span>
+              <ZoomIn className="h-4 w-4" aria-hidden="true" />
             </Button>
           </div>
         </div>
