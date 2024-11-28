@@ -72,10 +72,10 @@ export async function getMusicXMLExamples(): Promise<MusicSheet[]> {
         key: {
           tonic: "C",
           mode: "major",
-          color: "red"
+          color: "red",
         },
-        category: "instrumental"
-      }
+        category: "instrumental",
+      },
     ];
   }
 }

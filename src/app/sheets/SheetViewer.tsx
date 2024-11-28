@@ -11,6 +11,7 @@ import {
   FileText,
   ArrowLeft,
   ListMusic,
+  Music2,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import {
@@ -570,7 +571,8 @@ export default function SheetViewer({
         {activeTab === "player" && (
           <div className="p-2 sm:p-6">
             <div className="space-y-4 sm:space-y-6">
-              {selectedSheet?.audio?.vocal?.url ? (
+              {/* Vocal Track */}
+              {selectedSheet?.audio?.vocal?.url && (
                 <div className="space-y-2">
                   <h3 className="text-base sm:text-lg font-semibold flex items-center gap-2">
                     <Mic className="h-4 w-4" />
@@ -598,9 +600,41 @@ export default function SheetViewer({
                     />
                   </div>
                 </div>
-              ) : null}
+              )}
 
-              {selectedSheet?.audio?.piano?.url ? (
+              {/* Instrumental Track */}
+              {selectedSheet?.audio?.instrumental?.url && (
+                <div className="space-y-2">
+                  <h3 className="text-base sm:text-lg font-semibold flex items-center gap-2">
+                    <Music2 className="h-4 w-4" />
+                    Instrumental Version
+                  </h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
+                    {selectedSheet.audio.instrumental.description}
+                  </p>
+                  <div className="audio-container">
+                    <AudioPlayer
+                      className="rhap_custom-player"
+                      autoPlay={false}
+                      src={selectedSheet.audio.instrumental.url}
+                      onPlay={(e) => {
+                        const audio = e.target as HTMLAudioElement;
+                        audio.play().catch((error) => {
+                          console.error("Error playing audio:", error);
+                        });
+                      }}
+                      showJumpControls={true}
+                      showSkipControls={true}
+                      hasDefaultKeyBindings={true}
+                      layout="horizontal"
+                      customControlsSection={[RHAP_UI.MAIN_CONTROLS]}
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* Piano Track */}
+              {selectedSheet?.audio?.piano?.url && (
                 <div className="space-y-2">
                   <h3 className="text-base sm:text-lg font-semibold flex items-center gap-2">
                     <Piano className="h-4 w-4" />
@@ -628,13 +662,17 @@ export default function SheetViewer({
                     />
                   </div>
                 </div>
-              ) : null}
-              {!selectedSheet?.audio?.vocal?.url &&
-                !selectedSheet?.audio?.piano?.url && (
-                  <div className="text-center text-muted-foreground py-4">
-                    No audio available for this sheet music.
-                  </div>
-                )}
+              )}
+
+              {/* No Audio Available Message */}
+              {!selectedSheet?.audio?.vocal?.url && 
+               !selectedSheet?.audio?.instrumental?.url && 
+               !selectedSheet?.audio?.piano?.url && (
+                <div className="text-center text-muted-foreground py-8">
+                  <Music2 className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                  <p>No audio tracks available for this sheet music.</p>
+                </div>
+              )}
             </div>
           </div>
         )}
