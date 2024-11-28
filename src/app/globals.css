@@ -168,3 +168,163 @@ body {
 .animate-slide {
   animation: slide 0.5s ease-out forwards;
 }
+
+/* Audio Player Styles */
+.rhap_container.rhap_custom-player {
+  padding: 0.75rem;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgb(229 231 235);
+  transition: border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .rhap_container.rhap_custom-player {
+    padding: 1rem;
+    gap: 1rem;
+  }
+}
+
+.dark .rhap_container.rhap_custom-player {
+  border-color: rgb(55 65 81);
+}
+
+.rhap_container.rhap_custom-player:hover {
+  border-color: rgb(249 115 22);
+}
+
+.rhap_custom-player .rhap_main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .rhap_custom-player .rhap_main {
+    gap: 1rem;
+  }
+}
+
+.rhap_custom-player .rhap_controls-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.rhap_custom-player .rhap_main-controls {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .rhap_custom-player .rhap_main-controls {
+    gap: 0.5rem;
+  }
+}
+
+.rhap_custom-player .rhap_main-controls-button {
+  color: rgb(107 114 128);
+  transition: all 0.2s ease;
+  width: 28px;
+  height: 28px;
+  font-size: 24px;
+}
+
+.rhap_custom-player .rhap_main-controls-button:hover {
+  color: rgb(249 115 22);
+  transform: scale(1.1);
+}
+
+.dark .rhap_custom-player .rhap_main-controls-button {
+  color: rgb(156 163 175);
+}
+
+.dark .rhap_custom-player .rhap_main-controls-button:hover {
+  color: rgb(249 115 22);
+}
+
+.rhap_custom-player .rhap_progress-section {
+  padding: 0;
+}
+
+.rhap_custom-player .rhap_time {
+  color: rgb(107 114 128);
+  font-size: 12px;
+}
+
+@media (min-width: 640px) {
+  .rhap_custom-player .rhap_time {
+    font-size: 14px;
+  }
+}
+
+.dark .rhap_custom-player .rhap_time {
+  color: rgb(156 163 175);
+}
+
+.rhap_custom-player .rhap_progress-bar {
+  height: 3px;
+  background-color: rgb(229 231 235);
+}
+
+@media (min-width: 640px) {
+  .rhap_custom-player .rhap_progress-bar {
+    height: 4px;
+  }
+}
+
+.rhap_custom-player .rhap_progress-filled {
+  background-color: rgb(249 115 22);
+}
+
+.rhap_custom-player .rhap_progress-indicator {
+  width: 10px;
+  height: 10px;
+  top: -3.5px;
+  background: white;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.1);
+  border: 1.5px solid rgb(249 115 22);
+  margin-left: -5px;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .rhap_custom-player .rhap_progress-indicator {
+    width: 12px;
+    height: 12px;
+    top: -4px;
+    border-width: 2px;
+    margin-left: -6px;
+  }
+}
+
+.rhap_custom-player:hover .rhap_progress-indicator {
+  opacity: 1;
+}
+
+.dark .rhap_custom-player .rhap_progress-bar {
+  background-color: rgb(55 65 81);
+}
+
+.dark .rhap_custom-player .rhap_progress-filled {
+  background-color: rgb(249 115 22);
+}
+
+.rhap_custom-player .rhap_download-progress {
+  background-color: rgb(243 244 246);
+}
+
+.dark .rhap_custom-player .rhap_download-progress {
+  background-color: rgb(31 41 55);
+}
