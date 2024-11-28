@@ -1,6 +1,5 @@
-import { ArrowRight, Music2, Sparkles, Moon, Book } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -50,7 +49,7 @@ export default function Home() {
                   {/* Background effects */}
                   <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent blur-2xl rounded-[2rem] animate-pulse-slow" />
                   <div className="absolute -inset-4 bg-gradient-to-l from-primary/10 via-primary/5 to-transparent blur-2xl rounded-[2rem] animate-pulse-slow [animation-delay:1s]" />
-                  
+
                   {/* Frame container */}
                   <div className="relative rounded-[2rem] overflow-hidden bg-card/30 backdrop-blur-sm border border-primary/10 p-4 hover:border-primary/20 transition-all duration-500">
                     {/* Decorative corner elements */}
@@ -58,18 +57,21 @@ export default function Home() {
                     <div className="absolute -right-3 -top-3 w-6 h-6 border-r-2 border-t-2 border-primary/20 rounded-tr-lg" />
                     <div className="absolute -left-3 -bottom-3 w-6 h-6 border-l-2 border-b-2 border-primary/20 rounded-bl-lg" />
                     <div className="absolute -right-3 -bottom-3 w-6 h-6 border-r-2 border-b-2 border-primary/20 rounded-br-lg" />
-                    
+
                     {/* Glow effects */}
                     <div className="absolute -left-6 -top-6 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
                     <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
-                    
+
                     {/* Image container */}
                     <div className="relative aspect-[4/3] rounded-[1.5rem] overflow-hidden group">
                       <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10" />
-                      <img
+                      <Image
                         src="/images/pdanov.png"
                         alt="Vintage photograph of a violinist performing"
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
+                        priority
                       />
                     </div>
                   </div>
@@ -137,10 +139,10 @@ export default function Home() {
                           Our Mission
                         </h3>
                         <p className="text-muted-foreground leading-relaxed">
-                          We are dedicated to preserving and sharing the profound wisdom
-                          contained within centuries-old music exercises. Our platform
-                          serves as a bridge between traditional practices and modern
-                          musical education.
+                          We are dedicated to preserving and sharing the
+                          profound wisdom contained within centuries-old music
+                          exercises. Our platform serves as a bridge between
+                          traditional practices and modern musical education.
                         </p>
                       </div>
                       <div className="flex-1 order-1 md:order-2">
@@ -149,13 +151,16 @@ export default function Home() {
                           <div className="relative rounded-[2rem] overflow-hidden bg-card/10 backdrop-blur-[2px] group">
                             {/* Subtle border effect */}
                             <div className="absolute inset-0 border border-primary/[0.05] rounded-[2rem]" />
-                            
+
                             {/* Image */}
                             <div className="relative aspect-[4/3]">
-                              <img
-                                src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=800&auto=format&fit=crop&q=60"
-                                alt="Musical manuscript"
-                                className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
+                              <Image
+                                src="/images/music.jpeg"
+                                alt="Vintage photograph of a violinist performing"
+                                fill
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                className="object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
+                                priority
                               />
                               {/* Minimal hover overlay */}
                               <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -173,13 +178,16 @@ export default function Home() {
                           <div className="relative rounded-[2rem] overflow-hidden bg-card/10 backdrop-blur-[2px] group">
                             {/* Subtle border effect */}
                             <div className="absolute inset-0 border border-primary/[0.05] rounded-[2rem]" />
-                            
+
                             {/* Image */}
                             <div className="relative aspect-[4/3]">
-                              <img
-                                src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=800&auto=format&fit=crop&q=60"
-                                alt="Sheet music collection"
-                                className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
+                              <Image
+                                src="/images/piano.jpg"
+                                alt="Vintage photograph of a violinist performing"
+                                fill
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                className="object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
+                                priority
                               />
                               {/* Minimal hover overlay */}
                               <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -192,10 +200,10 @@ export default function Home() {
                           Our Collection
                         </h3>
                         <p className="text-muted-foreground leading-relaxed">
-                          Explore our extensive digital archive of rare and historical
-                          music sheets, carefully curated and digitized to preserve
-                          their authenticity while making them accessible to modern
-                          practitioners.
+                          Explore our extensive digital archive of rare and
+                          historical music sheets, carefully curated and
+                          digitized to preserve their authenticity while making
+                          them accessible to modern practitioners.
                         </p>
                       </div>
                     </div>
@@ -207,10 +215,10 @@ export default function Home() {
                           Our Community
                         </h3>
                         <p className="text-muted-foreground leading-relaxed">
-                          Join a vibrant community of musicians, researchers, and
-                          enthusiasts. Share knowledge, explore musical spirituality,
-                          and contribute to the preservation of this unique musical
-                          heritage.
+                          Join a vibrant community of musicians, researchers,
+                          and enthusiasts. Share knowledge, explore musical
+                          spirituality, and contribute to the preservation of
+                          this unique musical heritage.
                         </p>
                       </div>
                       <div className="flex-1 order-1 md:order-2">
@@ -219,13 +227,16 @@ export default function Home() {
                           <div className="relative rounded-[2rem] overflow-hidden bg-card/10 backdrop-blur-[2px] group">
                             {/* Subtle border effect */}
                             <div className="absolute inset-0 border border-primary/[0.05] rounded-[2rem]" />
-                            
+
                             {/* Image */}
                             <div className="relative aspect-[4/3]">
-                              <img
-                                src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800&auto=format&fit=crop&q=60"
-                                alt="Musicians collaborating"
-                                className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
+                              <Image
+                                src="/images/rila-music.jpeg"
+                                alt="Vintage photograph of a violinist performing"
+                                fill
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                className="object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
+                                priority
                               />
                               {/* Minimal hover overlay */}
                               <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

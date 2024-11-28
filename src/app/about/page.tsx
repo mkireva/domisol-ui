@@ -48,7 +48,7 @@ export default function AboutPage() {
               title: "Education",
               description: "Access comprehensive learning materials with historical context and practical guidance."
             }
-          ].map((feature, index) => (
+          ].map((feature) => (
             <div key={feature.title} className="group relative">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent rounded-3xl -z-10 blur-xl group-hover:blur-2xl transition-all" />
               <div className="h-full p-6 sm:p-8 rounded-3xl bg-card/30 backdrop-blur-sm border border-primary/10 hover:border-primary/20 transition-all duration-300 hover:translate-y-[-2px]">
