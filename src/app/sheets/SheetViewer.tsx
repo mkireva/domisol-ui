@@ -335,8 +335,8 @@ export default function SheetViewer({
         }}
         className="relative"
       >
-        <div className="px-6 py-4 flex justify-center">
-          <TabsList className="flex w-full justify-between items-center z-50 gap-1 rounded-none p-0 h-auto sm:h-14 sm:gap-2 sm:p-2 sm:rounded-md">
+        <div className="flex justify-center">
+          <TabsList className="flex w-full justify-between items-center gap-1 h-auto sm:h-14 sm:gap-2">
             <TabsTrigger
               value="back"
               className="flex-1 sm:flex-initial px-2 sm:px-5 py-3 sm:py-2.5 text-sm sm:text-lg"
