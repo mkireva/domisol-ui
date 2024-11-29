@@ -2,18 +2,16 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="py-6">
+    <footer className="py-6 bg-background">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center">
           <Link
             href="https://www.kireva.de/"
-            className="text-sm text-grey-800 text-semibold transition-colors hover:text-primary dark:hover:text-primary/90"
+            className="text-sm text-muted-foreground font-medium transition-colors hover:text-primary"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span>
-              &copy; {new Date().getFullYear()} domisol.eu
-            </span>
+            <span>&copy; {new Date().getFullYear()} domisol.eu</span>
           </Link>
         </div>
       </div>
