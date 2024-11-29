@@ -16,7 +16,7 @@
       "composer": "Franz Xaver Gruber",
       "lyricist": "Franz Mohr",
       "year": 1818,
-      "location": "Oberndorf, Austria",
+      "location": "Oberndorf",
       "description": "Stille Nacht, heilige Nacht ist eines der bekanntesten Weihnachtslieder der Welt und gilt als Inbegriff des Weihnachtsbrauchtums im deutschen Sprachraum. Es wurde am 24. Dezember 1818 in der römisch-katholischen Kirche St. Nikola in Oberndorf bei Salzburg, an deren Stelle heute die Stille-Nacht-Kapelle steht, mit einer Melodie von Franz Xaver Gruber und dem Text von Joseph Mohr erstmals aufgeführt. Seither ist der deutsche Liedtext weltweit in 320 Sprachen und Dialekte übersetzt und gesungen worden.[1] Von den ursprünglich sechs Strophen werden in der allgemein bekannten Fassung nur die erste, zweite und letzte Strophe gesungen. 2011 wurde Stille Nacht, heilige Nacht von der UNESCO auf Antrag als immaterielles Kulturerbe in Österreich anerkannt.",
       "key": {
         "tonic": "B♭",
@@ -174,8 +174,8 @@
         }
       },
       "composer": "Петър Дънов",
-      "lyricist": "Franz Mohr",
-      "year": "1925",
+      "lyricist": "Петър Дънов",
+      "year": "17.06.1925",
       "location": "Izgrev, Sofia",
       "description": "Дадена на 17 юни 1925 г., София, Общ окултен клас, IV година, 28. лекция „Успоредните линии“. Думата Вехади означава започване на определена работа. Мотивът е малък пасаж от една свещена песен. Тоновете са смесени: мажорни и минорни. Учителя дава думата Вехади като музикално упражнение. Тя е окултен израз. В лекцията „Двете свещени положения“ той казва следното за думата Вехади: „Ако знаехте езика на ангелите, бих ви казал Вехади. Вехади – това е свойство на Духа. Тази дума произтича от дълбочината на душата, отвътре произлиза тя. Съзнанието трябва да се пробуди. Как? Ще имате вяра. [...] при Вехади виждате как се отваря духът ви“. Ред. бел.: Песента е нотирана безмензурно и без тактови черти. Темповите означения, знаците за динамика и тоналността тук са условни. При последната не се касае за ре минор, а по-скоро за компилация между стари ладове и маками. Песента не е фиксирана и предполага абсолютна свобода на интерпретацията, зависеща от способността на изпълнителя да отваря заложените в мелодията пространства на безкрайността, отивайки извън границите, указани му от нотацията относно темпо, динамика и нотни трайности. Тук става въпрос за жива музикална форма, търсеща всеки път своя първообраз, идващ от Божествения свят. Този първообраз е заложен в душата и тя го търси отново и отново чрез вътрешен мост към света на идеите.",
       "key": {
@@ -205,7 +205,7 @@
       },
       "composer": "Muzio Clementi",
       "year": 1797,
-      "location": "London, England",
+      "location": "London",
       "description": "Die Sonatine in C-Dur, Op. 36 Nr. 1, ist ein Meilenstein der Klavierpädagogik. Der erste Satz führt Schüler durch eine perfekt ausbalancierte Kombination von technischen Herausforderungen und musikalischer Ausdruckskraft. Die klare Struktur und durchdachte Progression machen dieses Werk zu einem essentiellen Bestandteil der klassischen Klavierausbildung. Clementi, der als 'Vater des Klaviers' bekannt ist, schuf mit dieser Sonatine ein Werk, das technische Entwicklung mit musikalischer Tiefe verbindet.",
       "key": {
         "tonic": "C",
@@ -226,7 +226,7 @@
       },
       "composer": "Muzio Clementi",
       "year": 1797,
-      "location": "London, England",
+      "location": "London",
       "description": "Der zweite Satz der Sonatine setzt die pädagogische Reise fort, konzentriert sich aber mehr auf den lyrischen Ausdruck und die Kantabilität. Mit seiner rondoartigen Struktur bietet er eine perfekte Plattform für die Entwicklung des musikalischen Ausdrucks. Die fließende Melodieführung und die begleitenden Figurationen schaffen ein ausgewogenes Zusammenspiel, das sowohl technisch lehrreich als auch musikalisch befriedigend ist.",
       "key": {
         "tonic": "C",
@@ -247,9 +247,9 @@
       },
       "composer": "Johann Sebastian Bach",
       "year": 1730,
-      "location": "Leipzig, Germany",
+      "location": "Leipzig",
       "description": "Die Air aus der Orchestersuite Nr. 3 in D-Dur (BWV 1068) ist eines der bekanntesten Werke Bachs. Der Satz besticht durch seine ausdrucksvolle Melodieführung über einem schreitenden Bass. Die kontrapunktische Meisterschaft Bachs zeigt sich in der perfekten Balance zwischen horizontaler Linienführung und vertikaler Harmonik. Besondere Berühmtheit erlangte das Stück durch August Wilhelmjs Bearbeitung als 'Air auf der G-Saite'. Die zeitlose Schönheit dieser Komposition macht sie zu einem der meistgeschätzten Werke der Barockmusik.",
-      "genre": "Baroque orchestral music",
+      "genre": "Baroque",
       "key": {
         "tonic": "D",
         "mode": "major",

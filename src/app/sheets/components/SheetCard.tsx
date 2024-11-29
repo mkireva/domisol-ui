@@ -50,10 +50,12 @@ function TagList({
   category,
   genre,
   year,
+  location,
 }: {
   category: string;
   genre?: string;
   year: number;
+  location?: string;
 }) {
   return (
     <div className="flex flex-wrap items-center gap-2">
@@ -66,14 +68,22 @@ function TagList({
       {genre && (
         <Badge
           variant="secondary"
-          className="text-sm sm:text-base bg-secondary/10 hover:bg-secondary/20"
+          className="text-sm sm:text-base bg-primary/10 hover:bg-primary/20"
         >
           {genre}
         </Badge>
       )}
+      {location && (
+        <Badge
+          variant="secondary"
+          className="text-sm sm:text-base bg-primary/10 hover:bg-primary/20"
+        >
+          {location}
+        </Badge>
+      )}
       <Badge
         variant="secondary"
-        className="text-sm sm:text-base bg-muted hover:bg-muted/80"
+        className="text-sm sm:text-base bg-primary/10 hover:bg-primary/20"
       >
         {year}
       </Badge>
@@ -83,20 +93,13 @@ function TagList({
 
 function ComposerInfo({
   composer,
-  location,
 }: {
   composer: string;
-  location?: string;
 }) {
   return (
     <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base sm:text-lg">
+      <span className="text-muted-foreground">Composer:</span>
       <span className="font-medium">{composer}</span>
-      {location && (
-        <>
-          <span className="text-muted-foreground hidden sm:inline ml-2">•</span>
-          <span className="text-muted-foreground">{location}</span>
-        </>
-      )}
     </div>
   );
 }
@@ -160,9 +163,9 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
       >
         <CardHeader className="relative space-y-4">
           {/* Title and Metadata Section */}
-          <div className="space-y-3">
+          <div className="space-y-1.5">
             <CardTitleSection title={sheet.title} />
-            <ComposerInfo composer={sheet.composer} location={sheet.location} />
+            <ComposerInfo composer={sheet.composer} />
             <LyricistInfo lyricist={sheet.lyricist} />
           </div>
 
@@ -177,6 +180,7 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
               category={sheet.category}
               genre={sheet.genre}
               year={sheet.year}
+              location={sheet.location}
             />
           </div>
         </CardHeader>
