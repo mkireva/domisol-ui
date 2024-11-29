@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="flex items-center justify-center">
           <Link
             href="https://www.kireva.de/"
-            className="text-sm text-grey-800  transition-colors hover:text-primary"
+            className="text-sm text-grey-800 text-semibold transition-colors hover:text-primary"
             target="_blank"
             rel="noopener noreferrer"
           >

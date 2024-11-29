@@ -34,7 +34,7 @@ export default function Home() {
                   </span>
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl text-grey-800 dark:text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                  Discover a unique collection of ocult music exercises.
+                  Discover a unique collection of occult music exercises.
                   Our digital archive preserves and shares centuries-old music
                   exercises, making them accessible to modern practitioners.
                 </p>
@@ -150,10 +150,10 @@ export default function Home() {
                             />
 
                             {/* Image */}
-                            <div className="relative h-[200px] sm:h-[250px] md:h-[300px] w-full">
+                            <div className="relative aspect-[16/9] w-full">
                               <Image
                                 src="/images/pdanov.png"
-                                alt="Vintage photograph of a violinist performing, showcasing traditional musical practices"
+                                alt="Petar Danov playing the violin"
                                 className="object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -178,7 +178,7 @@ export default function Home() {
                             />
 
                             {/* Image */}
-                            <div className="relative h-[200px] sm:h-[250px] md:h-[300px] w-full">
+                            <div className="relative aspect-[16/9] w-full">
                               <Image
                                 src="/images/piano.jpg"
                                 alt="Vintage photograph of a piano, highlighting the beauty of classical music"
@@ -228,7 +228,7 @@ export default function Home() {
                             />
 
                             {/* Image */}
-                            <div className="relative h-[200px] sm:h-[250px] md:h-[300px] w-full">
+                            <div className="relative aspect-[16/9] w-full">
                               <Image
                                 src="/images/rila-music.jpeg"
                                 alt="Vintage photograph of musicians, highlighting the importance of community in music"
