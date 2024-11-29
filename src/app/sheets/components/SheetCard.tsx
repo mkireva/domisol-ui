@@ -8,7 +8,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { Music4, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { MusicSheet } from "../actions";
 
@@ -68,9 +68,11 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
           {/* Metadata Section */}
           <div className="space-y-3">
             {/* Key Information */}
-            <div className="flex items-center gap-2 self-start bg-muted px-3 sm:px-4 py-1.5 rounded-md">
-              <div className="text-sm sm:text-base font-medium whitespace-nowrap">
-                {sheet.key.tonic} {sheet.key.mode}
+            <div className="flex items-center gap-2 self-start px-3 sm:px-4 py-1.5 rounded-md">
+              
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm sm:text-base">
+                <span className="font-medium "> {sheet.key.tonic}</span>
+                <span className="font-medium">{sheet.key.color}</span>
               </div>
               <div
                 className="w-4 sm:w-5 h-4 sm:h-5 rounded-full ring-1 ring-border shadow-sm flex-shrink-0"
