@@ -33,7 +33,7 @@ export default function Home() {
                     Music Archive
                   </span>
                 </h1>
-                <p className="text-base sm:text-lg md:text-xl text-muted-foreground dark:text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-grey-800 dark:text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                   Discover a unique collection of ocult music exercises.
                   Our digital archive preserves and shares centuries-old music
                   exercises, making them accessible to modern practitioners.
@@ -117,7 +117,7 @@ export default function Home() {
                     >
                       Discover Domisol
                     </h2>
-                    <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                    <p className="mt-4 text-base sm:text-lg text-grey-800 max-w-2xl mx-auto leading-relaxed">
                       A digital sanctuary for preserving and exploring the rich
                       heritage of occult music exercises, bridging centuries of
                       tradition with modern technology.
@@ -132,7 +132,7 @@ export default function Home() {
                         <h3 className="text-xl sm:text-2xl font-semibold text-primary">
                           Our Mission
                         </h3>
-                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                        <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
                           We are dedicated to preserving and sharing the
                           profound wisdom contained within centuries-old music
                           exercises. Our platform serves as a bridge between
@@ -195,7 +195,7 @@ export default function Home() {
                         <h3 className="text-xl sm:text-2xl font-semibold text-primary">
                           Our Collection
                         </h3>
-                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                        <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
                           Explore our extensive digital archive of rare and
                           historical music sheets, carefully curated and
                           digitized to preserve their authenticity while making
@@ -210,7 +210,7 @@ export default function Home() {
                         <h3 className="text-xl sm:text-2xl font-semibold text-primary">
                           Our Community
                         </h3>
-                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                        <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
                           Join a vibrant community of musicians, researchers,
                           and enthusiasts. Share knowledge, explore musical
                           spirituality, and contribute to the preservation of
