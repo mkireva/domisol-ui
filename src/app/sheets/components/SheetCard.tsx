@@ -68,11 +68,16 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
           {/* Metadata Section */}
           <div className="space-y-3">
             {/* Key Information */}
-            <div className="flex items-center gap-2 self-start px-3 sm:px-4 py-1.5 rounded-md">
-              
-            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm sm:text-base">
-                <span className="font-medium "> {sheet.key.tonic}</span>
-                <span className="font-medium">{sheet.key.color}</span>
+            <div className="flex items-center bg-secondary gap-2 self-start px-3 sm:px-4 py-1.5 rounded-md">
+              <div className="flex items-center gap-4 text-sm sm:text-base">
+                <div className="flex items-center gap-2">
+                  <span className="text-muted-foreground">Key:</span>
+                  <span className="font-medium">{sheet.key.tonic}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-muted-foreground">Color:</span>
+                  <span className="font-medium">{sheet.key.mode}</span>
+                </div>
               </div>
               <div
                 className="w-4 sm:w-5 h-4 sm:h-5 rounded-full ring-1 ring-border shadow-sm flex-shrink-0"
@@ -98,7 +103,7 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
                 </Badge>
               )}
               <Badge
-                variant="outline"
+                variant="secondary"
                 className="font-medium text-muted-foreground text-sm sm:text-base px-2 sm:px-3 py-1"
               >
                 {sheet.year}
