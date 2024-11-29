@@ -72,13 +72,19 @@ export function LyricsView({
             </div>
             <div className="bg-white dark:bg-gray-950 rounded-lg border shadow-sm">
               <div className="p-8">
-                <div className="whitespace-pre-wrap text-lg leading-loose tracking-wide">
+                <div className="whitespace-pre-wrap text-lg leading-normal tracking-normal">
                   {primaryLyrics?.split("\n\n").map((stanza, stanzaIndex) => (
-                    <div key={stanzaIndex} className="mb-14 last:mb-0">
+                    <div
+                      key={stanzaIndex}
+                      className="mb-8 last:mb-0 relative pl-8"
+                    >
+                      <span className="absolute left-0 top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-muted text-xs font-medium text-muted-foreground">
+                        {stanzaIndex + 1}
+                      </span>
                       {stanza.split("\n").map((line, lineIndex) => (
                         <div
                           key={`${stanzaIndex}-${lineIndex}`}
-                          className="px-3 py-1 rounded hover:bg-orange-50/80 hover:text-orange-900 dark:hover:bg-orange-500/10 dark:hover:text-orange-300 transition-colors"
+                          className="px-3 py-0.5 rounded hover:bg-muted hover:text-muted-foreground transition-colors"
                         >
                           {line}
                         </div>
@@ -126,19 +132,27 @@ export function LyricsView({
             {secondaryLyrics && (
               <div className="bg-white dark:bg-gray-950 rounded-lg border shadow-sm">
                 <div className="p-8">
-                  <div className="whitespace-pre-wrap text-lg leading-loose tracking-wide">
-                    {secondaryLyrics?.split("\n\n").map((stanza, stanzaIndex) => (
-                      <div key={stanzaIndex} className="mb-14 last:mb-0">
-                        {stanza.split("\n").map((line, lineIndex) => (
-                          <div
-                            key={`${stanzaIndex}-${lineIndex}`}
-                            className="px-3 py-1 rounded hover:bg-orange-50/80 hover:text-orange-900 dark:hover:bg-orange-500/10 dark:hover:text-orange-300 transition-colors"
-                          >
-                            {line}
-                          </div>
-                        ))}
-                      </div>
-                    ))}
+                  <div className="whitespace-pre-wrap text-lg leading-normal tracking-normal">
+                    {secondaryLyrics
+                      ?.split("\n\n")
+                      .map((stanza, stanzaIndex) => (
+                        <div
+                          key={stanzaIndex}
+                          className="mb-8 last:mb-0 relative pl-8"
+                        >
+                          <span className="absolute left-0 top-1.5 flex items-center justify-center w-6 h-6 rounded-full bg-muted text-xs font-medium text-muted-foreground">
+                            {stanzaIndex + 1}
+                          </span>
+                          {stanza.split("\n").map((line, lineIndex) => (
+                            <div
+                              key={`${stanzaIndex}-${lineIndex}`}
+                              className="px-3 py-0.5 rounded hover:bg-muted hover:text-muted-foreground transition-colors"
+                            >
+                              {line}
+                            </div>
+                          ))}
+                        </div>
+                      ))}
                   </div>
                 </div>
               </div>
