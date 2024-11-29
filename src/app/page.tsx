@@ -108,16 +108,16 @@ export default function Home() {
                 <div className="absolute inset-0 -z-10" aria-hidden="true">
                 </div>
 
-                <div className="max-w-6xl mx-auto py-8 sm:py-12 md:py-16">
+                <div className="max-w-6xl mx-auto py-6 sm:py-8 md:py-12">
                   {/* Section Title */}
-                  <header className="text-center mb-16 sm:mb-20 animate-in fade-in duration-1000">
+                  <header className="text-center mb-12 sm:mb-16 animate-in fade-in duration-1000">
                     <h2
                       id="discover-heading"
-                      className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary"
+                      className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary"
                     >
                       Discover Domisol
                     </h2>
-                    <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                    <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                       A digital sanctuary for preserving and exploring the rich
                       heritage of occult music exercises, bridging centuries of
                       tradition with modern technology.
@@ -125,14 +125,14 @@ export default function Home() {
                   </header>
 
                   {/* Content Sections */}
-                  <div className="space-y-24 sm:space-y-32 md:space-y-40 animate-in fade-in duration-1000 [animation-delay:200ms]">
+                  <div className="space-y-16 sm:space-y-20 md:space-y-24 animate-in fade-in duration-1000 [animation-delay:200ms]">
                     {/* Mission Section */}
-                    <article className="flex flex-col md:flex-row items-center gap-8 sm:gap-12 md:gap-16">
-                      <div className="flex-1 order-2 md:order-1 space-y-4">
-                        <h3 className="text-2xl sm:text-3xl font-semibold text-primary">
+                    <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12">
+                      <div className="flex-1 order-2 md:order-1 space-y-3">
+                        <h3 className="text-xl sm:text-2xl font-semibold text-primary">
                           Our Mission
                         </h3>
-                        <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                           We are dedicated to preserving and sharing the
                           profound wisdom contained within centuries-old music
                           exercises. Our platform serves as a bridge between
@@ -142,15 +142,15 @@ export default function Home() {
                       <div className="flex-1 order-1 md:order-2 w-full">
                         <div className="relative w-full">
                           {/* Minimal frame */}
-                          <div className="relative rounded-[2rem] overflow-hidden bg-card group">
+                          <div className="relative rounded-2xl overflow-hidden bg-card group">
                             {/* Subtle border effect */}
                             <div
-                              className="absolute inset-0 border border-border rounded-[2rem]"
+                              className="absolute inset-0 border border-border rounded-2xl"
                               aria-hidden="true"
                             />
 
                             {/* Image */}
-                            <div className="relative h-[250px] sm:h-[300px] md:h-[400px] w-full">
+                            <div className="relative h-[200px] sm:h-[250px] md:h-[300px] w-full">
                               <Image
                                 src="/images/pdanov.png"
                                 alt="Vintage photograph of a violinist performing, showcasing traditional musical practices"
@@ -166,19 +166,19 @@ export default function Home() {
                     </article>
 
                     {/* Collection Section */}
-                    <article className="flex flex-col md:flex-row items-center gap-8 sm:gap-12 md:gap-16">
+                    <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12">
                       <div className="flex-1 w-full">
                         <div className="relative w-full">
                           {/* Minimal frame */}
-                          <div className="relative rounded-[2rem] overflow-hidden bg-card group">
+                          <div className="relative rounded-2xl overflow-hidden bg-card group">
                             {/* Subtle border effect */}
                             <div
-                              className="absolute inset-0 border border-border rounded-[2rem]"
+                              className="absolute inset-0 border border-border rounded-2xl"
                               aria-hidden="true"
                             />
 
                             {/* Image */}
-                            <div className="relative h-[250px] sm:h-[300px] md:h-[400px] w-full">
+                            <div className="relative h-[200px] sm:h-[250px] md:h-[300px] w-full">
                               <Image
                                 src="/images/piano.jpg"
                                 alt="Vintage photograph of a piano, highlighting the beauty of classical music"
@@ -191,11 +191,11 @@ export default function Home() {
                           </div>
                         </div>
                       </div>
-                      <div className="flex-1 space-y-4">
-                        <h3 className="text-2xl sm:text-3xl font-semibold text-primary">
+                      <div className="flex-1 space-y-3">
+                        <h3 className="text-xl sm:text-2xl font-semibold text-primary">
                           Our Collection
                         </h3>
-                        <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                           Explore our extensive digital archive of rare and
                           historical music sheets, carefully curated and
                           digitized to preserve their authenticity while making
@@ -205,12 +205,12 @@ export default function Home() {
                     </article>
 
                     {/* Community Section */}
-                    <article className="flex flex-col md:flex-row items-center gap-8 sm:gap-12 md:gap-16">
-                      <div className="flex-1 order-2 md:order-1 space-y-4">
-                        <h3 className="text-2xl sm:text-3xl font-semibold text-primary">
+                    <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12">
+                      <div className="flex-1 order-2 md:order-1 space-y-3">
+                        <h3 className="text-xl sm:text-2xl font-semibold text-primary">
                           Our Community
                         </h3>
-                        <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                           Join a vibrant community of musicians, researchers,
                           and enthusiasts. Share knowledge, explore musical
                           spirituality, and contribute to the preservation of
@@ -220,15 +220,15 @@ export default function Home() {
                       <div className="flex-1 order-1 md:order-2 w-full">
                         <div className="relative w-full">
                           {/* Minimal frame */}
-                          <div className="relative rounded-[2rem] overflow-hidden bg-card group">
+                          <div className="relative rounded-2xl overflow-hidden bg-card group">
                             {/* Subtle border effect */}
                             <div
-                              className="absolute inset-0 border border-border rounded-[2rem]"
+                              className="absolute inset-0 border border-border rounded-2xl"
                               aria-hidden="true"
                             />
 
                             {/* Image */}
-                            <div className="relative h-[250px] sm:h-[300px] md:h-[400px] w-full">
+                            <div className="relative h-[200px] sm:h-[250px] md:h-[300px] w-full">
                               <Image
                                 src="/images/rila-music.jpeg"
                                 alt="Vintage photograph of musicians, highlighting the importance of community in music"
