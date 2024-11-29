@@ -12,21 +12,21 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
     SUPPORTED_LANGUAGES.find((l) => l.code === language)?.name || language;
 
   return (
-    <div className="bg-white dark:bg-gray-950 rounded-lg border shadow-sm">
+    <div className="bg-card rounded-lg border border-border shadow-sm">
       <div className="p-8">
         <div className="mb-8">
           <h1 className="text-2xl font-semibold tracking-tight mb-3">
             Score Information
-            <span className="ml-2 text-base font-normal text-muted-foreground">
+            <span className="ml-2 text-base font-normal text-foreground/80">
               ({languageName})
             </span>
           </h1>
-          <p className="text-base text-muted-foreground">
+          <p className="text-base text-foreground/80">
             Detailed information about this musical score
           </p>
         </div>
 
-        <div className="space-y-10 p-8">
+        <div className="space-y-10">
           <div className="grid grid-cols-2 gap-6">
             {/* Column 1 */}
             <div className="space-y-6">
@@ -38,7 +38,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                 >
                   <h2
                     id={`title-heading-${language}`}
-                    className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
+                    className="text-sm font-medium text-foreground/80 uppercase tracking-wide"
                   >
                     Title
                   </h2>
@@ -68,7 +68,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                 >
                   <h2
                     id={`composer-heading-${language}`}
-                    className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
+                    className="text-sm font-medium text-foreground/80 uppercase tracking-wide"
                   >
                     Composer
                   </h2>
@@ -84,7 +84,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                 >
                   <h2
                     id={`location-heading-${language}`}
-                    className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
+                    className="text-sm font-medium text-foreground/80 uppercase tracking-wide"
                   >
                     Location
                   </h2>
@@ -103,7 +103,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                 >
                   <h2
                     id={`key-heading-${language}`}
-                    className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
+                    className="text-sm font-medium text-foreground/80 uppercase tracking-wide"
                   >
                     Key and Color
                   </h2>
@@ -113,7 +113,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                     </p>
                     {sheet.key.color && (
                       <div
-                        className="w-5 h-5 rounded-full border border-border"
+                        className="w-5 h-5 rounded-full border-2 border-border"
                         style={{ backgroundColor: sheet.key.color }}
                         aria-label={`Key color: ${sheet.key.color}`}
                       />
@@ -130,7 +130,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                 >
                   <h2
                     id={`lyricist-heading-${language}`}
-                    className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
+                    className="text-sm font-medium text-foreground/80 uppercase tracking-wide"
                   >
                     Lyricist
                   </h2>
@@ -151,7 +151,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                 >
                   <h2
                     id={`category-heading-${language}`}
-                    className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
+                    className="text-sm font-medium text-foreground/80 uppercase tracking-wide"
                   >
                     Category
                   </h2>
@@ -170,7 +170,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                 >
                   <h2
                     id={`year-heading-${language}`}
-                    className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
+                    className="text-sm font-medium text-foreground/80 uppercase tracking-wide"
                   >
                     Year
                   </h2>
@@ -188,7 +188,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
             >
               <h2
                 id={`description-heading-${language}`}
-                className="text-sm font-medium text-muted-foreground uppercase tracking-wide"
+                className="text-sm font-medium text-foreground/80 uppercase tracking-wide"
               >
                 Description
               </h2>

@@ -117,8 +117,8 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
 
         <CardFooter className="pt-3 sm:pt-4 mt-auto">
           <Button
-            variant="secondary"
-            className="w-full group/button hover:bg-primary/10 transition-all duration-300"
+            variant="outline"
+            className="w-full group/button bg-muted hover:bg-muted/80 transition-all duration-300"
           >
             <div className="flex items-center justify-center gap-2 py-1">
               <Play className="h-4 w-4 transition-transform group-hover/button:scale-110" />

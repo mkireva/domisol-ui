@@ -5,253 +5,267 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-primary/5 rounded-full blur-3xl animate-float animate-pulse-slow" />
-      </div>
+      <div
+        className="absolute inset-0 -z-10 bg-[#f5f5f5] dark:bg-[#1a1a1a] overflow-hidden"
+        aria-hidden="true"
+      ></div>
 
-      <div className="flex-grow">
+      <main className="flex-grow">
         <div className="relative">
-          <div className="container mx-auto px-4 py-12 sm:py-16">
+          <div className="container mx-auto px-3 sm:px-4 md:px-6 py-6 sm:py-8 md:py-12 lg:py-16">
             {/* Hero Section */}
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-              {/* Left Content */}
-              <div className="flex-1 text-center lg:text-left">
-                <h1 className="text-4xl md:text-6xl font-bold tracking-tight animate-slide-up [animation-delay:150ms]">
-                  <span className="text-primary">
+            <section
+              aria-labelledby="hero-heading"
+              className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto"
+            >
+              <div
+                className="animate-slide-up space-y-6 sm:space-y-8"
+                role="presentation"
+              >
+                <h1
+                  id="hero-heading"
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
+                >
+                  <span className="text-primary dark:text-primary">
                     Domisol
                   </span>
+                  <span className="block mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-grey-800 dark:text-gray-100">
+                    Music Archive
+                  </span>
                 </h1>
-                <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 animate-slide-up [animation-delay:200ms]">
-                  Explore the secrets of occult music exercises through our
-                  curated collection of music sheets and audio examples.
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                  Discover a unique collection of musical wisdom from the past.
+                  Our digital archive preserves and shares centuries-old music
+                  exercises, making them accessible to modern practitioners.
                 </p>
-
-                {/* CTA Buttons */}
-                <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up [animation-delay:300ms]">
+                <div
+                  className="flex flex-wrap justify-center gap-4 sm:gap-6"
+                  role="navigation"
+                  aria-label="Primary"
+                >
                   <Link
                     href="/sheets"
-                    className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-white shadow-lg hover:bg-primary/90 transition-colors"
+                    className="inline-flex items-center justify-center rounded-md bg-primary px-6 sm:px-8 py-3 text-base sm:text-lg font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                    aria-label="Learn more about Domisol"
                   >
-                    Browse Sheets
+                    Browse sheets
                   </Link>
                   <Link
                     href="/about"
-                    className="inline-flex items-center justify-center rounded-full bg-secondary px-6 py-3 text-sm font-medium text-secondary-foreground hover:bg-secondary/80 transition-colors"
+                    className="inline-flex items-center justify-center rounded-md border border-input bg-background px-6 sm:px-8 py-3 text-base sm:text-lg font-medium text-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                    aria-label="Learn more about Domisol"
                   >
-                    Learn More
+                    Learn more
                   </Link>
                 </div>
               </div>
-
-              {/* Right Image */}
-              <div className="flex-1 relative animate-slide-up [animation-delay:400ms]">
-                <div className="relative aspect-[4/3] max-w-xl mx-auto">
-                  {/* Background effects */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent blur-2xl rounded-[2rem] animate-pulse-slow" />
-                  <div className="absolute -inset-4 bg-gradient-to-l from-primary/10 via-primary/5 to-transparent blur-2xl rounded-[2rem] animate-pulse-slow [animation-delay:1s]" />
-
-                  {/* Frame container */}
-                  <div className="relative rounded-[2rem] overflow-hidden bg-card/30 backdrop-blur-sm border border-primary/10 p-4 hover:border-primary/20 transition-all duration-500">
-                    {/* Decorative corner elements */}
-                    <div className="absolute -left-3 -top-3 w-6 h-6 border-l-2 border-t-2 border-primary/20 rounded-tl-lg" />
-                    <div className="absolute -right-3 -top-3 w-6 h-6 border-r-2 border-t-2 border-primary/20 rounded-tr-lg" />
-                    <div className="absolute -left-3 -bottom-3 w-6 h-6 border-l-2 border-b-2 border-primary/20 rounded-bl-lg" />
-                    <div className="absolute -right-3 -bottom-3 w-6 h-6 border-r-2 border-b-2 border-primary/20 rounded-br-lg" />
-
-                    {/* Glow effects */}
-                    <div className="absolute -left-6 -top-6 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
-                    <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
-
-                    {/* Image container */}
-                    <div className="relative aspect-[4/3] rounded-[1.5rem] overflow-hidden group">
-                      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10" />
-                      <Image
-                        src="/images/pdanov.png"
-                        alt="Vintage photograph of a violinist performing"
-                        fill
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        className="object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
-                        priority
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </section>
 
             {/* Features Section */}
-            <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 animate-in fade-in duration-1000">
-              <div className="p-6 rounded-2xl bg-card/50 backdrop-blur-sm">
-                <h2 className="text-xl font-semibold mb-2">
-                  Digital Sheet Music
-                </h2>
-                <p className="text-muted-foreground">
-                  Access a vast collection of classical music scores in digital
-                  format.
-                </p>
+            <section
+              aria-labelledby="features-heading"
+              className="mt-20 sm:mt-24 md:mt-32"
+            >
+              <h2 id="features-heading" className="sr-only">
+                Features
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 animate-in fade-in duration-1000">
+                <article className="p-6 sm:p-8 rounded-3xl bg-card border border-primary/10 shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
+                  <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                    Digital Sheet Music
+                  </h3>
+                  <p className="text-base sm:text-lg text-foreground/90 leading-relaxed">
+                    Access a vast collection of classical music scores in
+                    digital format.
+                  </p>
+                </article>
+                <article className="p-6 sm:p-8 rounded-3xl bg-card border border-primary/10 shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
+                  <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                    Interactive Learning
+                  </h3>
+                  <p className="text-base sm:text-lg text-foreground/90 leading-relaxed">
+                    Practice with integrated audio playback and visual guidance.
+                  </p>
+                </article>
+                <article className="p-6 sm:p-8 rounded-3xl bg-card border border-primary/10 shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
+                  <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                    Community Driven
+                  </h3>
+                  <p className="text-base sm:text-lg text-foreground/90 leading-relaxed">
+                    Join a community of musicians sharing and learning together.
+                  </p>
+                </article>
               </div>
-              <div className="p-6 rounded-2xl bg-card/50 backdrop-blur-sm">
-                <h2 className="text-xl font-semibold mb-2">
-                  Interactive Learning
-                </h2>
-                <p className="text-muted-foreground">
-                  Practice with integrated audio playback and visual guidance.
-                </p>
-              </div>
-              <div className="p-6 rounded-2xl bg-card/50 backdrop-blur-sm">
-                <h2 className="text-xl font-semibold mb-2">Community Driven</h2>
-                <p className="text-muted-foreground">
-                  Join a community of musicians sharing and learning together.
-                </p>
-              </div>
-            </div>
+            </section>
 
             {/* Project Description */}
-            <div className="mt-24">
+            <section
+              aria-labelledby="discover-heading"
+              className="mt-20 sm:mt-24 md:mt-32"
+            >
               <div className="relative">
                 {/* Background Elements */}
-                <div className="absolute inset-0 -z-10">
-                  <div className="absolute left-1/4 top-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
-                  <div className="absolute right-1/4 bottom-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float [animation-delay:2s]" />
+                <div className="absolute inset-0 -z-10" aria-hidden="true">
+                  <div className="absolute left-1/4 top-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-[#f5f5f5] dark:bg-[#1a1a1a] rounded-full blur-3xl animate-float" />
+                  <div className="absolute right-1/4 bottom-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-[#f5f5f5] dark:bg-[#1a1a1a] rounded-full blur-3xl animate-float [animation-delay:2s]" />
                 </div>
 
-                <div className="max-w-5xl mx-auto px-6 py-16">
+                <div className="max-w-6xl mx-auto py-8 sm:py-12 md:py-16">
                   {/* Section Title */}
-                  <div className="text-center mb-16 animate-in fade-in duration-1000">
-                    <h2 className="text-4xl font-bold text-primary inline-block">
+                  <header className="text-center mb-16 sm:mb-20 animate-in fade-in duration-1000">
+                    <h2
+                      id="discover-heading"
+                      className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary"
+                    >
                       Discover Domisol
                     </h2>
-                    <div className="mt-6 max-w-2xl mx-auto">
-                      <p className="text-lg text-muted-foreground">
-                        A digital sanctuary for preserving and exploring the
-                        rich heritage of occult music exercises, bridging
-                        centuries of tradition with modern technology.
-                      </p>
-                    </div>
-                  </div>
+                    <p className="mt-6 text-lg sm:text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed">
+                      A digital sanctuary for preserving and exploring the rich
+                      heritage of occult music exercises, bridging centuries of
+                      tradition with modern technology.
+                    </p>
+                  </header>
 
                   {/* Content Sections */}
-                  <div className="space-y-32 animate-in fade-in duration-1000 [animation-delay:200ms]">
+                  <div className="space-y-24 sm:space-y-32 md:space-y-40 animate-in fade-in duration-1000 [animation-delay:200ms]">
                     {/* Mission Section */}
-                    <div className="flex flex-col md:flex-row items-center gap-12">
-                      <div className="flex-1 order-2 md:order-1">
-                        <h2 className="text-2xl font-semibold mb-4 text-primary">
+                    <article className="flex flex-col md:flex-row items-center gap-8 sm:gap-12 md:gap-16">
+                      <div className="flex-1 order-2 md:order-1 space-y-4">
+                        <h3 className="text-2xl sm:text-3xl font-semibold text-primary">
                           Our Mission
-                        </h2>
-                        <p className="text-muted-foreground leading-relaxed">
+                        </h3>
+                        <p className="text-base sm:text-lg text-foreground/90 leading-relaxed">
                           We are dedicated to preserving and sharing the
                           profound wisdom contained within centuries-old music
                           exercises. Our platform serves as a bridge between
                           traditional practices and modern musical education.
                         </p>
                       </div>
-                      <div className="flex-1 order-1 md:order-2">
-                        <div className="relative">
+                      <div className="flex-1 order-1 md:order-2 w-full">
+                        <div className="relative w-full">
                           {/* Minimal frame */}
                           <div className="relative rounded-[2rem] overflow-hidden bg-card/10 backdrop-blur-[2px] group">
                             {/* Subtle border effect */}
-                            <div className="absolute inset-0 border border-primary/[0.05] rounded-[2rem]" />
+                            <div
+                              className="absolute inset-0 border border-primary/[0.05] rounded-[2rem]"
+                              aria-hidden="true"
+                            />
 
                             {/* Image */}
-                            <div className="relative aspect-[4/3]">
+                            <div className="relative h-[250px] sm:h-[300px] md:h-[400px] w-full">
                               <Image
-                                src="/images/music.jpeg"
-                                alt="Vintage photograph of a violinist performing"
+                                src="/images/pdanov.png"
+                                alt="Vintage photograph of a violinist performing, showcasing traditional musical practices"
+                                className="object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"
-                                className="object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
-                                priority
+                                priority={true}
                               />
                               {/* Minimal hover overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                              <div
+                                className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                aria-hidden="true"
+                              />
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </article>
 
                     {/* Collection Section */}
-                    <div className="flex flex-col md:flex-row items-center gap-12">
-                      <div className="flex-1">
-                        <div className="relative">
+                    <article className="flex flex-col md:flex-row items-center gap-8 sm:gap-12 md:gap-16">
+                      <div className="flex-1 w-full">
+                        <div className="relative w-full">
                           {/* Minimal frame */}
                           <div className="relative rounded-[2rem] overflow-hidden bg-card/10 backdrop-blur-[2px] group">
                             {/* Subtle border effect */}
-                            <div className="absolute inset-0 border border-primary/[0.05] rounded-[2rem]" />
+                            <div
+                              className="absolute inset-0 border border-primary/[0.05] rounded-[2rem]"
+                              aria-hidden="true"
+                            />
 
                             {/* Image */}
-                            <div className="relative aspect-[4/3]">
+                            <div className="relative h-[250px] sm:h-[300px] md:h-[400px] w-full">
                               <Image
                                 src="/images/piano.jpg"
-                                alt="Vintage photograph of a violinist performing"
+                                alt="Vintage photograph of a piano, highlighting the beauty of classical music"
+                                className="object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"
-                                className="object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
-                                priority
+                                priority={true}
                               />
                               {/* Minimal hover overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                              <div
+                                className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                aria-hidden="true"
+                              />
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div className="flex-1">
-                        <h2 className="text-2xl font-semibold mb-4 text-primary">
+                      <div className="flex-1 space-y-4">
+                        <h3 className="text-2xl sm:text-3xl font-semibold text-primary">
                           Our Collection
-                        </h2>
-                        <p className="text-muted-foreground leading-relaxed">
+                        </h3>
+                        <p className="text-base sm:text-lg text-foreground/90 leading-relaxed">
                           Explore our extensive digital archive of rare and
                           historical music sheets, carefully curated and
                           digitized to preserve their authenticity while making
                           them accessible to modern practitioners.
                         </p>
                       </div>
-                    </div>
+                    </article>
 
                     {/* Community Section */}
-                    <div className="flex flex-col md:flex-row items-center gap-12">
-                      <div className="flex-1 order-2 md:order-1">
-                        <h2 className="text-2xl font-semibold mb-4 text-primary">
+                    <article className="flex flex-col md:flex-row items-center gap-8 sm:gap-12 md:gap-16">
+                      <div className="flex-1 order-2 md:order-1 space-y-4">
+                        <h3 className="text-2xl sm:text-3xl font-semibold text-primary">
                           Our Community
-                        </h2>
-                        <p className="text-muted-foreground leading-relaxed">
+                        </h3>
+                        <p className="text-base sm:text-lg text-foreground/90 leading-relaxed">
                           Join a vibrant community of musicians, researchers,
                           and enthusiasts. Share knowledge, explore musical
                           spirituality, and contribute to the preservation of
                           this unique musical heritage.
                         </p>
                       </div>
-                      <div className="flex-1 order-1 md:order-2">
-                        <div className="relative">
+                      <div className="flex-1 order-1 md:order-2 w-full">
+                        <div className="relative w-full">
                           {/* Minimal frame */}
                           <div className="relative rounded-[2rem] overflow-hidden bg-card/10 backdrop-blur-[2px] group">
                             {/* Subtle border effect */}
-                            <div className="absolute inset-0 border border-primary/[0.05] rounded-[2rem]" />
+                            <div
+                              className="absolute inset-0 border border-primary/[0.05] rounded-[2rem]"
+                              aria-hidden="true"
+                            />
 
                             {/* Image */}
-                            <div className="relative aspect-[4/3]">
+                            <div className="relative h-[250px] sm:h-[300px] md:h-[400px] w-full">
                               <Image
                                 src="/images/rila-music.jpeg"
-                                alt="Vintage photograph of a violinist performing"
+                                alt="Vintage photograph of musicians, highlighting the importance of community in music"
+                                className="object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"
-                                className="object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
-                                priority
+                                priority={true}
                               />
                               {/* Minimal hover overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                              <div
+                                className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                aria-hidden="true"
+                              />
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </article>
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 }
