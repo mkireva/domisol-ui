@@ -4,6 +4,7 @@ import { getMusicXMLExamples } from "./actions";
 
 export default async function Sheet() {
   const sheets = await getMusicXMLExamples();
+  console.log("Page received sheets:", sheets);
 
   return (
     <div className="min-h-screen relative overflow-hidden">

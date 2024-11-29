@@ -14,16 +14,13 @@ export type Key = {
   color: string;
 };
 
-export type Lyricist = {
-  name: string;
-  notes: string;
-};
+
 
 export type MusicSheet = {
-  name: string;
+  title: string;
   url: string;
   composer: string;
-  lyricist?: Lyricist;
+  lyricist?: string;
   year: number;
   location?: string;
   description: string;
@@ -58,13 +55,14 @@ export async function getMusicXMLExamples(): Promise<MusicSheet[]> {
   try {
     const fileContents = await fs.readFile(filePath, "utf-8");
     const data = JSON.parse(fileContents);
+    console.log("Loaded sheets data:", data.examples);
     return data.examples || [];
   } catch (error) {
     console.error("Error reading music XML examples:", error);
     // Return default sheet if file reading fails
     return [
       {
-        name: "Muzio Clementi Sonatina",
+        title: "Muzio Clementi Sonatina",
         url: "https://opensheetmusicdisplay.github.io/demo/MuzioClementi_SonatinaOpus36No1_Part1.xml",
         composer: "Muzio Clementi",
         year: 1797,

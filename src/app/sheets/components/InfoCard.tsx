@@ -31,7 +31,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
             {/* Column 1 */}
             <div className="space-y-6">
               {/* Title Section */}
-              {sheet?.name && (
+              {sheet?.title && (
                 <section
                   className="space-y-2"
                   aria-labelledby={`title-heading-${language}`}
@@ -44,7 +44,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                   </h2>
                   <p className="text-lg font-medium">
                     {language === "de"
-                      ? sheet.name
+                      ? sheet.title
                       : language === "en"
                       ? "Silent Night"
                       : language === "es"
@@ -55,7 +55,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                       ? "Astro del Ciel"
                       : language === "bg"
                       ? "Тиха нощ"
-                      : sheet.name}
+                      : sheet.title}
                   </p>
                 </section>
               )}
@@ -134,7 +134,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
                   >
                     Lyricist
                   </h2>
-                  <p className="text-lg">{sheet.lyricist.name}</p>
+                  <p className="text-lg">{sheet.lyricist}</p>
                 </section>
               )}
             </div>
@@ -192,7 +192,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
               >
                 Description
               </h2>
-              <p className="text-lg leading-relaxed">{sheet.description}</p>
+              <p className="text-lg text-grey-900 leading-relaxed">{sheet.description}</p>
             </section>
           )}
         </div>
