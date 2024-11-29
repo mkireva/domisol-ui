@@ -29,14 +29,12 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
           "flex flex-col group relative overflow-hidden h-full",
           "hover:shadow-lg transition-all duration-500",
           "animate-in fade-in slide-in-from-bottom duration-1000",
-          "bg-card/50 backdrop-blur-sm cursor-pointer"
+          "bg-card"
         )}
         style={{
           animationDelay: `${index * 100}ms`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
         <CardHeader className="relative space-y-4 sm:space-y-6">
           <div className="space-y-2 sm:space-y-3">
             <CardTitle className="text-lg sm:text-xl font-semibold line-clamp-1 group-hover:text-primary transition-colors duration-300">
@@ -77,7 +75,7 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
             <div className="flex flex-wrap items-center gap-2">
               <Badge
                 variant="secondary"
-                className="capitalize font-medium bg-primary/5 hover:bg-primary/10 transition-colors text-sm sm:text-base px-3 sm:px-4 py-1"
+                className="capitalize font-medium text-sm sm:text-base px-3 sm:px-4 py-1"
               >
                 {sheet.category}
               </Badge>
@@ -88,7 +86,7 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
                 {sheet.year}
               </Badge>
             </div>
-            <div className="flex items-center gap-2 self-start sm:self-auto bg-muted/30 px-3 sm:px-4 py-1.5 rounded-md">
+            <div className="flex items-center gap-2 self-start sm:self-auto bg-muted px-3 sm:px-4 py-1.5 rounded-md">
               <div className="text-sm sm:text-base font-medium whitespace-nowrap">
                 {sheet.key.tonic} {sheet.key.mode}
               </div>
@@ -106,19 +104,16 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
             <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
               Description
             </h3>
-            <p className="text-base leading-relaxed line-clamp-3 text-foreground/90">
+            <p className="text-base leading-relaxed line-clamp-3 text-muted-foreground">
               {sheet.description}
             </p>
-            {sheet.description.length > 250 && (
-              <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-background to-transparent" />
-            )}
           </div>
         </CardContent>
 
         <CardFooter className="pt-3 sm:pt-4 mt-auto">
           <Button
             variant="outline"
-            className="w-full group/button bg-muted hover:bg-muted/80 transition-all duration-300"
+            className="w-full group/button bg-card hover:bg-muted transition-all duration-300"
           >
             <div className="flex items-center justify-center gap-2 py-1">
               <Play className="h-4 w-4 transition-transform group-hover/button:scale-110" />

@@ -6,7 +6,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen relative overflow-hidden">
       {/* Background Elements */}
       <div
-        className="absolute inset-0 -z-10 bg-[#f5f5f5] dark:bg-[#1a1a1a] overflow-hidden"
+        className="absolute inset-0 -z-10 bg-background dark:bg-background overflow-hidden"
         aria-hidden="true"
       ></div>
 
@@ -29,11 +29,11 @@ export default function Home() {
                   <span className="text-primary dark:text-primary">
                     Domisol
                   </span>
-                  <span className="block mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-grey-800 dark:text-gray-100">
+                  <span className="block mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-foreground">
                     Music Archive
                   </span>
                 </h1>
-                <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-muted-foreground dark:text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                   Discover a unique collection of musical wisdom from the past.
                   Our digital archive preserves and shares centuries-old music
                   exercises, making them accessible to modern practitioners.
@@ -45,15 +45,15 @@ export default function Home() {
                 >
                   <Link
                     href="/sheets"
-                    className="inline-flex items-center justify-center rounded-md bg-primary px-6 sm:px-8 py-3 text-base sm:text-lg font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
-                    aria-label="Learn more about Domisol"
+                    className="inline-flex items-center justify-center rounded-full bg-primary px-6 sm:px-8 py-2.5 text-sm sm:text-base font-medium text-primary-foreground shadow-lg transition-all duration-300 hover:bg-primary/90 hover:scale-105 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    aria-label="Browse music sheets"
                   >
                     Browse sheets
                   </Link>
                   <Link
                     href="/about"
-                    className="inline-flex items-center justify-center rounded-md border border-input bg-background px-6 sm:px-8 py-3 text-base sm:text-lg font-medium text-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
-                    aria-label="Learn more about Domisol"
+                    className="inline-flex items-center justify-center rounded-full border-2 border-primary/20 bg-background/50 backdrop-blur-sm px-6 sm:px-8 py-2.5 text-sm sm:text-base font-medium text-foreground shadow-lg transition-all duration-300 hover:bg-primary/10 hover:border-primary/30 hover:scale-105 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    aria-label="Learn about Domisol"
                   >
                     Learn more
                   </Link>
@@ -64,34 +64,34 @@ export default function Home() {
             {/* Features Section */}
             <section
               aria-labelledby="features-heading"
-              className="mt-20 sm:mt-24 md:mt-32"
+              className="mt-24 sm:mt-32 md:mt-40"
             >
               <h2 id="features-heading" className="sr-only">
                 Features
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 animate-in fade-in duration-1000">
-                <article className="p-6 sm:p-8 rounded-3xl bg-card border border-primary/10 shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
-                  <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 animate-in fade-in duration-1000">
+                <article className="p-5 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                     Digital Sheet Music
                   </h3>
-                  <p className="text-base sm:text-lg text-foreground/90 leading-relaxed">
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     Access a vast collection of classical music scores in
                     digital format.
                   </p>
                 </article>
-                <article className="p-6 sm:p-8 rounded-3xl bg-card border border-primary/10 shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
-                  <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                <article className="p-5 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                     Interactive Learning
                   </h3>
-                  <p className="text-base sm:text-lg text-foreground/90 leading-relaxed">
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     Practice with integrated audio playback and visual guidance.
                   </p>
                 </article>
-                <article className="p-6 sm:p-8 rounded-3xl bg-card border border-primary/10 shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
-                  <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                <article className="p-5 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                     Community Driven
                   </h3>
-                  <p className="text-base sm:text-lg text-foreground/90 leading-relaxed">
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     Join a community of musicians sharing and learning together.
                   </p>
                 </article>
@@ -101,13 +101,11 @@ export default function Home() {
             {/* Project Description */}
             <section
               aria-labelledby="discover-heading"
-              className="mt-20 sm:mt-24 md:mt-32"
+              className="mt-12 sm:mt-16 md:mt-20"
             >
               <div className="relative">
                 {/* Background Elements */}
                 <div className="absolute inset-0 -z-10" aria-hidden="true">
-                  <div className="absolute left-1/4 top-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-[#f5f5f5] dark:bg-[#1a1a1a] rounded-full blur-3xl animate-float" />
-                  <div className="absolute right-1/4 bottom-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-[#f5f5f5] dark:bg-[#1a1a1a] rounded-full blur-3xl animate-float [animation-delay:2s]" />
                 </div>
 
                 <div className="max-w-6xl mx-auto py-8 sm:py-12 md:py-16">
@@ -119,7 +117,7 @@ export default function Home() {
                     >
                       Discover Domisol
                     </h2>
-                    <p className="mt-6 text-lg sm:text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed">
+                    <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                       A digital sanctuary for preserving and exploring the rich
                       heritage of occult music exercises, bridging centuries of
                       tradition with modern technology.
@@ -134,7 +132,7 @@ export default function Home() {
                         <h3 className="text-2xl sm:text-3xl font-semibold text-primary">
                           Our Mission
                         </h3>
-                        <p className="text-base sm:text-lg text-foreground/90 leading-relaxed">
+                        <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                           We are dedicated to preserving and sharing the
                           profound wisdom contained within centuries-old music
                           exercises. Our platform serves as a bridge between
@@ -144,10 +142,10 @@ export default function Home() {
                       <div className="flex-1 order-1 md:order-2 w-full">
                         <div className="relative w-full">
                           {/* Minimal frame */}
-                          <div className="relative rounded-[2rem] overflow-hidden bg-card/10 backdrop-blur-[2px] group">
+                          <div className="relative rounded-[2rem] overflow-hidden bg-card group">
                             {/* Subtle border effect */}
                             <div
-                              className="absolute inset-0 border border-primary/[0.05] rounded-[2rem]"
+                              className="absolute inset-0 border border-border rounded-[2rem]"
                               aria-hidden="true"
                             />
 
@@ -161,11 +159,6 @@ export default function Home() {
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 priority={true}
                               />
-                              {/* Minimal hover overlay */}
-                              <div
-                                className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                                aria-hidden="true"
-                              />
                             </div>
                           </div>
                         </div>
@@ -177,10 +170,10 @@ export default function Home() {
                       <div className="flex-1 w-full">
                         <div className="relative w-full">
                           {/* Minimal frame */}
-                          <div className="relative rounded-[2rem] overflow-hidden bg-card/10 backdrop-blur-[2px] group">
+                          <div className="relative rounded-[2rem] overflow-hidden bg-card group">
                             {/* Subtle border effect */}
                             <div
-                              className="absolute inset-0 border border-primary/[0.05] rounded-[2rem]"
+                              className="absolute inset-0 border border-border rounded-[2rem]"
                               aria-hidden="true"
                             />
 
@@ -194,11 +187,6 @@ export default function Home() {
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 priority={true}
                               />
-                              {/* Minimal hover overlay */}
-                              <div
-                                className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                                aria-hidden="true"
-                              />
                             </div>
                           </div>
                         </div>
@@ -207,7 +195,7 @@ export default function Home() {
                         <h3 className="text-2xl sm:text-3xl font-semibold text-primary">
                           Our Collection
                         </h3>
-                        <p className="text-base sm:text-lg text-foreground/90 leading-relaxed">
+                        <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                           Explore our extensive digital archive of rare and
                           historical music sheets, carefully curated and
                           digitized to preserve their authenticity while making
@@ -222,7 +210,7 @@ export default function Home() {
                         <h3 className="text-2xl sm:text-3xl font-semibold text-primary">
                           Our Community
                         </h3>
-                        <p className="text-base sm:text-lg text-foreground/90 leading-relaxed">
+                        <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                           Join a vibrant community of musicians, researchers,
                           and enthusiasts. Share knowledge, explore musical
                           spirituality, and contribute to the preservation of
@@ -232,10 +220,10 @@ export default function Home() {
                       <div className="flex-1 order-1 md:order-2 w-full">
                         <div className="relative w-full">
                           {/* Minimal frame */}
-                          <div className="relative rounded-[2rem] overflow-hidden bg-card/10 backdrop-blur-[2px] group">
+                          <div className="relative rounded-[2rem] overflow-hidden bg-card group">
                             {/* Subtle border effect */}
                             <div
-                              className="absolute inset-0 border border-primary/[0.05] rounded-[2rem]"
+                              className="absolute inset-0 border border-border rounded-[2rem]"
                               aria-hidden="true"
                             />
 
@@ -248,11 +236,6 @@ export default function Home() {
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 priority={true}
-                              />
-                              {/* Minimal hover overlay */}
-                              <div
-                                className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                                aria-hidden="true"
                               />
                             </div>
                           </div>

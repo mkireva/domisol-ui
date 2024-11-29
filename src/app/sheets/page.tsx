@@ -9,7 +9,7 @@ export default async function Sheet() {
     <div className="min-h-screen relative overflow-hidden">
       {/* Background Elements */}
       <div
-        className="absolute inset-0 -z-10 bg-[#f5f5f5] dark:bg-[#1a1a1a] overflow-hidden"
+        className="absolute inset-0 -z-10 bg-background dark:bg-background overflow-hidden"
         aria-hidden="true"
       ></div>
       <div className="relative">
@@ -19,9 +19,7 @@ export default async function Sheet() {
             {/* Heading Section */}
             <div className="text-center">
               <h1 className="text-[2.5rem] sm:text-[3.5rem] md:text-[5rem] font-bold tracking-tight animate-slide-up [animation-delay:150ms]">
-                <span className="text-primary">
-                  Domisol
-                </span>
+                <span className="text-primary">Domisol</span>
               </h1>
             </div>
 

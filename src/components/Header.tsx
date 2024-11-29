@@ -24,7 +24,7 @@ export function Header() {
   const handleMenuToggle = () => setMenuOpen(!menuOpen);
   const handleMenuClose = () => setMenuOpen(false);
   return (
-    <header className="animate-slide fixed top-0 left-0 right-0 z-50 w-full border-b bg-[#f5f5f5] dark:bg-[#1a1a1a]">
+    <header className="animate-slide fixed top-0 left-0 right-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-12 items-center justify-between">
           <div className="flex items-center gap-1">
