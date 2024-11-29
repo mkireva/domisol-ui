@@ -29,12 +29,12 @@ export default function Home() {
                   <span className="text-primary dark:text-primary">
                     Domisol
                   </span>
-                  <span className="block mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-foreground">
+                  <span className="block mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-700 dark:text-foreground">
                     Music Archive
                   </span>
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl text-muted-foreground dark:text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                  Discover a unique collection of musical wisdom from the past.
+                  Discover a unique collection of ocult music exercises.
                   Our digital archive preserves and shares centuries-old music
                   exercises, making them accessible to modern practitioners.
                 </p>

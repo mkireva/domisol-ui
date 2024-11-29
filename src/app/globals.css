@@ -232,24 +232,22 @@ body {
 }
 
 .rhap_custom-player .rhap_main-controls-button {
-  color: rgb(107 114 128);
+  width: 48px;
+  height: 48px;
+  font-size: 28px;
   transition: all 0.2s ease;
-  width: 28px;
-  height: 28px;
-  font-size: 24px;
+}
+
+@media (min-width: 640px) {
+  .rhap_custom-player .rhap_main-controls-button {
+    width: 56px;
+    height: 56px;
+    font-size: 32px;
+  }
 }
 
 .rhap_custom-player .rhap_main-controls-button:hover {
-  color: rgb(249 115 22);
   transform: scale(1.1);
-}
-
-.dark .rhap_custom-player .rhap_main-controls-button {
-  color: rgb(156 163 175);
-}
-
-.dark .rhap_custom-player .rhap_main-controls-button:hover {
-  color: rgb(249 115 22);
 }
 
 .rhap_custom-player .rhap_progress-section {
