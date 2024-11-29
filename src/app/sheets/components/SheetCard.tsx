@@ -11,7 +11,6 @@ import Link from "next/link";
 import { Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { MusicSheet } from "../actions";
-import React from "react";
 
 interface SheetCardProps {
   sheet: MusicSheet;
@@ -19,12 +18,22 @@ interface SheetCardProps {
 }
 
 // Metadata components as separate function components for better automatic optimization
-function KeyColorInfo({ tonic, mode, color }: { tonic: string; mode: string; color: string }) {
+function KeyColorInfo({
+  tonic,
+  mode,
+  color,
+}: {
+  tonic: string;
+  mode: string;
+  color: string;
+}) {
   return (
     <div className="inline-flex items-center gap-4 bg-secondary/50 px-4 py-2 rounded-md text-sm sm:text-base">
       <div className="flex items-center gap-2">
         <span className="text-muted-foreground">Key:</span>
-        <span className="font-medium">{tonic} {mode}</span>
+        <span className="font-medium">
+          {tonic} {mode}
+        </span>
       </div>
       <div
         className="h-4 w-4 rounded-full"
@@ -37,26 +46,34 @@ function KeyColorInfo({ tonic, mode, color }: { tonic: string; mode: string; col
   );
 }
 
-function TagList({ category, genre, year }: { category: string; genre?: string; year: number }) {
+function TagList({
+  category,
+  genre,
+  year,
+}: {
+  category: string;
+  genre?: string;
+  year: number;
+}) {
   return (
     <div className="flex flex-wrap items-center gap-2">
       <Badge
         variant="secondary"
-        className="text-xs sm:text-sm bg-primary/10 hover:bg-primary/20"
+        className="text-sm sm:text-base bg-primary/10 hover:bg-primary/20"
       >
         {category}
       </Badge>
       {genre && (
         <Badge
           variant="secondary"
-          className="text-xs sm:text-sm bg-secondary/10 hover:bg-secondary/20"
+          className="text-sm sm:text-base bg-secondary/10 hover:bg-secondary/20"
         >
           {genre}
         </Badge>
       )}
       <Badge
         variant="secondary"
-        className="text-xs sm:text-sm bg-muted hover:bg-muted/80"
+        className="text-sm sm:text-base bg-muted hover:bg-muted/80"
       >
         {year}
       </Badge>
@@ -64,9 +81,15 @@ function TagList({ category, genre, year }: { category: string; genre?: string; 
   );
 }
 
-function ComposerInfo({ composer, location }: { composer: string; location?: string }) {
+function ComposerInfo({
+  composer,
+  location,
+}: {
+  composer: string;
+  location?: string;
+}) {
   return (
-    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm sm:text-base">
+    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base sm:text-lg">
       <span className="font-medium">{composer}</span>
       {location && (
         <>
@@ -80,9 +103,9 @@ function ComposerInfo({ composer, location }: { composer: string; location?: str
 
 function LyricistInfo({ lyricist }: { lyricist?: string }) {
   if (!lyricist) return null;
-  
+
   return (
-    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm sm:text-base">
+    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base sm:text-lg">
       <span className="text-muted-foreground">Lyricist:</span>
       <span className="font-medium">{lyricist}</span>
     </div>
@@ -92,9 +115,7 @@ function LyricistInfo({ lyricist }: { lyricist?: string }) {
 // Card title component for better isolation
 function CardTitleSection({ title }: { title: string }) {
   return (
-    <CardTitle 
-      className="text-lg sm:text-xl text-grey-700 font-semibold line-clamp-1 group-hover:text-primary transition-colors duration-150"
-    >
+    <CardTitle className="text-xl sm:text-2xl text-grey-700 font-semibold line-clamp-1 group-hover:text-primary transition-colors duration-150">
       {title}
     </CardTitle>
   );
@@ -116,7 +137,7 @@ function FooterButton() {
 }
 
 export function SheetCard({ sheet, index }: SheetCardProps) {
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === "development") {
     console.log("SheetCard received sheet:", sheet);
   }
 
@@ -133,7 +154,7 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
           "animate-in fade-in slide-in-from-bottom duration-300",
           "bg-card"
         )}
-        style={{ 
+        style={{
           animationDelay: `${Math.min(index * 50, 300)}ms`,
         }}
       >
@@ -161,7 +182,7 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
         </CardHeader>
 
         <CardContent className="flex-grow">
-          <p className="text-base leading-relaxed line-clamp-3 text-muted-foreground">
+          <p className="text-base sm:text-lg leading-relaxed line-clamp-3 text-muted-foreground">
             {sheet.description}
           </p>
         </CardContent>
