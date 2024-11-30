@@ -65,7 +65,7 @@ export default function AboutPage() {
             <p className="text-muted-foreground mb-8 leading-relaxed sm:text-lg max-w-2xl mx-auto">
               At Domisol, we envision a world where the profound wisdom contained within
               occult music exercises is preserved, studied, and practiced by musicians
-              across the globe. Our platform bridges centuries-old traditions with modern practice.
+              across the globe. Our platform bridges traditions with modern practice.
             </p>
             
             <Link
