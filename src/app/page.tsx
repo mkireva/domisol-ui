@@ -19,12 +19,12 @@ export default function Home() {
               className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto min-h-[60vh] sm:min-h-[70vh] py-6 sm:py-8"
             >
               <div
-                className="animate-slide-up space-y-6 sm:space-y-8 px-2 sm:px-4"
+                className="space-y-6 sm:space-y-8 px-2 sm:px-4 min-h-[300px] sm:min-h-[400px] flex flex-col justify-center"
                 role="presentation"
               >
                 <h1
                   id="hero-heading"
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight min-h-[120px] sm:min-h-[160px] flex flex-col justify-center"
                 >
                   <span className="text-primary dark:text-primary">
                     Domisol
@@ -33,7 +33,7 @@ export default function Home() {
                     Music Sheet Collection
                   </span>
                 </h1>
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-grey-800 dark:text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-grey-800 dark:text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2 sm:px-0 min-h-[150px] sm:min-h-[180px] flex flex-col justify-center">
                   Discover a unique collection of occult music exercises. Our
                   digital archive preserves and shares occult music exercises,
                   making them accessible to modern practitioners.
@@ -69,8 +69,8 @@ export default function Home() {
               <h2 id="features-heading" className="sr-only">
                 Features
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 animate-in fade-in duration-1000">
-                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 min-h-[150px] sm:min-h-[180px]">
                   <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                     Digital Sheet Music
                   </h3>
@@ -79,7 +79,7 @@ export default function Home() {
                     digital format.
                   </p>
                 </article>
-                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
+                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 min-h-[150px] sm:min-h-[180px]">
                   <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                     Interactive Learning
                   </h3>
@@ -87,7 +87,7 @@ export default function Home() {
                     Practice with integrated audio playback and visual guidance.
                   </p>
                 </article>
-                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
+                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 min-h-[150px] sm:min-h-[180px]">
                   <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                     Community Driven
                   </h3>
@@ -113,14 +113,14 @@ export default function Home() {
 
                   <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6">
                     {/* Section Title */}
-                    <header className="text-center mb-8 sm:mb-16 animate-in fade-in duration-1000">
+                    <header className="text-center mb-8 sm:mb-16">
                       <h2
                         id="discover-heading"
                         className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary"
                       >
                         Discover Domisol
                       </h2>
-                      <p className="mt-4 text-base sm:text-lg text-grey-800 max-w-2xl mx-auto leading-relaxed">
+                      <p className="mt-4 text-base sm:text-lg text-grey-800 max-w-2xl mx-auto leading-relaxed min-h-[150px] sm:min-h-[180px] flex flex-col justify-center">
                         A digital sanctuary for preserving and exploring the
                         rich heritage of occult music exercises, bridging
                         centuries of tradition with modern technology.
@@ -128,14 +128,14 @@ export default function Home() {
                     </header>
 
                     {/* Content Sections */}
-                    <div className="space-y-12 sm:space-y-20 md:space-y-24 animate-in fade-in duration-1000 [animation-delay:200ms]">
+                    <div className="space-y-12 sm:space-y-20 md:space-y-24">
                       {/* Mission Section */}
-                      <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12">
+                      <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12 min-h-[400px] sm:min-h-[450px]">
                         <div className="flex-1 order-2 md:order-1 space-y-3">
                           <h3 className="text-xl sm:text-2xl font-semibold text-primary">
                             Our Mission
                           </h3>
-                          <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
+                          <p className="text-sm sm:text-base text-grey-800 leading-relaxed min-h-[150px] sm:min-h-[180px] flex flex-col justify-center">
                             We are dedicated to preserving and sharing the
                             profound wisdom contained within centuries-old music
                             exercises. Our platform serves as a bridge between
@@ -170,7 +170,7 @@ export default function Home() {
                       </article>
 
                       {/* Collection Section */}
-                      <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12">
+                      <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12 min-h-[400px] sm:min-h-[450px]">
                         <div className="flex-1 w-full">
                           <div className="relative w-full">
                             {/* Minimal frame */}
@@ -200,7 +200,7 @@ export default function Home() {
                           <h3 className="text-xl sm:text-2xl font-semibold text-primary">
                             Our Collection
                           </h3>
-                          <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
+                          <p className="text-sm sm:text-base text-grey-800 leading-relaxed min-h-[150px] sm:min-h-[180px] flex flex-col justify-center">
                             Explore our extensive digital archive of rare and
                             historical music sheets, carefully curated and
                             digitized to preserve their authenticity while
@@ -210,12 +210,12 @@ export default function Home() {
                       </article>
 
                       {/* Community Section */}
-                      <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12">
+                      <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12 min-h-[400px] sm:min-h-[450px]">
                         <div className="flex-1 order-2 md:order-1 space-y-3">
                           <h3 className="text-xl sm:text-2xl font-semibold text-primary">
                             Our Community
                           </h3>
-                          <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
+                          <p className="text-sm sm:text-base text-grey-800 leading-relaxed min-h-[150px] sm:min-h-[180px] flex flex-col justify-center">
                             Join a vibrant community of musicians, researchers,
                             and enthusiasts. Share knowledge, explore musical
                             spirituality, and contribute to the preservation of
