@@ -21,60 +21,54 @@ interface MusicSheetDisplayProps {
 export default function MusicSheetDisplay({
   initialSheet,
 }: MusicSheetDisplayProps) {
-  const divRef = useRef<HTMLDivElement>(null);
-  const osmdRef = useRef<OSMD | null>(null);
-  const [zoom, setZoom] = useState(1);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const osmdInstanceRef = useRef<OSMD | null>(null);
+  const [zoom, setZoom] = useState(window.innerWidth < 768 ? 0.5 : 1);
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+    const handleResize = () => {
+      const isMobileView = window.innerWidth < 768;
+      setIsMobile(isMobileView);
+      setZoom(isMobileView ? 0.5 : 1);
     };
 
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
-    if (!initialSheet || !divRef.current) {
-      console.log("No initial sheet provided or display container not ready");
+    if (!initialSheet || !containerRef.current) {
       setError("No sheet music specified");
       setIsLoading(false);
       return;
     }
 
     let mounted = true;
-    console.log("Attempting to load sheet:", initialSheet);
 
     const initializeOSMD = async () => {
       try {
         setIsLoading(true);
         setError(null);
 
-        // Reset OSMD instance when sheet changes
-        if (osmdRef.current) {
-          console.log("Clearing existing OSMD instance");
-          osmdRef.current.clear();
-          osmdRef.current = null;
+        if (osmdInstanceRef.current) {
+          osmdInstanceRef.current.clear();
+          osmdInstanceRef.current = null;
         }
 
-        if (!mounted) return;
-
-        if (!divRef.current) {
-          console.error("Div reference is null");
+        if (!mounted || !containerRef.current) {
           setError("Unable to render sheet music");
           setIsLoading(false);
           return;
         }
 
-        console.log("Creating new OSMD instance");
         const titleFontSize = isMobile ? 1.2 : 1.5;
         const composerFontSize = isMobile ? 0.8 : 1;
 
-        const osmd = new OSMD(divRef.current, {
+        const osmd = new OSMD(containerRef.current, {
           autoResize: true,
           drawTitle: true,
           disableCursor: false,
@@ -82,14 +76,8 @@ export default function MusicSheetDisplay({
           drawMeasureNumbers: !isMobile,
           drawMetronomeMarks: !isMobile,
           pageFormat: "Endless",
-          spacingBetweenTextLines: isMobile
-            ? zoom < 0.7
-              ? 3
-              : 2
-            : zoom < 0.7
-            ? 4
-            : 3,
-          zoom: isMobile ? zoom * 0.7 : zoom,
+          spacingBetweenTextLines: isMobile ? (zoom < 0.7 ? 3 : 2) : (zoom < 0.7 ? 4 : 3),
+          zoom: isMobile ? zoom : zoom,
           drawingParameters: "compact",
           backend: "svg",
           customCSS: `
@@ -120,10 +108,7 @@ export default function MusicSheetDisplay({
               max-width: 100% !important;
               overflow-x: hidden !important;
             }
-            #osmdCanvasPage1 {
-              max-width: 100% !important;
-              overflow-x: hidden !important;
-            }
+            #osmdCanvasPage1,
             .osmdCanvasPage {
               max-width: 100% !important;
               overflow-x: hidden !important;
@@ -132,36 +117,23 @@ export default function MusicSheetDisplay({
         } as ExtendedOSMDOptions);
 
         if (!mounted) return;
-        osmdRef.current = osmd;
+        osmdInstanceRef.current = osmd;
 
         try {
-          console.log("Fetching sheet music through proxy:", initialSheet);
-          const proxyUrl = `/api/sheet?url=${encodeURIComponent(initialSheet)}`;
-          const response = await fetch(proxyUrl);
-
+          const response = await fetch(`/api/sheet?url=${encodeURIComponent(initialSheet)}`);
           if (!response.ok) {
             const errorData = await response.json();
-            throw new Error(
-              errorData.error ||
-                `Failed to fetch sheet music: ${response.statusText}`
-            );
+            throw new Error(errorData.error || `Failed to fetch sheet music: ${response.statusText}`);
           }
 
           if (!mounted) return;
           const musicXML = await response.text();
-          console.log("Sheet music fetched, loading into OSMD");
 
           await osmd.load(musicXML);
-          console.log("Sheet music loaded into OSMD");
-
-          if (!mounted) return;
           await osmd.render();
-          console.log("Sheet music rendered");
 
-          // Apply zoom after rendering
           osmd.zoom = zoom;
           await osmd.render();
-          console.log("Zoom applied:", zoom);
 
           if (mounted) {
             setIsLoading(false);
@@ -169,59 +141,55 @@ export default function MusicSheetDisplay({
         } catch (loadError) {
           console.error("Failed to load or render sheet:", loadError);
           if (mounted) {
-            setError(
-              `Failed to load music sheet: ${
-                loadError instanceof Error
-                  ? loadError.message
-                  : String(loadError)
-              }`
-            );
+            const errorMessage = loadError instanceof Error 
+              ? loadError.message 
+              : String(loadError);
+            setError(`Failed to load music sheet: ${errorMessage}`);
           }
           throw loadError;
         }
-      } catch (err) {
+      } catch (err: unknown) {
         console.error("Error initializing music sheet:", err);
         if (mounted) {
-          setError(
-            err instanceof Error
-              ? err.message
-              : "Failed to initialize the music sheet viewer"
-          );
-          setIsLoading(false);
+          if (err instanceof Error) {
+            setError(err.message);
+          } else {
+            setError(String(err));
+          }
         }
+        setIsLoading(false);
       }
     };
 
     initializeOSMD();
 
-    // Cleanup function
     return () => {
       mounted = false;
-      if (osmdRef.current) {
-        osmdRef.current.clear();
-        osmdRef.current = null;
+      if (osmdInstanceRef.current) {
+        osmdInstanceRef.current.clear();
+        osmdInstanceRef.current = null;
       }
     };
   }, [initialSheet, isMobile, zoom]);
 
   const handleZoomIn = () => {
-    if (osmdRef.current && divRef.current) {
+    if (osmdInstanceRef.current && containerRef.current) {
       const scrollPosition = window.scrollY;
       const newZoom = Math.min(zoom + 0.1, 2);
       setZoom(newZoom);
-      osmdRef.current.zoom = newZoom;
-      osmdRef.current.render();
+      osmdInstanceRef.current.zoom = newZoom;
+      osmdInstanceRef.current.render();
       requestAnimationFrame(() => window.scrollTo(0, scrollPosition));
     }
   };
 
   const handleZoomOut = () => {
-    if (osmdRef.current && divRef.current) {
+    if (osmdInstanceRef.current && containerRef.current) {
       const scrollPosition = window.scrollY;
       const newZoom = Math.max(zoom - 0.1, 0.5);
       setZoom(newZoom);
-      osmdRef.current.zoom = newZoom;
-      osmdRef.current.render();
+      osmdInstanceRef.current.zoom = newZoom;
+      osmdInstanceRef.current.render();
       requestAnimationFrame(() => window.scrollTo(0, scrollPosition));
     }
   };
@@ -280,15 +248,18 @@ export default function MusicSheetDisplay({
         )}
 
         <div
-          ref={divRef}
+          ref={containerRef}
           className={cn(
-            "relative rounded-lg bg-background/95 p-4 border shadow-sm backdrop-blur-sm",
+            "relative rounded-lg bg-background/95 border shadow-sm backdrop-blur-sm",
             "dark:bg-card dark:shadow-lg",
             "osmd-container [&_.osmd-music-sheet]:mx-auto [&_svg]:max-w-full",
             "[&_.title]:text-foreground [&_.subtitle]:text-muted-foreground [&_.composer]:text-muted-foreground",
             "[&_svg]:dark:brightness-[1.15]",
             "[&_svg_*]:fill-foreground [&_svg_*]:stroke-foreground",
             "[&_svg_*]:dark:fill-foreground [&_svg_*]:dark:stroke-foreground",
+            "p-4 sm:p-4 md:p-6",
+            "mx-auto max-w-full w-full",
+            "overflow-x-auto",
             isLoading && "min-h-[400px]"
           )}
         />

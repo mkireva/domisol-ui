@@ -140,10 +140,6 @@ function FooterButton() {
 }
 
 export function SheetCard({ sheet, index }: SheetCardProps) {
-  if (process.env.NODE_ENV === "development") {
-    console.log("SheetCard received sheet:", sheet);
-  }
-
   return (
     <Link
       href={`/sheets/viewer?file=${encodeURIComponent(sheet.url)}`}
@@ -162,14 +158,12 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
         }}
       >
         <CardHeader className="relative space-y-4">
-          {/* Title and Metadata Section */}
           <div className="space-y-1.5">
             <CardTitleSection title={sheet.title} />
             <ComposerInfo composer={sheet.composer} />
             <LyricistInfo lyricist={sheet.lyricist} />
           </div>
 
-          {/* Additional Metadata */}
           <div className="space-y-3">
             <KeyColorInfo
               tonic={sheet.key.tonic}
