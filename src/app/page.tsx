@@ -153,7 +153,7 @@ export default function Home() {
                               />
 
                               {/* Image */}
-                              <div className="relative aspect-[16/9] w-full">
+                              <div className="relative aspect-[16/9] w-full h-[200px] sm:h-[300px]">
                                 <Image
                                   src="/images/pdanov.png"
                                   alt="Petar Danov playing the violin"
@@ -161,6 +161,7 @@ export default function Home() {
                                   fill
                                   sizes="(max-width: 768px) 100vw, 50vw"
                                   priority={true}
+                                  loading="eager"
                                 />
                               </div>
                             </div>
@@ -181,7 +182,7 @@ export default function Home() {
                               />
 
                               {/* Image */}
-                              <div className="relative aspect-[16/9] w-full">
+                              <div className="relative aspect-[16/9] w-full h-[200px] sm:h-[300px]">
                                 <Image
                                   src="/images/piano.jpg"
                                   alt="Vintage photograph of a piano, highlighting the beauty of classical music"
@@ -189,6 +190,7 @@ export default function Home() {
                                   fill
                                   sizes="(max-width: 768px) 100vw, 50vw"
                                   priority={true}
+                                  loading="eager"
                                 />
                               </div>
                             </div>
@@ -231,7 +233,7 @@ export default function Home() {
                               />
 
                               {/* Image */}
-                              <div className="relative aspect-[16/9] w-full">
+                              <div className="relative aspect-[16/9] w-full h-[200px] sm:h-[300px]">
                                 <Image
                                   src="/images/rila-music.jpeg"
                                   alt="Vintage photograph of musicians, highlighting the importance of community in music"
@@ -239,6 +241,7 @@ export default function Home() {
                                   fill
                                   sizes="(max-width: 768px) 100vw, 50vw"
                                   priority={true}
+                                  loading="eager"
                                 />
                               </div>
                             </div>
