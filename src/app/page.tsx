@@ -6,25 +6,25 @@ export default function Home() {
     <div className="flex flex-col min-h-screen relative overflow-x-hidden">
       {/* Background Elements */}
       <div
-        className="absolute inset-0 -z-10 bg-background dark:bg-background overflow-hidden"
+        className="fixed inset-0 -z-10 bg-background dark:bg-background"
         aria-hidden="true"
       ></div>
 
-      <main className="flex-grow flex flex-col justify-center">
+      <main className="flex-grow flex flex-col justify-start pt-16">
         <div className="relative w-full">
           <div className="container mx-auto px-4 sm:px-6 md:px-8">
             {/* Hero Section */}
             <section
               aria-labelledby="hero-heading"
-              className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto min-h-[60vh] sm:min-h-[70vh] py-6 sm:py-8"
+              className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto py-8 sm:py-12"
             >
               <div
-                className="space-y-6 sm:space-y-8 px-2 sm:px-4 min-h-[300px] sm:min-h-[400px] flex flex-col justify-center"
+                className="space-y-8 px-2 sm:px-4"
                 role="presentation"
               >
                 <h1
                   id="hero-heading"
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight min-h-[120px] sm:min-h-[160px] flex flex-col justify-center"
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
                 >
                   <span className="text-primary dark:text-primary">
                     Domisol
@@ -33,7 +33,7 @@ export default function Home() {
                     Music Sheet Collection
                   </span>
                 </h1>
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-grey-800 dark:text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2 sm:px-0 min-h-[150px] sm:min-h-[180px] flex flex-col justify-center">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-grey-800 dark:text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
                   Discover a unique collection of occult music exercises. Our
                   digital archive preserves and shares occult music exercises,
                   making them accessible to modern practitioners.
@@ -70,7 +70,7 @@ export default function Home() {
                 Features
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 min-h-[150px] sm:min-h-[180px]">
+                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
                   <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                     Digital Sheet Music
                   </h3>
@@ -79,7 +79,7 @@ export default function Home() {
                     digital format.
                   </p>
                 </article>
-                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 min-h-[150px] sm:min-h-[180px]">
+                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
                   <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                     Interactive Learning
                   </h3>
@@ -87,7 +87,7 @@ export default function Home() {
                     Practice with integrated audio playback and visual guidance.
                   </p>
                 </article>
-                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 min-h-[150px] sm:min-h-[180px]">
+                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
                   <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                     Community Driven
                   </h3>
@@ -102,7 +102,7 @@ export default function Home() {
             <div className="mt-16 sm:mt-24 md:mt-32 bg-gray-50 dark:bg-gray-900/50 relative w-full">
               <section
                 aria-labelledby="discover-heading"
-                className="py-8 sm:py-16 md:py-20 overflow-hidden"
+                className="py-12 sm:py-16 md:py-20"
               >
                 <div className="relative">
                   {/* Background Elements */}
@@ -120,7 +120,7 @@ export default function Home() {
                       >
                         Discover Domisol
                       </h2>
-                      <p className="mt-4 text-base sm:text-lg text-grey-800 max-w-2xl mx-auto leading-relaxed min-h-[150px] sm:min-h-[180px] flex flex-col justify-center">
+                      <p className="mt-4 text-base sm:text-lg text-grey-800 max-w-2xl mx-auto leading-relaxed">
                         A digital sanctuary for preserving and exploring the
                         rich heritage of occult music exercises, bridging
                         centuries of tradition with modern technology.
@@ -130,12 +130,12 @@ export default function Home() {
                     {/* Content Sections */}
                     <div className="space-y-12 sm:space-y-20 md:space-y-24">
                       {/* Mission Section */}
-                      <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12 min-h-[400px] sm:min-h-[450px]">
+                      <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12">
                         <div className="flex-1 order-2 md:order-1 space-y-3">
                           <h3 className="text-xl sm:text-2xl font-semibold text-primary">
                             Our Mission
                           </h3>
-                          <p className="text-sm sm:text-base text-grey-800 leading-relaxed min-h-[150px] sm:min-h-[180px] flex flex-col justify-center">
+                          <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
                             We are dedicated to preserving and sharing the
                             profound wisdom contained within centuries-old music
                             exercises. Our platform serves as a bridge between
@@ -153,15 +153,16 @@ export default function Home() {
                               />
 
                               {/* Image */}
-                              <div className="relative aspect-[16/9] w-full h-[200px] sm:h-[300px]">
+                              <div className="relative w-full" style={{ height: '250px' }}>
                                 <Image
                                   src="/images/pdanov.png"
                                   alt="Petar Danov playing the violin"
-                                  className="object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
+                                  className="object-cover object-center"
                                   fill
                                   sizes="(max-width: 768px) 100vw, 50vw"
                                   priority={true}
                                   loading="eager"
+                                  quality={75}
                                 />
                               </div>
                             </div>
@@ -170,7 +171,7 @@ export default function Home() {
                       </article>
 
                       {/* Collection Section */}
-                      <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12 min-h-[400px] sm:min-h-[450px]">
+                      <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12">
                         <div className="flex-1 w-full">
                           <div className="relative w-full">
                             {/* Minimal frame */}
@@ -182,15 +183,16 @@ export default function Home() {
                               />
 
                               {/* Image */}
-                              <div className="relative aspect-[16/9] w-full h-[200px] sm:h-[300px]">
+                              <div className="relative w-full" style={{ height: '250px' }}>
                                 <Image
                                   src="/images/piano.jpg"
                                   alt="Vintage photograph of a piano, highlighting the beauty of classical music"
-                                  className="object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
+                                  className="object-cover object-center"
                                   fill
                                   sizes="(max-width: 768px) 100vw, 50vw"
                                   priority={true}
                                   loading="eager"
+                                  quality={75}
                                 />
                               </div>
                             </div>
@@ -200,7 +202,7 @@ export default function Home() {
                           <h3 className="text-xl sm:text-2xl font-semibold text-primary">
                             Our Collection
                           </h3>
-                          <p className="text-sm sm:text-base text-grey-800 leading-relaxed min-h-[150px] sm:min-h-[180px] flex flex-col justify-center">
+                          <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
                             Explore our extensive digital archive of rare and
                             historical music sheets, carefully curated and
                             digitized to preserve their authenticity while
@@ -210,12 +212,12 @@ export default function Home() {
                       </article>
 
                       {/* Community Section */}
-                      <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12 min-h-[400px] sm:min-h-[450px]">
+                      <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12">
                         <div className="flex-1 order-2 md:order-1 space-y-3">
                           <h3 className="text-xl sm:text-2xl font-semibold text-primary">
                             Our Community
                           </h3>
-                          <p className="text-sm sm:text-base text-grey-800 leading-relaxed min-h-[150px] sm:min-h-[180px] flex flex-col justify-center">
+                          <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
                             Join a vibrant community of musicians, researchers,
                             and enthusiasts. Share knowledge, explore musical
                             spirituality, and contribute to the preservation of
@@ -233,15 +235,16 @@ export default function Home() {
                               />
 
                               {/* Image */}
-                              <div className="relative aspect-[16/9] w-full h-[200px] sm:h-[300px]">
+                              <div className="relative w-full" style={{ height: '250px' }}>
                                 <Image
                                   src="/images/rila-music.jpeg"
                                   alt="Vintage photograph of musicians, highlighting the importance of community in music"
-                                  className="object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
+                                  className="object-cover object-center"
                                   fill
                                   sizes="(max-width: 768px) 100vw, 50vw"
                                   priority={true}
                                   loading="eager"
+                                  quality={75}
                                 />
                               </div>
                             </div>
