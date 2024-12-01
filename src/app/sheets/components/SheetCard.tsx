@@ -97,7 +97,7 @@ function ComposerInfo({
   composer: string;
 }) {
   return (
-    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base sm:text-lg">
+    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base sm:text-md">
       <span className="text-muted-foreground">Composer:</span>
       <span className="font-medium">{composer}</span>
     </div>
@@ -108,7 +108,7 @@ function LyricistInfo({ lyricist }: { lyricist?: string }) {
   if (!lyricist) return null;
 
   return (
-    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base sm:text-lg">
+    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base sm:text-md">
       <span className="text-muted-foreground">Lyricist:</span>
       <span className="font-medium">{lyricist}</span>
     </div>
@@ -118,7 +118,7 @@ function LyricistInfo({ lyricist }: { lyricist?: string }) {
 // Card title component for better isolation
 function CardTitleSection({ title }: { title: string }) {
   return (
-    <CardTitle className="text-xl sm:text-2xl text-grey-700 font-semibold line-clamp-1 group-hover:text-primary transition-colors duration-150">
+    <CardTitle className="text-md sm:text-xl text-grey-700 font-semibold line-clamp-1 group-hover:text-primary transition-colors duration-150">
       {title}
     </CardTitle>
   );
@@ -186,7 +186,7 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
         </CardHeader>
 
         <CardContent className="flex-grow">
-          <p className="text-base sm:text-lg leading-relaxed line-clamp-3 text-muted-foreground">
+          <p className="text-base sm:text-md leading-relaxed line-clamp-3 text-muted-foreground">
             {sheet.description}
           </p>
         </CardContent>
