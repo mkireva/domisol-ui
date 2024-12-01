@@ -186,7 +186,7 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
         </CardHeader>
 
         <CardContent className="flex-grow">
-          <p className="text-base sm:text-md leading-relaxed line-clamp-3 text-muted-foreground">
+          <p className="text-base sm:text-md leading-relaxed line-clamp-3 text-grey-700">
             {sheet.description}
           </p>
         </CardContent>
