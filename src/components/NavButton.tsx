@@ -16,15 +16,15 @@ export function NavButton({ icon: Icon, label, href }: Props) {
       size="icon"
       aria-label={label}
       title={label}
-      className="rounded-full w-9 h-9 hover:bg-[hsl(var(--primary-hover))] hover:text-primary"
+      className="rounded-full w-10 h-10 hover:bg-[hsl(var(--primary-hover))] hover:text-primary"
       asChild
     >
       {href ? (
         <Link href={href}>
-          <Icon />
+          <Icon className="h-6 w-6" />
         </Link>
       ) : (
-        <Icon />
+        <Icon className="h-6 w-6" />
       )}
     </Button>
   );

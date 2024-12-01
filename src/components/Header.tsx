@@ -19,12 +19,13 @@ import { ThemeToggle } from "./ThemeToggle";
 import { cn } from "@/lib/utils";
 
 export function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleMenuToggle = () => setMenuOpen(!menuOpen);
-  const handleMenuClose = () => setMenuOpen(false);
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
-    <header className="animate-slide fixed top-0 left-0 right-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm supports-[backdrop-filter]:bg-background/60">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-12 items-center justify-between">
           <div className="flex items-center gap-1">
@@ -51,46 +52,46 @@ export function Header() {
               <ThemeToggle />
 
               <div className="block sm:hidden">
-                <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
+                <DropdownMenu open={isMenuOpen} onOpenChange={setIsMenuOpen}>
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="rounded-full w-9 h-9 hover:bg-[hsl(var(--primary-hover))] hover:text-primary"
-                      onClick={handleMenuToggle}
+                      className="rounded-full w-10 h-10 hover:bg-[hsl(var(--primary-hover))] hover:text-primary"
+                      onClick={toggleMenu}
                     >
-                      <MenuIcon className="h-5 w-5" />
+                      <MenuIcon className="h-6 w-6" />
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-48">
-                    <DropdownMenuItem asChild onSelect={handleMenuClose}>
+                    <DropdownMenuItem asChild onSelect={closeMenu}>
                       <Link
                         href="/"
                         className="flex w-full items-center justify-between py-2 text-sm"
                         prefetch={false}
                       >
                         Home
-                        <ChevronRightIcon className="h-4 w-4" />
+                        <ChevronRightIcon className="h-6 w-6" />
                       </Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild onSelect={handleMenuClose}>
+                    <DropdownMenuItem asChild onSelect={closeMenu}>
                       <Link
                         href="/sheets"
                         className="flex w-full items-center justify-between py-2 text-sm"
                         prefetch={false}
                       >
                         Sheets
-                        <ChevronRightIcon className="h-4 w-4" />
+                        <ChevronRightIcon className="h-6 w-6" />
                       </Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild onSelect={handleMenuClose}>
+                    <DropdownMenuItem asChild onSelect={closeMenu}>
                       <Link
                         href="/users"
                         className="flex w-full items-center justify-between py-2 text-sm"
                         prefetch={false}
                       >
                         Users
-                        <ChevronRightIcon className="h-4 w-4" />
+                        <ChevronRightIcon className="h-6 w-6" />
                       </Link>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
