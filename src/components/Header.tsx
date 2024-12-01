@@ -57,10 +57,10 @@ export function Header() {
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="rounded-full w-10 h-10 hover:bg-[hsl(var(--primary-hover))] hover:text-primary"
+                      className="rounded-full w-12 h-12 sm:w-10 sm:h-10 hover:bg-[hsl(var(--primary-hover))] hover:text-primary"
                       onClick={toggleMenu}
                     >
-                      <MenuIcon className="h-6 w-6" />
+                      <MenuIcon className="h-7 w-7 sm:h-6 sm:w-6" />
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-48">
@@ -71,7 +71,7 @@ export function Header() {
                         prefetch={false}
                       >
                         Home
-                        <ChevronRightIcon className="h-6 w-6" />
+                        <ChevronRightIcon className="h-7 w-7 sm:h-6 sm:w-6" />
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild onSelect={closeMenu}>
@@ -81,7 +81,7 @@ export function Header() {
                         prefetch={false}
                       >
                         Sheets
-                        <ChevronRightIcon className="h-6 w-6" />
+                        <ChevronRightIcon className="h-7 w-7 sm:h-6 sm:w-6" />
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild onSelect={closeMenu}>
@@ -91,7 +91,7 @@ export function Header() {
                         prefetch={false}
                       >
                         Users
-                        <ChevronRightIcon className="h-6 w-6" />
+                        <ChevronRightIcon className="h-7 w-7 sm:h-6 sm:w-6" />
                       </Link>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
