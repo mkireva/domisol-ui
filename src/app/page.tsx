@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen relative overflow-hidden">
+    <div className="flex flex-col min-h-screen relative overflow-x-hidden">
       {/* Background Elements */}
       <div
         className="absolute inset-0 -z-10 bg-background dark:bg-background overflow-hidden"
@@ -99,10 +99,10 @@ export default function Home() {
             </section>
 
             {/* Project Description */}
-            <div className="mt-16 sm:mt-24 md:mt-32 bg-gray-50 dark:bg-gray-900/50 w-screen relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw]">
+            <div className="mt-16 sm:mt-24 md:mt-32 bg-gray-50 dark:bg-gray-900/50 relative w-full">
               <section
                 aria-labelledby="discover-heading"
-                className="py-8 sm:py-16 md:py-20"
+                className="py-8 sm:py-16 md:py-20 overflow-hidden"
               >
                 <div className="relative">
                   {/* Background Elements */}
