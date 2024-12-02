@@ -18,10 +18,7 @@ export default function Home() {
               aria-labelledby="hero-heading"
               className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto py-8 sm:py-12"
             >
-              <div
-                className="space-y-8 px-2 sm:px-4"
-                role="presentation"
-              >
+              <div className="space-y-8 px-2 sm:px-4" role="presentation">
                 <h1
                   id="hero-heading"
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
@@ -99,162 +96,167 @@ export default function Home() {
             </section>
 
             {/* Project Description */}
-            <div className="mt-16 sm:mt-24 md:mt-32 bg-gray-50 dark:bg-gray-900/50 relative w-full">
-              <section
-                aria-labelledby="discover-heading"
-                className="py-12 sm:py-16 md:py-20"
-              >
-                <div className="relative">
-                  {/* Background Elements */}
-                  <div
-                    className="absolute inset-0 -z-10"
-                    aria-hidden="true"
-                  ></div>
+            <div className="mt-16 sm:mt-24 md:mt-32">
+              <div className="relative w-screen left-[50%] right-[50%] mx-[-50vw] bg-gray-50 dark:bg-gray-900/50">
+                <section
+                  aria-labelledby="discover-heading"
+                  className="relative py-12 sm:py-16 md:py-20"
+                >
+                  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-6xl mx-auto">
+                      {/* Section Title */}
+                      <header className="text-center mb-8 sm:mb-16">
+                        <h2
+                          id="discover-heading"
+                          className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary"
+                        >
+                          Discover Domisol
+                        </h2>
+                        <p className="mt-4 text-base sm:text-lg text-grey-800 max-w-2xl mx-auto leading-relaxed">
+                          A digital sanctuary for preserving and exploring the
+                          rich heritage of occult music exercises, bridging
+                          centuries of tradition with modern technology.
+                        </p>
+                      </header>
 
-                  <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6">
-                    {/* Section Title */}
-                    <header className="text-center mb-8 sm:mb-16">
-                      <h2
-                        id="discover-heading"
-                        className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary"
-                      >
-                        Discover Domisol
-                      </h2>
-                      <p className="mt-4 text-base sm:text-lg text-grey-800 max-w-2xl mx-auto leading-relaxed">
-                        A digital sanctuary for preserving and exploring the
-                        rich heritage of occult music exercises, bridging
-                        centuries of tradition with modern technology.
-                      </p>
-                    </header>
-
-                    {/* Content Sections */}
-                    <div className="space-y-12 sm:space-y-20 md:space-y-24">
-                      {/* Mission Section */}
-                      <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12">
-                        <div className="flex-1 order-2 md:order-1 space-y-3">
-                          <h3 className="text-xl sm:text-2xl font-semibold text-primary">
-                            Our Mission
-                          </h3>
-                          <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
-                            We are dedicated to preserving and sharing the
-                            profound wisdom contained within centuries-old music
-                            exercises. Our platform serves as a bridge between
-                            traditional practices and modern musical education.
-                          </p>
-                        </div>
-                        <div className="flex-1 order-1 md:order-2 w-full">
-                          <div className="relative w-full">
-                            {/* Minimal frame */}
-                            <div className="relative rounded-2xl overflow-hidden bg-card group">
-                              {/* Subtle border effect */}
-                              <div
-                                className="absolute inset-0 border border-border rounded-2xl"
-                                aria-hidden="true"
-                              />
-
-                              {/* Image */}
-                              <div className="relative w-full" style={{ height: '250px' }}>
-                                <Image
-                                  src="/images/pdanov.png"
-                                  alt="Petar Danov playing the violin"
-                                  className="object-cover object-center"
-                                  fill
-                                  sizes="(max-width: 768px) 100vw, 50vw"
-                                  priority={true}
-                                  loading="eager"
-                                  quality={75}
+                      {/* Content Sections */}
+                      <div className="space-y-12 sm:space-y-20 md:space-y-24">
+                        {/* Mission Section */}
+                        <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12">
+                          <div className="flex-1 order-2 md:order-1 space-y-3">
+                            <h3 className="text-xl sm:text-2xl font-semibold text-primary">
+                              Our Mission
+                            </h3>
+                            <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
+                              We are dedicated to preserving and sharing the
+                              profound wisdom contained within centuries-old music
+                              exercises. Our platform serves as a bridge between
+                              traditional practices and modern musical education.
+                            </p>
+                          </div>
+                          <div className="flex-1 order-1 md:order-2 w-full">
+                            <div className="relative w-full">
+                              {/* Minimal frame */}
+                              <div className="relative rounded-2xl overflow-hidden bg-card group">
+                                {/* Subtle border effect */}
+                                <div
+                                  className="absolute inset-0 border border-border rounded-2xl"
+                                  aria-hidden="true"
                                 />
+
+                                {/* Image */}
+                                <div
+                                  className="relative w-full"
+                                  style={{ height: "250px" }}
+                                >
+                                  <Image
+                                    src="/images/pdanov.png"
+                                    alt="Petar Danov playing the violin"
+                                    className="object-cover object-center"
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    priority={true}
+                                    loading="eager"
+                                    quality={75}
+                                  />
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </article>
+                        </article>
 
-                      {/* Collection Section */}
-                      <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12">
-                        <div className="flex-1 w-full">
-                          <div className="relative w-full">
-                            {/* Minimal frame */}
-                            <div className="relative rounded-2xl overflow-hidden bg-card group">
-                              {/* Subtle border effect */}
-                              <div
-                                className="absolute inset-0 border border-border rounded-2xl"
-                                aria-hidden="true"
-                              />
-
-                              {/* Image */}
-                              <div className="relative w-full" style={{ height: '250px' }}>
-                                <Image
-                                  src="/images/piano.jpg"
-                                  alt="Vintage photograph of a piano, highlighting the beauty of classical music"
-                                  className="object-cover object-center"
-                                  fill
-                                  sizes="(max-width: 768px) 100vw, 50vw"
-                                  priority={true}
-                                  loading="eager"
-                                  quality={75}
+                        {/* Collection Section */}
+                        <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12">
+                          <div className="flex-1 w-full">
+                            <div className="relative w-full">
+                              {/* Minimal frame */}
+                              <div className="relative rounded-2xl overflow-hidden bg-card group">
+                                {/* Subtle border effect */}
+                                <div
+                                  className="absolute inset-0 border border-border rounded-2xl"
+                                  aria-hidden="true"
                                 />
+
+                                {/* Image */}
+                                <div
+                                  className="relative w-full"
+                                  style={{ height: "250px" }}
+                                >
+                                  <Image
+                                    src="/images/piano.jpg"
+                                    alt="Vintage photograph of a piano, highlighting the beauty of classical music"
+                                    className="object-cover object-center"
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    priority={true}
+                                    loading="eager"
+                                    quality={75}
+                                  />
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="flex-1 space-y-3">
-                          <h3 className="text-xl sm:text-2xl font-semibold text-primary">
-                            Our Collection
-                          </h3>
-                          <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
-                            Explore our extensive digital archive of rare and
-                            historical music sheets, carefully curated and
-                            digitized to preserve their authenticity while
-                            making them accessible to modern practitioners.
-                          </p>
-                        </div>
-                      </article>
+                          <div className="flex-1 space-y-3">
+                            <h3 className="text-xl sm:text-2xl font-semibold text-primary">
+                              Our Collection
+                            </h3>
+                            <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
+                              Explore our extensive digital archive of rare and
+                              historical music sheets, carefully curated and
+                              digitized to preserve their authenticity while
+                              making them accessible to modern practitioners.
+                            </p>
+                          </div>
+                        </article>
 
-                      {/* Community Section */}
-                      <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12">
-                        <div className="flex-1 order-2 md:order-1 space-y-3">
-                          <h3 className="text-xl sm:text-2xl font-semibold text-primary">
-                            Our Community
-                          </h3>
-                          <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
-                            Join a vibrant community of musicians, researchers,
-                            and enthusiasts. Share knowledge, explore musical
-                            spirituality, and contribute to the preservation of
-                            this unique musical heritage.
-                          </p>
-                        </div>
-                        <div className="flex-1 order-1 md:order-2 w-full">
-                          <div className="relative w-full">
-                            {/* Minimal frame */}
-                            <div className="relative rounded-2xl overflow-hidden bg-card group">
-                              {/* Subtle border effect */}
-                              <div
-                                className="absolute inset-0 border border-border rounded-2xl"
-                                aria-hidden="true"
-                              />
-
-                              {/* Image */}
-                              <div className="relative w-full" style={{ height: '250px' }}>
-                                <Image
-                                  src="/images/rila-music.jpeg"
-                                  alt="Vintage photograph of musicians, highlighting the importance of community in music"
-                                  className="object-cover object-center"
-                                  fill
-                                  sizes="(max-width: 768px) 100vw, 50vw"
-                                  priority={true}
-                                  loading="eager"
-                                  quality={75}
+                        {/* Community Section */}
+                        <article className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12">
+                          <div className="flex-1 order-2 md:order-1 space-y-3">
+                            <h3 className="text-xl sm:text-2xl font-semibold text-primary">
+                              Our Community
+                            </h3>
+                            <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
+                              Join a vibrant community of musicians, researchers,
+                              and enthusiasts. Share knowledge, explore musical
+                              spirituality, and contribute to the preservation of
+                              this unique musical heritage.
+                            </p>
+                          </div>
+                          <div className="flex-1 order-1 md:order-2 w-full">
+                            <div className="relative w-full">
+                              {/* Minimal frame */}
+                              <div className="relative rounded-2xl overflow-hidden bg-card group">
+                                {/* Subtle border effect */}
+                                <div
+                                  className="absolute inset-0 border border-border rounded-2xl"
+                                  aria-hidden="true"
                                 />
+
+                                {/* Image */}
+                                <div
+                                  className="relative w-full"
+                                  style={{ height: "250px" }}
+                                >
+                                  <Image
+                                    src="/images/rila-music.jpeg"
+                                    alt="Vintage photograph of musicians, highlighting the importance of community in music"
+                                    className="object-cover object-center"
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    priority={true}
+                                    loading="eager"
+                                    quality={75}
+                                  />
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </article>
+                        </article>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </section>
+                </section>
+              </div>
             </div>
           </div>
         </div>
