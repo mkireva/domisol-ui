@@ -97,7 +97,7 @@ export default function Home() {
 
             {/* Project Description */}
             <div className="mt-16 sm:mt-24 md:mt-32">
-              <div className="relative w-screen left-[50%] right-[50%] mx-[-50vw] bg-gray-50 dark:bg-gray-900/50">
+              <div className="relative w-screen left-[50%] right-[50%] mx-[-50vw] bg-gray-100 dark:bg-gray-900/50">
                 <section
                   aria-labelledby="discover-heading"
                   className="relative py-12 sm:py-16 md:py-20"
@@ -129,9 +129,10 @@ export default function Home() {
                             </h3>
                             <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
                               We are dedicated to preserving and sharing the
-                              profound wisdom contained within centuries-old music
-                              exercises. Our platform serves as a bridge between
-                              traditional practices and modern musical education.
+                              profound wisdom contained within centuries-old
+                              music exercises. Our platform serves as a bridge
+                              between traditional practices and modern musical
+                              education.
                             </p>
                           </div>
                           <div className="flex-1 order-1 md:order-2 w-full">
@@ -146,13 +147,12 @@ export default function Home() {
 
                                 {/* Image */}
                                 <div
-                                  className="relative w-full"
-                                  style={{ height: "250px" }}
+                                  className="relative w-full aspect-[4/3]"
                                 >
                                   <Image
                                     src="/images/pdanov.png"
                                     alt="Petar Danov playing the violin"
-                                    className="object-cover object-center"
+                                    className="object-cover object-[center_35%]"
                                     fill
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                     priority={true}
@@ -179,8 +179,7 @@ export default function Home() {
 
                                 {/* Image */}
                                 <div
-                                  className="relative w-full"
-                                  style={{ height: "250px" }}
+                                  className="relative w-full aspect-[4/3]"
                                 >
                                   <Image
                                     src="/images/piano.jpg"
@@ -216,10 +215,10 @@ export default function Home() {
                               Our Community
                             </h3>
                             <p className="text-sm sm:text-base text-grey-800 leading-relaxed">
-                              Join a vibrant community of musicians, researchers,
-                              and enthusiasts. Share knowledge, explore musical
-                              spirituality, and contribute to the preservation of
-                              this unique musical heritage.
+                              Join a vibrant community of musicians,
+                              researchers, and enthusiasts. Share knowledge,
+                              explore musical spirituality, and contribute to
+                              the preservation of this unique musical heritage.
                             </p>
                           </div>
                           <div className="flex-1 order-1 md:order-2 w-full">
@@ -234,8 +233,7 @@ export default function Home() {
 
                                 {/* Image */}
                                 <div
-                                  className="relative w-full"
-                                  style={{ height: "250px" }}
+                                  className="relative w-full aspect-[4/3]"
                                 >
                                   <Image
                                     src="/images/rila-music.jpeg"
