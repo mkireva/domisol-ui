@@ -8,7 +8,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { Play, Music2, FileMusic } from "lucide-react";
+import { Play, FileMusic } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { MusicSheet } from "../actions";
 
