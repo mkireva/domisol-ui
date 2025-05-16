@@ -45,7 +45,7 @@ export default async function RootLayout({
               <div className="absolute top-1/2 right-0 w-[700px] h-[700px] bg-primary/5 rounded-full blur-3xl animate-float [animation-delay:4s] animate-pulse-slow" />
             </div>
             <Header />
-            <main className="flex-grow flex flex-col pt-12">
+            <main className="grow flex flex-col pt-12">
               {children}
             </main>
             <Footer />

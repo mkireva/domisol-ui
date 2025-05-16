@@ -7,11 +7,11 @@ export default async function Sheet() {
   const sheets = await getMusicXMLExamples();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-background/95">
+    <div className="min-h-screen bg-linear-to-b from-background to-background/95">
       {/* Hero Section with reduced height for minimalism */}
       <section className="relative pt-16 sm:pt-20 md:pt-16 pb-6 overflow-hidden">
         <div className="absolute inset-0 -z-10 opacity-5">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent blur-3xl" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent blur-3xl" />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -32,12 +32,12 @@ export default async function Sheet() {
             {/* Modern Search Bar - Refined */}
             <div className="w-full max-w-2xl mx-auto mb-8 sm:mb-12">
               <form className="relative">
-                <div className="flex items-center w-full h-12 sm:h-14 px-4 sm:px-5 rounded-full border border-border/60 bg-card/80 backdrop-blur-md shadow-sm hover:shadow-md focus-within:shadow-md focus-within:border-primary/50 transition-all duration-200">
+                <div className="flex items-center w-full h-12 sm:h-14 px-4 sm:px-5 rounded-full border border-border/60 bg-card/80 backdrop-blur-md shadow-xs hover:shadow-md focus-within:shadow-md focus-within:border-primary/50 transition-all duration-200">
                   <Search className="h-5 w-5 text-muted-foreground" />
                   <input
                     type="text"
                     placeholder="Search sheets..."
-                    className="flex-1 h-full border-0 outline-none bg-transparent text-base sm:text-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-0 px-3"
+                    className="flex-1 h-full border-0 outline-hidden bg-transparent text-base sm:text-lg text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-0 px-3"
                   />
                   <div className="flex items-center gap-2">
                     <Button
@@ -67,7 +67,7 @@ export default async function Sheet() {
 
       {/* Subtle divider */}
       <div className="w-full flex items-center justify-center mb-4">
-        <div className="w-16 h-[1px] bg-border/60" />
+        <div className="w-16 h-px bg-border/60" />
       </div>
 
       {/* Content Section - Refined */}

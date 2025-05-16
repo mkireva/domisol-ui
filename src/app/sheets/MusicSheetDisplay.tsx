@@ -198,7 +198,7 @@ export default function MusicSheetDisplay({
     <div className="relative">
       <div className="relative pt-6">
         <div className="flex items-center justify-center gap-2 mb-12">
-          <div className="inline-flex items-center gap-1.5 bg-background/60 p-1.5 rounded-lg border border-border/20 shadow-sm backdrop-blur-md">
+          <div className="inline-flex items-center gap-1.5 bg-background/60 p-1.5 rounded-lg border border-border/20 shadow-xs backdrop-blur-md">
             <Button
               variant="ghost"
               size="icon"
@@ -210,7 +210,7 @@ export default function MusicSheetDisplay({
               <span className="sr-only">Zoom out</span>
               <ZoomOut className="h-4 w-4" aria-hidden="true" />
             </Button>
-            <div className="px-2 min-w-[3.5rem]">
+            <div className="px-2 min-w-14">
               <span className="block text-center text-xs font-medium select-none" aria-label="Current zoom level">
                 {Math.round(zoom * 100)}%
               </span>
@@ -250,13 +250,13 @@ export default function MusicSheetDisplay({
         <div
           ref={containerRef}
           className={cn(
-            "relative rounded-lg bg-background/95 border shadow-sm backdrop-blur-sm",
+            "relative rounded-lg bg-background/95 border shadow-xs backdrop-blur-xs",
             "dark:bg-card dark:shadow-lg",
             "osmd-container [&_.osmd-music-sheet]:mx-auto [&_svg]:max-w-full",
             "[&_.title]:text-foreground [&_.subtitle]:text-muted-foreground [&_.composer]:text-muted-foreground",
-            "[&_svg]:dark:brightness-[1.15]",
+            "dark:[&_svg]:brightness-[1.15]",
             "[&_svg_*]:fill-foreground [&_svg_*]:stroke-foreground",
-            "[&_svg_*]:dark:fill-foreground [&_svg_*]:dark:stroke-foreground",
+            "dark:[&_svg_*]:fill-foreground dark:[&_svg_*]:stroke-foreground",
             "p-4 sm:p-4 md:p-6",
             "mx-auto max-w-full w-full",
             "overflow-x-auto",

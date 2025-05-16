@@ -70,7 +70,7 @@ export function LyricsView({
                 </SelectContent>
               </Select>
             </div>
-            <div className="bg-white dark:bg-gray-950 rounded-lg border shadow-sm">
+            <div className="bg-white dark:bg-gray-950 rounded-lg border shadow-xs">
               <div className="p-8">
                 <div className="whitespace-pre-wrap text-lg leading-normal tracking-normal">
                   {primaryLyrics?.split("\n\n").map((stanza, stanzaIndex) => (
@@ -130,7 +130,7 @@ export function LyricsView({
               </Select>
             </div>
             {secondaryLyrics && (
-              <div className="bg-white dark:bg-gray-950 rounded-lg border shadow-sm">
+              <div className="bg-white dark:bg-gray-950 rounded-lg border shadow-xs">
                 <div className="p-8">
                   <div className="whitespace-pre-wrap text-lg leading-normal tracking-normal">
                     {secondaryLyrics

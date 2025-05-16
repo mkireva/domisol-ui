@@ -28,7 +28,7 @@ function KeyColorInfo({
   color: string;
 }) {
   return (
-    <div className="inline-flex items-center gap-3 bg-secondary/30 px-4 py-2 rounded-full text-sm backdrop-blur-sm shadow-sm">
+    <div className="inline-flex items-center gap-3 bg-secondary/30 px-4 py-2 rounded-full text-sm backdrop-blur-xs shadow-xs">
       <div className="flex items-center gap-2">
         <span className="text-muted-foreground font-medium">Key:</span>
         <span className="font-semibold tracking-wide">
@@ -50,7 +50,7 @@ function TagBadge({ children }: { children: React.ReactNode }) {
   return (
     <Badge
       variant="secondary"
-      className="text-xs font-medium px-3 py-1 rounded-full bg-secondary/40 hover:bg-secondary/50 transition-colors shadow-sm"
+      className="text-xs font-medium px-3 py-1 rounded-full bg-secondary/40 hover:bg-secondary/50 transition-colors shadow-xs"
     >
       {children}
     </Badge>
@@ -134,7 +134,7 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
           "hover:shadow-lg hover:-translate-y-1 transition-all duration-300",
           "animate-in fade-in slide-in-from-bottom duration-300",
           "bg-card border border-border/40",
-          "backdrop-blur-sm"
+          "backdrop-blur-xs"
         )}
         style={{
           animationDelay: `${Math.min(index * 40, 250)}ms`,
@@ -175,7 +175,7 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
           </div>
         </CardHeader>
 
-        <CardContent className="flex-grow px-5 pb-3">
+        <CardContent className="grow px-5 pb-3">
           <p className="text-sm leading-relaxed line-clamp-2 text-muted-foreground/90">
             {sheet.description}
           </p>

@@ -12,7 +12,7 @@ export function InfoCard({ sheet, language }: InfoCardProps) {
     SUPPORTED_LANGUAGES.find((l) => l.code === language)?.name || language;
 
   return (
-    <div className="bg-card rounded-lg border border-border shadow-sm">
+    <div className="bg-card rounded-lg border border-border shadow-xs">
       <div className="p-8">
         <div className="mb-8">
           <h1 className="text-2xl font-semibold tracking-tight mb-3">

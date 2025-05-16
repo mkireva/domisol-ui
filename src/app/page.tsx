@@ -10,7 +10,7 @@ export default function Home() {
         aria-hidden="true"
       ></div>
 
-      <main className="flex-grow flex flex-col justify-start pt-16">
+      <main className="grow flex flex-col justify-start pt-16">
         <div className="relative w-full">
           <div className="container mx-auto px-4 sm:px-6 md:px-8">
             {/* Hero Section */}
@@ -42,14 +42,14 @@ export default function Home() {
                 >
                   <Link
                     href="/sheets"
-                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 sm:px-8 sm:py-2.5 text-base font-medium text-primary-foreground shadow-sm transition-all duration-300 hover:bg-primary/90 hover:scale-105 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 sm:px-8 sm:py-2.5 text-base font-medium text-primary-foreground shadow-xs transition-all duration-300 hover:bg-primary/90 hover:scale-105 hover:shadow-md focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                     aria-label="Browse music sheets"
                   >
                     Browse sheets
                   </Link>
                   <Link
                     href="/about"
-                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border-2 border-primary/20 bg-background/50 backdrop-blur-sm px-6 py-3 sm:px-8 sm:py-2.5 text-base font-medium text-foreground shadow-sm transition-all duration-300 hover:bg-primary/10 hover:border-primary/30 hover:scale-105 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border-2 border-primary/20 bg-background/50 backdrop-blur-xs px-6 py-3 sm:px-8 sm:py-2.5 text-base font-medium text-foreground shadow-xs transition-all duration-300 hover:bg-primary/10 hover:border-primary/30 hover:scale-105 hover:shadow-md focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                     aria-label="Learn about Domisol"
                   >
                     Learn more
@@ -67,7 +67,7 @@ export default function Home() {
                 Features
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
+                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-xs transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
                   <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                     Digital Sheet Music
                   </h3>
@@ -76,7 +76,7 @@ export default function Home() {
                     digital format.
                   </p>
                 </article>
-                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
+                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-xs transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
                   <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                     Interactive Learning
                   </h3>
@@ -84,7 +84,7 @@ export default function Home() {
                     Practice with integrated audio playback and visual guidance.
                   </p>
                 </article>
-                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-sm transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
+                <article className="p-4 sm:p-6 rounded-2xl bg-card border border-border shadow-xs transition-all hover:border-primary/20 hover:shadow-lg group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
                   <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                     Community Driven
                   </h3>
@@ -147,7 +147,7 @@ export default function Home() {
 
                                 {/* Image */}
                                 <div
-                                  className="relative w-full aspect-[4/3]"
+                                  className="relative w-full aspect-4/3"
                                 >
                                   <Image
                                     src="/images/pdanov.png"
@@ -179,7 +179,7 @@ export default function Home() {
 
                                 {/* Image */}
                                 <div
-                                  className="relative w-full aspect-[4/3]"
+                                  className="relative w-full aspect-4/3"
                                 >
                                   <Image
                                     src="/images/piano.jpg"
@@ -233,7 +233,7 @@ export default function Home() {
 
                                 {/* Image */}
                                 <div
-                                  className="relative w-full aspect-[4/3]"
+                                  className="relative w-full aspect-4/3"
                                 >
                                   <Image
                                     src="/images/rila-music.jpeg"
