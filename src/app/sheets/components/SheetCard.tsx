@@ -8,7 +8,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { Play } from "lucide-react";
+import { Play, Music2, FileMusic } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { MusicSheet } from "../actions";
 
@@ -28,21 +28,32 @@ function KeyColorInfo({
   color: string;
 }) {
   return (
-    <div className="inline-flex items-center gap-4 bg-secondary/50 px-4 py-2 rounded-md text-sm sm:text-base">
+    <div className="inline-flex items-center gap-3 bg-secondary/30 px-4 py-2 rounded-full text-sm backdrop-blur-sm shadow-sm">
       <div className="flex items-center gap-2">
-        <span className="text-muted-foreground">Key:</span>
-        <span className="font-medium">
+        <span className="text-muted-foreground font-medium">Key:</span>
+        <span className="font-semibold tracking-wide">
           {tonic} {mode}
         </span>
       </div>
       <div
-        className="h-4 w-4 rounded-full"
+        className="h-4 w-4 rounded-full ring-1 ring-white/30"
         style={{
           backgroundColor: color,
-          boxShadow: `0 0 8px ${color}`,
+          boxShadow: `0 0 10px ${color}80`,
         }}
       />
     </div>
+  );
+}
+
+function TagBadge({ children }: { children: React.ReactNode }) {
+  return (
+    <Badge
+      variant="secondary"
+      className="text-xs font-medium px-3 py-1 rounded-full bg-secondary/40 hover:bg-secondary/50 transition-colors shadow-sm"
+    >
+      {children}
+    </Badge>
   );
 }
 
@@ -58,67 +69,38 @@ function TagList({
   location?: string;
 }) {
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <Badge
-        variant="secondary"
-        className="text-sm sm:text-base bg-primary/10 hover:bg-primary/20"
-      >
-        {category}
-      </Badge>
-      {genre && (
-        <Badge
-          variant="secondary"
-          className="text-sm sm:text-base bg-primary/10 hover:bg-primary/20"
-        >
-          {genre}
-        </Badge>
-      )}
-      {location && (
-        <Badge
-          variant="secondary"
-          className="text-sm sm:text-base bg-primary/10 hover:bg-primary/20"
-        >
-          {location}
-        </Badge>
-      )}
-      <Badge
-        variant="secondary"
-        className="text-sm sm:text-base bg-primary/10 hover:bg-primary/20"
-      >
-        {year}
-      </Badge>
+    <div className="flex flex-wrap items-center gap-1">
+      <TagBadge>{category}</TagBadge>
+      {genre && <TagBadge>{genre}</TagBadge>}
+      {location && <TagBadge>{location}</TagBadge>}
+      <TagBadge>{year}</TagBadge>
     </div>
   );
 }
 
-function ComposerInfo({
-  composer,
-}: {
-  composer: string;
-}) {
+function MetadataItem({ label, value }: { label: string; value?: string }) {
+  if (!value) return null;
+  
   return (
-    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base sm:text-md">
-      <span className="text-muted-foreground">Composer:</span>
-      <span className="font-medium">{composer}</span>
+    <div className="flex flex-wrap items-center gap-x-2 text-sm">
+      <span className="text-muted-foreground/90 font-medium">{label}:</span>
+      <span className="font-semibold text-foreground/90">{value}</span>
     </div>
   );
+}
+
+function ComposerInfo({ composer }: { composer: string }) {
+  return <MetadataItem label="Composer" value={composer} />;
 }
 
 function LyricistInfo({ lyricist }: { lyricist?: string }) {
-  if (!lyricist) return null;
-
-  return (
-    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base sm:text-md">
-      <span className="text-muted-foreground">Lyricist:</span>
-      <span className="font-medium">{lyricist}</span>
-    </div>
-  );
+  return <MetadataItem label="Lyricist" value={lyricist} />;
 }
 
 // Card title component for better isolation
 function CardTitleSection({ title }: { title: string }) {
   return (
-    <CardTitle className="text-md sm:text-xl text-grey-700 font-semibold line-clamp-1 group-hover:text-primary transition-colors duration-150">
+    <CardTitle className="text-xl font-bold line-clamp-1 group-hover:text-primary transition-colors duration-200 tracking-tight">
       {title}
     </CardTitle>
   );
@@ -128,12 +110,12 @@ function CardTitleSection({ title }: { title: string }) {
 function FooterButton() {
   return (
     <Button
-      variant="outline"
-      className="w-full group/button bg-card hover:bg-muted transition-colors duration-150"
+      variant="default"
+      className="w-full group/button bg-primary/90 hover:bg-primary transition-all duration-300 shadow-md"
     >
-      <div className="flex items-center justify-center gap-2 py-1">
-        <Play className="h-4 w-4 transition-transform group-hover/button:scale-110" />
-        <span>Open Sheet</span>
+      <div className="flex items-center justify-center gap-2.5 py-1">
+        <Play className="h-4.5 w-4.5 transition-transform group-hover/button:translate-x-0.5" />
+        <span className="font-semibold tracking-wide">View Sheet</span>
       </div>
     </Button>
   );
@@ -149,22 +131,36 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
       <Card
         className={cn(
           "flex flex-col group relative overflow-hidden h-full",
-          "hover:shadow-lg transition-transform duration-150",
+          "hover:shadow-lg hover:-translate-y-1 transition-all duration-300",
           "animate-in fade-in slide-in-from-bottom duration-300",
-          "bg-card"
+          "bg-card border border-border/40",
+          "backdrop-blur-sm"
         )}
         style={{
-          animationDelay: `${Math.min(index * 50, 300)}ms`,
+          animationDelay: `${Math.min(index * 40, 250)}ms`,
         }}
       >
-        <CardHeader className="relative space-y-4">
-          <div className="space-y-1.5">
+        {/* Top accent bar */}
+        <div
+          className="absolute top-0 left-0 right-0 h-1 opacity-90"
+          style={{ backgroundColor: sheet.key.color }}
+        />
+        
+        {/* Sheet music icon */}
+        <div className="absolute top-4 right-4 text-muted-foreground/60 group-hover:text-primary/60 transition-colors duration-300">
+          <FileMusic className="h-6 w-6" />
+        </div>
+
+        <CardHeader className="relative space-y-4 pb-4 pt-5 px-5">
+          <div className="space-y-2">
             <CardTitleSection title={sheet.title} />
-            <ComposerInfo composer={sheet.composer} />
-            <LyricistInfo lyricist={sheet.lyricist} />
+            <div className="space-y-1 mt-1">
+              <ComposerInfo composer={sheet.composer} />
+              <LyricistInfo lyricist={sheet.lyricist} />
+            </div>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-3 pt-1">
             <KeyColorInfo
               tonic={sheet.key.tonic}
               mode={sheet.key.mode}
@@ -179,13 +175,13 @@ export function SheetCard({ sheet, index }: SheetCardProps) {
           </div>
         </CardHeader>
 
-        <CardContent className="flex-grow">
-          <p className="text-base sm:text-md leading-relaxed line-clamp-3 text-grey-700">
+        <CardContent className="flex-grow px-5 pb-3">
+          <p className="text-sm leading-relaxed line-clamp-2 text-muted-foreground/90">
             {sheet.description}
           </p>
         </CardContent>
 
-        <CardFooter className="pt-3 border-t border-border/50">
+        <CardFooter className="pt-4 pb-5 px-5 border-t border-border/30">
           <FooterButton />
         </CardFooter>
       </Card>

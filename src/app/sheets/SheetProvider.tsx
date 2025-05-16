@@ -11,7 +11,7 @@ const getFileParam = async (searchParams?: { [key: string]: string | string[] | 
   // Use Promise.resolve to ensure we're handling the searchParams asynchronously
   const params = await Promise.resolve(searchParams);
   const file = params['file'];
-  console.log('File param from URL:', file);
+  // console.log('File param from URL:', file);
   return typeof file === 'string' ? file : undefined;
 };
 
