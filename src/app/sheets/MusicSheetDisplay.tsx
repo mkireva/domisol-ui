@@ -311,7 +311,7 @@ export default function MusicSheetDisplay({
         osmdInstanceRef.current = null;
       }
     };
-  }, [initialSheet, isMobile, zoom]);
+  }, [initialSheet, isMobile, zoom, isXs, isSm, isMd]);
 
   const handleZoomIn = () => {
     if (osmdInstanceRef.current && containerRef.current) {
