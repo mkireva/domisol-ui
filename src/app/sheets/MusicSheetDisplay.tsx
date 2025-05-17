@@ -368,7 +368,7 @@ export default function MusicSheetDisplay({
         <div className="flex items-center justify-between bg-background rounded-md border border-border/30 shadow-sm p-2.5 sm:p-3">
           <div className="flex items-center gap-2">
             <Music className="h-4 w-4 sm:h-5 sm:w-5 text-primary" aria-hidden="true" />
-            <h2 className="text-sm sm:text-base font-medium text-foreground">Sheet Music Viewer</h2>
+            <h2 className="text-sm sm:text-base font-medium text-foreground"> Music Sheet Viewer</h2>
           </div>
           
           {/* Zoom controls moved to header */}
