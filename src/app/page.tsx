@@ -32,7 +32,7 @@ export default function Home() {
                     className="relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80 dark:from-primary dark:to-primary/90"
                   >
                     Domisol
-                    <span className="block mt-4 sm:mt-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground dark:text-foreground">
+                    <span className="block mt-4 sm:mt-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold  text-gray-700 dark:text-foreground">
                       Music Sheet Collection
                     </span>
                   </h1>
