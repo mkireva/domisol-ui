@@ -50,7 +50,7 @@ export async function getMusicXMLExamples(): Promise<MusicSheet[]> {
   const filePath = path.join(
     process.cwd(),
     "public",
-    "music_xml_examples.json"
+    "music_examples.json"
   );
   try {
     const fileContents = await fs.readFile(filePath, "utf-8");
